@@ -1,0 +1,24 @@
+<section class="mt-24 p-4 px-6">
+    
+    
+    <div class="lg:w-3/4 w-full p-4 mx-auto">
+        <div>
+            <p class="text-2xl font-bold text-center mb-8 capitalize border-b-2 pb-4 border-gray-300">{{allArticle.0.catagory}}</p>
+        </div>
+        <div class="grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
+        {{#each allArticle}}
+            <div class="grid grid-cols-1 m-3 bg-white">
+                <div class="border-b-2 border-opacity-25 border-gray-300">
+                    <img src="/static/article-images/{{this._id}}.jpg" class="h-48 w-full lg:h-100 md:h-100 sm:h-100 object-cover">
+                </div>
+                <div class="p-5">
+                    <p class="font-medium font-bold capitalize tracking-wide text-blue-500">{{this.catagory}}</p>
+                    <a href="/{{this._id}}"><h2 class="text-xl font-bold mb-2">{{this.topic}}</h2></a>
+                    <small class="font-bold text-gray-600">By: {{this.author}}</small>
+                </div>
+                
+            </div>
+        {{/each}}
+        </div>
+    </div>
+</section>

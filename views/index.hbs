@@ -1,0 +1,153 @@
+<section
+    class="md:w-full sm:w-full md:h-96 sm:h-96 grid md:grid-cols-2 sm:grid-cols-2 grid-cols-1 mt-24 bg-gradient-to-r from-pink-800 to-blue-900 hover:bg-gradient-to-r hover:from-pink-900 hover:to-blue-800">
+    <div class="w-1/2 h-5/6 mx-auto my-auto">
+        <div class="w-3/4 text-white relative md:h-80 sm:h-80">
+            <img src="/static/images/Book_Mockup.jpg" class="h-full object-cover transition-all duration-500 ease-in-out transform hover:scale-105" />
+        </div>
+    </div>
+
+
+    <div class="p-16 text-white">
+        <h2 class="text-2xl text-right font-bold" data-aos="fade-up" data-aos-duration="1000"
+    data-aos-easing="ease-in-out">تعريف الحديث الشريف لغة واصطلاحا</h2>
+    </div>
+</section>
+
+<!--<section class="px-8 w-100 lg:w-5/6 mx-auto mt-24 grid md:grid-cols-2">
+    <div id="articleSlide" class="p-2">
+        {{#each recentArticles}}
+        <a href="articles/{{this._id}}" class="rounded shadow-lg">
+            <div class="grid grid-cols-1 md:grid-cols-2 auto-cols-max shadow-lg h-80 ">
+                <div class="h-80 border-r-2 relative overflow-hidden">
+                    <img class="w-full h-full object-cover transition-all duration-500 ease-in-out transform absolute hover:scale-150"
+                        src="/static/article-images/{{this._id}}.jpg" />
+                </div>
+                <div class="grid grid-cols-1 justify-center bg-white my-auto p-3 md:p-10 h-full">
+                    <div class="my-auto">
+                        <p class="font-medium text-blue-400 uppercase text-right">
+                            {{this.catagory}}</p>
+                        <h2 class="text-2xl my-1 capitalize font-bold breakwords hover:text-blue-800 text-right">
+                            {{this.topic}}
+                        </h2>
+                        <p class="text-right mb-8 "><small
+                                class="font-small ml-6 font-bold text-gray-600 text-right">{{this.author}}</small></p>
+                        <p class="md:block hidden tracking-wider text-right"
+                            style="font-family: Arial, Helvetica, sans-serif;">
+                            القرآن بحر خضم زاخر لا يُسبَر غوره، كلما تصطخب أمواجه ويعب عبابه إلى شواطئ قلوب
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </a>
+        {{/each}}
+
+    </div>
+    <div class="h-full pl-6">
+        <img class="w-full h-full object-cover "
+            src="http://localhost:3000/static/article-images/6223587098bae0ccb4983689.jpg" />
+    </div>
+
+</section>-->
+
+<section id="latest_articles" class="p-8 lg:w-5/6 mx-auto">
+    
+    <div class="grid md:grid-cols-3 grid-cols-1 gap-4">
+        {{#each recentArticles}}
+        <a href="articles/{{this._id}}" class="bg-white rounded-xl" data-aos="zoom-in" data-aos-duration="1000">
+            <div class="bg-cover bg-center bg-opacity-50 rounded-xl h-full grid grid-cols-1 overflow-hidden border-4 hover:border-4 hover:border-blue-600"
+                style="background-image: url('/static/article-images/{{this._id}}.jpg');">
+                <div class="bg-black p-6 bg-opacity-70 hover:bg-opacity-80 h-full flex justify-self-center w-full">
+                    <div class="my-auto">
+                        <h2 class="text-2xl my-1 text-right capitalize font-bold text-white hover:text-blue-200">
+                            {{this.topic}}
+                        </h2>
+                        <p class="text-right mb-8 "><small
+                                class="font-small ml-6 font-bold text-blue-400 text-right">{{this.author}}</small></p>
+                        <button class="p-2 mt-2 rounded-full px-5 shadow-lg bg-white text-blue-500">Read More</button>
+                    </div>
+
+                </div>
+            </div>
+        </a>
+        {{/each}}
+
+
+    </div>
+</section>
+
+<!--
+<section class="w-full bg-gray-200 py-8">
+    <div class="w-4/5 mx-auto grid md:grid-cols-3 sm:grid-cols-3 grid-cols-1 gap-4">
+        {{#each recentArticles}}
+        <div class="h-96 grid grid-cols-1 shadow-lg">
+            <div class="h-76 relative overflow-hidden rounded-t-xl">
+                <img src="/static/article-images/{{this._id}}.jpg" class="w-full h-full object-cover transition-all duration-500 ease-in-out transform absolute hover:scale-150"/>
+            </div>
+            <div class="bg-white p-5 rounded-b-xl border-b-4 border-white hover:border-b-4 hover:border-blue-700">
+                <h1 class="text-2xl font-extrabold text-right capitalize">{{this.topic}}</h1>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</section>
+
+<section class="p-8 lg:w-5/6 mx-auto">
+    <p class="text-2xl font-bold text-center mb-8"></p>
+    <a href="">
+
+    </a>
+    
+    <div class="hidden sm:hidden md:grid md:grid-cols-1 lg:grid lg:grid-cols-2 sm-grid sm:grid-cols-1 grid grid-cols-1 gap-4"
+        data-aos="zoom-in-up" data-aos-duration="3000">
+        {{#each filterArticles}}
+        <a href="articles/{{this._id}}" class="">
+            <div class="grid md:grid-cols-3 sm:grid-cols-1 grid-cols-1 shadow-lg h-full rounded-lg bg-white">
+                <div class="w-100 h-full">
+                    <img class="object-cover h-full w-full" src="/static/article-images/{{this._id}}.jpg">
+                </div>
+                <div class="p-6 flex md:col-span-2 sm:col-span-2 col-span-2 border-l-2 h-full">
+                    <div class="my-auto">
+                        <p class="font-medium  text-blue-400 uppercase">{{this.catagory}}</p>
+                        <h2 class=" my-1 capitalize font-bold break-words hover:text-blue-800">{{this.topic}}</h2>
+                        <div class="flex mb-2">
+                            <small class="font-small mr-2 font-bold text-gray-600 capitalize">{{this.author}}</small>
+                            <small class="font-small font-bold text-gray-600">{{this.date}}</small>
+                        </div>
+                        <button class="p-2 bg-blue-500 text-white rounded mt-4">Read More</button>
+                    </div>
+                </div>
+            </div>
+        </a>
+        {{/each}}
+        <a href="/view-all/{{filterArticles.0.catagory}}" class="mx-auto col-span-2"><button
+                class="px-5 w-full md:w-48 py-2 bg-blue-500 text-white rounded text-center">View All</button></a>
+    </div>
+    <div class="md:hidden lg:hidden block sm:block grid grid-cols-1 gap-4">
+    {{#each filterArticles}}
+    <a href="articles/{{this._id}}" class="">
+        <div class="grid grid-cols-1 ">
+            <div class="w-100 h-full">
+                <img class="object-cover h-full w-full" src="/static/article-images/{{this._id}}.jpg">
+            </div>
+            <div class="p-6 flex md:col-span-2 sm:col-span-2 col-span-2 border-l-2 h-full">
+                <div class="my-auto">
+                    <p class="font-medium  text-blue-400 uppercase">{{this.catagory}}</p>
+                    <h2 class=" my-1 capitalize font-bold break-words hover:text-blue-800">{{this.topic}}</h2>
+                    <div class="flex mb-2">
+                        <small class="font-small mr-2 font-bold text-gray-600 capitalize">{{this.author}}</small>
+                        <small class="font-small font-bold text-gray-600">{{this.date}}</small>
+                    </div>
+                    <button class="p-2 bg-blue-500 text-white rounded mt-4">Read More</button>
+                </div>
+            </div>
+        </div>
+    </a>
+    {{/each}}
+    <a href="/view-all/{{filterArticles.0.catagory}}" class="mx-auto col-span-2"><button
+            class="px-5 w-full md:w-48 py-2 bg-blue-500 text-white rounded text-center">View All</button></a>
+    </div>-->
+</section>
+
+<footer class="w-full bg-blue-900 h-80">
+
+</footer>

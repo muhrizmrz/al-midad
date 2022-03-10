@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/tailwind.css">
+    <link rel="stylesheet" href="/static/stylesheets/style.css">
+    <link rel="stylesheet" href="/static/lib/slickJs/slick/slick.css">
+    <link rel="stylesheet" href="/static/lib/slickJs/slick/slick-theme.css">  
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="/static/lib/slickJs/slick/slick.min.js" type="text/javascript"></script>
+
+    <style>
+        html {
+            font-size: calc(60%+0.8vmin);
+        }
+
+        .markdown h1 {
+            font-size: 1.5rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+        }
+
+        .markdown h3 {
+            font-size: 1.125rem;
+        }
+
+        #articleSlide {
+            display: none;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body class="bg-gray-100">
+    <header class="px-4 w-full border-b-8 border-blue-900 shadow-lg fixed bg-white top-0" style="z-index:1;">
+        <nav class="w-full mx-auto grid grid-cols-4 justify-around">
+            <div class="col-span-3 hidden md:flex p-5 my-auto">
+                <a href="/" class="mr-14 hover:text-blue-800">الرئيسية</a>
+                <a href="#" class="mr-14 hover:text-blue-800">فكر وحضار</a>
+                <a href="#" class="mr-14 hover:text-blue-800">ترجماتe</a>
+                <a href="#" class="mr-14 hover:text-blue-800">تدوينات</a>
+                <a href="#" class="mr-14 hover:text-blue-800">حوارات</a>
+            </div>
+            <div class="p-5 text-right flex text-right justify-self-end">
+                <img src="/static/images/midad_typeface.png" class="w-20 h-14" />
+                <img src="/static/images/midad_emblam.png" class="w-14 h-14" />
+            </div>
+        </nav>
+    </header>
+
+    {{{body}}}
+
+
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            AOS.init();
+            //$('#articleSlide').hide()
+            $('#articleSlide').slick({
+                dots: true,
+                infinite: true,
+                autoplay: true,
+                autoplaySpeed: 4000,
+                slidesToShow: 1,
+                cssEase: 'linear'
+            }).fadeIn()
+
+            $('.recoommended-articles').not('.{{currentArticle}}').show()
+            /*$('input[type="file"]').change(function(){
+                var resizeWidth = 500;
+                var reader = new FileReader()
+                var $this = $(this)
+                reader.readAsDataURL($this);
+                reader.name = $this.name
+                reader.onload = function(event){
+                    var img = new Image()
+                    img.src = event.target.result
+                    img.name = event.target.name
+                    img.size = event.target.size
+                    img.onload = function(el){
+                        var elem = document.createElement('canvas')
+                        var scaleFactor = resizeWidth / el.target.resizeWidth
+                        elem.width = resizeWidth;
+                        elem.height = el.target.height * scaleFactor
+                        var ctx = elem.getContext('2d');
+                        ctx.drawImage(el.target,0,0,elem.width,elem.height)
+                        var srcEncoded = ctx.canvas.toDataURL(el.target,'image/jpeg',0)
+                    }
+                }
+            })*/
+
+
+        });
+    </script>
+</body>
+
+</html>

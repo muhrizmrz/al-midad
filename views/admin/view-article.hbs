@@ -1,0 +1,20 @@
+<div class="w-100 md:w-3/5 mx-auto p-3 md:mt-32 mt-24 mb-12">
+    <a href="/admin" class=""><button
+                            class="px-5 w-full md:w-48 py-2 bg-blue-500 text-white rounded text-center">Home</button></a>
+    <div class="w-100 h-64 mt-3">
+        <img class="object-cover h-64 w-full" src="/static/article-images/{{article._id}}.jpg">
+    </div>
+    <div class="flex my-4">
+        <a href="/admin/edit/{{article._id}}" class="mr-4"><button
+                            class="px-5 w-full md:w-48 py-2 bg-blue-500 text-white rounded text-center">Edit</button></a>
+        <a href="/admin/delete/{{article._id}}" class=""><button
+                            class="px-5 w-full md:w-48 py-2 bg-red-500 text-white rounded text-center">Delete</button></a>
+    </div>
+    <p class="capitalize tracking-wide text-blue-500 mt-4">{{article.catagory}}</p>
+    <h1 class="text-2xl mb-2 font-bold">{{article.topic}}</h1>
+    <div class="flex mb-4">
+        <small class="font-bold text-gray-600">{{article.author}}</small>
+        <small class="ml-4 font-bold text-gray-600">{{article.date}}</small>
+    </div>
+    <div class="break-words">{{{article.markdown}}}</div>
+</div>

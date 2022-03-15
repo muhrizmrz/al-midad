@@ -17,7 +17,7 @@ router.get('/', async(req, res)=> {
 /* GET view article */
 router.get('/articles/:id',async(req,res)=>{
   var articleToBeView = await db.get().collection(collection.ARTICLE_COLLECTION).findOne({_id:objectId(req.params.id)})
-  sameTagArticles = await db.get().collection(collection.ARTICLE_COLLECTION).find({catagory:'article'}).toArray()
+  sameTagArticles = await db.get().collection(collection.ARTICLE_COLLECTION).find().toArray()
   for (var i = 0; i < sameTagArticles.length; i++) {
     if (sameTagArticles[i]._id === req.params.id) {
       console.log(sameTagArticles[i]._id)

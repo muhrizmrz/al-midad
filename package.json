@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
-    "build-css": "tailwindcss build -i styles.css -o public/stylesheets/tailwind.css"
+    "tailwind:css": "postcss styles.css -o public/stylesheets/tailwind3.css",
+    "start": "npm run tailwind:css && nodemon ./bin/www"
   },
   "dependencies": {
     "aos": "^2.3.4",

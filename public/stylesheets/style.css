@@ -2,5 +2,18 @@
     color:blue;
 }
 
+
+
 /*** iNDEX PAGE **/
+ @font-face {
+     font-family: ge-bold;
+     src: url(/static/fonts/GE\ SS\ TV\ Bold.ttf);
+ }
+
+ @font-face {
+     font-family: ge-medium;
+     src: url(/static/fonts/GE\ SS\ Two\ Medium.otf);
+ }
+ 
+
 

@@ -1,7 +1,7 @@
-<section class="md:w-full sm:w-full lg:h-96 md:h-screen sm:h-screen h-full mt-24 bg-cover bg-center bg-opacity-50"
+<section class="md:w-full sm:w-full lg:h-full md:h-screen sm:h-screen h-full mt-24 bg-cover bg-center bg-opacity-50"
     style="background-image: url('https://images.unsplash.com/photo-1627374391724-4285ba5193b8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')">
     <div class="grid md:grid-cols-2 sm:grid-cols-2 grid-cols-1 bg-black h-full bg-opacity-50">
-        <div class="p-14 text-white order-last md:order-first sm:order-first sm:pr-16 lg:mt-24 md:mt-24">
+        <div class="w-3/4 mx-auto p-14 text-white order-last md:order-first sm:order-first sm:pr-16 lg:mt-24 md:mt-24">
             <h2 class="text-5xl font-bold text-center lg:text-right md:text-right" data-aos="fade-up" data-aos-duration="1000"
                 data-aos-easing="ease-in-out" style="font-family: 'ge-bold';">الحديث الشريف في الهند</h2>
                 <p class="font-bold text-lg leading-10 mt-4 tracking-wide text-center lg:text-right md:text-right" style="font-family: ge-medium;">هذا العدد يضيئ القناديل المخمدة للحديث النبوي في الهند
@@ -11,14 +11,13 @@
         <div class="lg:w-4/6 md:w-3/4 sm:w-3/4 w-4/5 lg:5/6 md:h-5/6 sm:h-5/6 mx-auto my-auto">
             <div class="text-white relative lg:h-72 md:h-80 sm:h-80 mx-auto pt-8 mt-8">
                 <img src="/static/images/mock_1.png"
-                    class="h-full md:scale-125 scale-100 w-42 object-cover transition-all duration-500 ease-in-out transform hover:lg:scale-150 hover:scale-125" />
+                    class="h-full md:scale-125 scale-100 w-42 object-cover transition-all duration-500 ease-in-out transform lg:hover:scale-150 hover:scale-125" />
             </div>
         </div>
     </div>
 </section>
 
 <section id="latest_articles" class="p-8 lg:w-5/6 mx-auto">
-    <p class="font-bold text-gray-700 text-center text-2xl py-4">Articles</p>
     <div class="grid md:grid-cols-3 grid-cols-1 gap-4">
         {{#each recentArticles}}
         <a href="articles/{{this._id}}" class="bg-white rounded-xl">
@@ -43,8 +42,11 @@
     </div>
 </section>
 
-<div class="w-full h-auto">
+<div class="w-full h-auto mb-6 bg-gray-200 p-4">
+    <div class="w-3/4 mx-auto">
+
     <img src="/static/images/web_cover.jpg" class="w-full h-full" />
+    </div>
 </div>
 
 <div class="w-full h-screen backdrop-filter backdrop-blur-2xl hidden fixed top-0 z-50 transition-all duration-1000 ease-linear" id="launch_page">

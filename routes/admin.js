@@ -1,6 +1,7 @@
 var express = require('express');
 const collection = require('../confiq/collection');
 var router = express.Router();
+const fs = require('fs')
 const db = require('../confiq/connection')
 const objectId = require('mongodb').ObjectId
 
@@ -53,9 +54,17 @@ router.get('/edit/:id',async(req,res)=>{
 /* POST edit article */
 router.post('/edit/:id',(req,res)=>{
   add_article.updateArticle(req.params.id,req.body).then(()=>{
-    res.redirect('/admin/'+req.params.id)
+    var path = 'public/article-images/'+req.params.id+'.jpg'
+    fs.unlink(path, function (err) {
+      if (err) {
+        console.error(err);
+      } else {
+        console.log("File removed:", path);
+      }
+    });
     let editedImage = req.files.image
     editedImage.mv('public/article-images/'+req.params.id+'.jpg')
+    res.redirect('/admin/'+req.params.id)
   })
 })
 

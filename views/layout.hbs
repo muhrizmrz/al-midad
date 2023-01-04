@@ -8,8 +8,8 @@
     <title>المداد</title>
     <link rel="icon" href="/static/images/midad_emblam.png" type="image/x-icon">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/static/stylesheets/style.css">
-    <link rel="stylesheet" href="/static/css/tailwind.css">
     <link rel="stylesheet" href="/static/lib/slickJs/slick/slick.css">
     <link rel="stylesheet" href="/static/lib/slickJs/slick/slick-theme.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@800&display=swap" rel="stylesheet">
@@ -67,18 +67,9 @@
                             class="fa-brands fa-youtube text-xl bg-blue-500 text-white p-2 rounded ml-4"></i></a>
                 </div>
             </div>
-            <!--<div class="p-5 my-auto lg:col-span-1 md:col-span-1 sm:col-span-2 col-span-2">
-                <div class="lg:flex flex">
-                    <input type="text"
-                        class="p-2 bg-gray-300 rounded-r-sm text-gray-700 focus:outline-none focus:border-2 focus:border-cyan-700 text-right "
-                        placeholder="البحث" />
-                    <div class="text-center bg-gray-400 px-2 rounded-sm cursor-pointer">
-                        <i class="fa-solid fa-magnifying-glass mt-3 text-white"></i>
-                    </div>
-                </div>
-            </div>-->
+            
             <div id="sidebar_icon"
-                class="my-auto text-left w-10 justify-self-end lg:hidden md:hidden text-gray-800 text-xl font-semibold cursor-pointer">
+                class="my-auto text-left w-10 justify-self-end lg:hidden md:hidden block text-gray-800 text-xl font-semibold cursor-pointer">
                 <div id="menu_button">
                     <i class="fa-solid fa-bars"></i>
                 </div>
@@ -94,7 +85,10 @@
     <nav class="lg:hidden md:hidden sm:hidden hidden w-full fixed top-24 z-10 transition-all duration-500 ease-in-out transform"
         id="sidebar_menu">
         <div class="w-full h-screen grid grid-cols-3">
-            <div class="col-span-2 pt-12 bg-gray-200 px-8 font-bold text-lg text-gray-700">
+            <div class="bg-black opacity-50 relative" id="blank_model">
+
+            </div>
+            <div class="col-span-2 pt-12 bg-gray-200 px-8 font-bold text-sm text-gray-700">
                 <ul class="">
                     <li class="py-4 border-b-2 border-t-2 border-gray-500 text-center"><a href="/"
                             class=" hover:text-blue-800  cursor-pointer">الرئيسية</a></li>
@@ -109,9 +103,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="bg-black opacity-50 relative" id="blank_model">
-
-            </div>
+            
 
         </div>
     </nav>
@@ -127,25 +119,25 @@
             </div>
             <div
                 class="text-white grid grid-cols-1 text-center md:text-right sm:text-right my-auto md:border-r-4 sm:border-r-4 border-white px-8 lg:my-auto md:my-auto mb-10">
-                <div class="font-bold text-lg">
+                <div class="text-sm">
                     المداد مجلة إسلامية رائدة باللغة العربية تصدر كل شهرين عن كلية دار الحسنات الإسلامية ،
                     كيرالا
                 </div>
             </div>
             <div class="text-white my-auto">
                 <div class="my-auto mx-auto w-2/3">
-                    <p class="text-gray-50 text-2xl border-b-2 pb-2 mb-2 font-bold text-left">Useful Links</p>
-                    <ul class="text-left">
-                        <li class="text-lg font-bold"><a href="http://www.darulhuda.com" target="_blank">Darul Huda
+                    
+                    <ul class="text-center lg:text-left md:text-left">
+                        <li class="text-sm hover:text-blue-500"><a href="http://www.darulhuda.com" target="_blank">Darul Huda
                                 Islamic University</a></li>
-                        <li class="text-lg font-bold"><a href="http://www.darulhasanath.com" target="_blank">Darul
+                        <li class="text-sm hover:text-blue-500"><a href="http://www.darulhasanath.com" target="_blank">Darul
                                 Hasanth Islamic College</a></li>
                     </ul>
                 </div>
 
             </div>
         </div>
-        <div class="w-full bg-gray-700 opacity-95 p-1 text-white text-center" id="launch_page_button">
+        <div class="w-full text-xs bg-gray-700 opacity-95 p-1 text-white text-center" id="launch_page_button">
             almidad.com. All rights reserved ©
         </div>
     </footer>
@@ -185,10 +177,10 @@
 
             $('#launch_button').click(() => {
                 $('#launch_button').removeClass('animate-bounce')
-                $('#launch_button').addClass('animate-spin')
+                $('#launch_button').addClass('animate-pulse')
                 setTimeout(() => {
                     $('#launched').removeClass('-top-96')
-                    $('#launched').addClass('top-0')
+                    $('#launched').addClass('top-100')
                     $("#launch_page").addClass('hidden')
                     setTimeout(() => {
                         setTimeout(() => {
@@ -199,31 +191,8 @@
             })
 
 
-
             $('.recoommended-articles').not('.{{currentArticle}}').show()
-            /*$('input[type="file"]').change(function(){
-                var resizeWidth = 500;
-                var reader = new FileReader()
-                var $this = $(this)
-                reader.readAsDataURL($this);
-                reader.name = $this.name
-                reader.onload = function(event){
-                    var img = new Image()
-                    img.src = event.target.result
-                    img.name = event.target.name
-                    img.size = event.target.size
-                    img.onload = function(el){
-                        var elem = document.createElement('canvas')
-                        var scaleFactor = resizeWidth / el.target.resizeWidth
-                        elem.width = resizeWidth;
-                        elem.height = el.target.height * scaleFactor
-                        var ctx = elem.getContext('2d');
-                        ctx.drawImage(el.target,0,0,elem.width,elem.height)
-                        var srcEncoded = ctx.canvas.toDataURL(el.target,'image/jpeg',0)
-                    }
-                }
-            })*/
-
+          
 
         });
     </script>

@@ -2,7 +2,9 @@
     color:blue;
 }
 
-
+.top-100 {
+    top: 40rem;
+}
 
 /*** iNDEX PAGE **/
  @font-face {

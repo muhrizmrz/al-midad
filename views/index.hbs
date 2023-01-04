@@ -1,10 +1,10 @@
 <section class="md:w-full sm:w-full lg:h-full md:h-screen sm:h-screen h-full mt-24 bg-cover bg-center bg-opacity-50"
     style="background-image: url('https://images.unsplash.com/photo-1627374391724-4285ba5193b8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')">
     <div class="grid md:grid-cols-2 sm:grid-cols-2 grid-cols-1 bg-black h-full bg-opacity-50">
-        <div class="w-3/4 mx-auto p-14 text-white order-last md:order-first sm:order-first sm:pr-16 lg:mt-24 md:mt-24">
-            <h2 class="text-5xl font-bold text-center lg:text-right md:text-right" data-aos="fade-up" data-aos-duration="1000"
+        <div class="w-3/4 mx-auto lg:p-14 md:p-14 px-5 py-10 text-white order-last md:order-first sm:order-first sm:pr-16 lg:mt-24 md:mt-24">
+            <h2 class="text-5xl font-semibold text-center lg:text-right md:text-right" data-aos="fade-up" data-aos-duration="1000"
                 data-aos-easing="ease-in-out" style="font-family: 'ge-bold';">الحديث الشريف في الهند</h2>
-                <p class="font-bold text-lg leading-10 mt-4 tracking-wide text-center lg:text-right md:text-right" style="font-family: ge-medium;">هذا العدد يضيئ القناديل المخمدة للحديث النبوي في الهند
+                <p class="text-md leading-10 mt-4 tracking-wide text-center lg:text-right md:text-right" style="font-family: ge-medium;">هذا العدد يضيئ القناديل المخمدة للحديث النبوي في الهند
                      الميمونة مع تصوير نشأته وتطوره فيها من 
                       مساهمات وتدريس للأعلام النبلاء الذين أفنوا حياتهم لخدمة الإسلام والحديث النبوي</p>
         </div>
@@ -17,13 +17,13 @@
     </div>
 </section>
 
-<section id="latest_articles" class="p-8 lg:w-5/6 mx-auto">
-    <div class="grid md:grid-cols-3 grid-cols-1 gap-4">
+<section id="latest_articles" class="p-8 lg:w-5/6 mx-auto mt-16">
+    <div class="grid md:grid-cols-2 grid-cols-1 gap-4">
         {{#each recentArticles}}
         <a href="articles/{{this._id}}" class="bg-white rounded-xl">
             <div class="bg-cover bg-center bg-opacity-50 rounded-xl h-full grid grid-cols-1 overflow-hidden border-4 hover:border-4 hover:border-blue-600"
                 style="background-image: url('/static/article-images/{{this._id}}.jpg');">
-                <div class="bg-black p-6 bg-opacity-70 hover:bg-opacity-80 h-full flex justify-self-center w-full">
+                <div class="bg-black p-12 bg-opacity-70 hover:bg-opacity-80 h-full flex justify-self-center w-full">
                     <div class="my-auto">
                         <h2 class="text-2xl my-1 text-right capitalize font-bold text-white hover:text-blue-200">
                             {{this.topic}}
@@ -56,7 +56,7 @@
             <div class="bg-gray-50 border-8 border-blue-400 mt-8 rounded-full w-2/4 mx-auto">
                 <img src="/static/images/midad_logo.png" class="w-52 h-52 mx-auto" />
             </div>
-            <div class="w-2/12 mx-auto animate-bounce hover:animate-pulse mt-12" id="launch_button">
+            <div class="w-2/12 mx-auto  mt-12" id="launch_button">
                     <i class="fa-solid fa-rocket bg-blue-500 rounded-full p-8 text-4xl mr-6 text-white cursor-pointer border-8 border-transparent transition-all hover:border-6 hover:border-blue-300 hover:shadow-neutral-100 hover:drop-shadow-2xl hover:bg-indigo-500"></i>
             </div>
         </div>

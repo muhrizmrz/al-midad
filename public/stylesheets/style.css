@@ -5,6 +5,12 @@
 .top-100 {
     top: 40rem;
 }
+#article_bg:hover #article_text{
+    transform: scale(1.2);
+    transition: all .4s;
+    transition-timing-function: ease-in-out;
+}
+
 
 /*** iNDEX PAGE **/
  @font-face {

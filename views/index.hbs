@@ -1,30 +1,40 @@
-<section class="md:w-full sm:w-full lg:h-full md:h-screen sm:h-screen h-full mt-24 bg-cover bg-center bg-opacity-50"
+<section class="md:w-full sm:w-full lg:h-full md:h-screen sm:h-screen h-full mt-20 overflow-hidden">
+    
+    <div id="header_img" class="w-4/5 h-full rounded-xl overflow-hidden bg-cover bg-center bg-opacity-50 mx-auto lg:w-3/4 md:w-3/4" 
     style="background-image: url('https://images.unsplash.com/photo-1627374391724-4285ba5193b8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')">
-    <div class="grid md:grid-cols-2 sm:grid-cols-2 grid-cols-1 bg-black h-full bg-opacity-50">
-        <div class="w-3/4 mx-auto lg:p-14 md:p-14 px-5 py-10 text-white order-last md:order-first sm:order-first sm:pr-16 lg:mt-24 md:mt-24">
-            <h2 class="text-5xl font-semibold text-center lg:text-right md:text-right" data-aos="fade-up" data-aos-duration="1000"
-                data-aos-easing="ease-in-out" style="font-family: 'ge-bold';">الحديث الشريف في الهند</h2>
-                <p class="text-md leading-10 mt-4 tracking-wide text-center lg:text-right md:text-right" style="font-family: ge-medium;">هذا العدد يضيئ القناديل المخمدة للحديث النبوي في الهند
-                     الميمونة مع تصوير نشأته وتطوره فيها من 
-                      مساهمات وتدريس للأعلام النبلاء الذين أفنوا حياتهم لخدمة الإسلام والحديث النبوي</p>
-        </div>
-        <div class="lg:w-4/6 md:w-3/4 sm:w-3/4 w-4/5 lg:5/6 md:h-5/6 sm:h-5/6 mx-auto my-auto">
-            <div class="text-white relative lg:h-72 md:h-80 sm:h-80 mx-auto pt-8 mt-8">
-                <img src="/static/images/mock_1.png"
-                    class="h-full md:scale-125 scale-100 w-42 object-cover transition-all duration-500 ease-in-out transform lg:hover:scale-150 hover:scale-125" />
+        
+        <div class="flex bg-black bg-opacity-60 w-full h-full  p-12 hover:bg-opacity-70 lg:flex-row md:flex-row flex-col xl:p-16 md:p-16">
+            <div id="hadith" class="w-full grid place-content-center text-white order-last md:order-first sm:order-first lg:w-3/5 md:w-3/5">
+                <h2 id="hadith_h2" class="text-3xl font-semibold text-center lg:text-right md:text-right" data-aos="fade-up" data-aos-duration="1000"
+                    data-aos-easing="ease-in-out" style="font-family: 'ge-bold';">الحديث الشريف في الهند</h2>
+                    <p id="hadith_p" class="text-md leading-10 mt-4 tracking-wide text-center lg:text-right md:text-right" style="font-family: ge-medium;">هذا العدد يضيئ القناديل المخمدة للحديث النبوي في الهند
+                        الميمونة مع تصوير نشأته وتطوره فيها من 
+                        مساهمات وتدريس للأعلام النبلاء الذين أفنوا حياتهم لخدمة الإسلام والحديث النبوي</p>
+            </div>
+            <div class="mx-auto my-auto">
+                <div class="text-white relative lg:h-72 md:h-80 sm:h-80 mx-auto">
+                    <a href="#">
+                        <img src="/static/images/mock_1.png" id="cover"
+                             class="h-full md:scale-125 w-42 object-cover transition-all duration-500 ease-in-out transform cursor-pointer lg:hover:scale-150 hover:scale-125" 
+                        />
+                    </a>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<section id="latest_articles" class="p-8 lg:w-5/6 mx-auto mt-16">
-    <div class="grid md:grid-cols-2 grid-cols-1 gap-4">
+<section id="latest_articles" class="md:w-3/4 lg:w-3/4 w-4/5 mx-auto mt-16">
+    <div class="grid md:grid-cols-2 grid-cols-1 gap-4 py-20">
         {{#each recentArticles}}
-        <a href="articles/{{this._id}}" class="bg-white rounded-xl">
-            <div class="bg-cover bg-center bg-opacity-50 rounded-xl h-full grid grid-cols-1 overflow-hidden border-4 hover:border-4 hover:border-blue-600"
-                style="background-image: url('/static/article-images/{{this._id}}.jpg');">
-                <div class="bg-black p-12 bg-opacity-70 hover:bg-opacity-80 h-full flex justify-self-center w-full">
-                    <div class="my-auto">
+        <a href="articles/{{this._id}}" class="rounded-xl">
+            <div id="article_bg" data-aos="fade-up" data-aos-duration="1000" class="relative transition-all ease-in duration-5000 delay-150   rounded-xl h-full grid grid-cols-1 overflow-hidden"
+                >
+                <div id="article_text" class="absolute bg-cover bg-center top-0 h-full  p-12  hover:bg-opacity-30 h-full flex justify-self-center w-full"
+                        style="background-image: url('/static/article-images/{{this._id}}.jpg');">
+                    
+                </div>
+                <div class="h-full my-auto p-10 z-10 bg-black bg-opacity-50">
                         <h2 class="text-2xl my-1 text-right capitalize font-bold text-white hover:text-blue-200">
                             {{this.topic}}
                         </h2>
@@ -32,8 +42,6 @@
                         </p>
                         <button class="p-2 mt-2 rounded-full px-5 shadow-lg bg-white text-blue-500 font-bold">إقرأ المزيد</button>
                     </div>
-
-                </div>
             </div>
         </a>
         {{/each}}
@@ -42,10 +50,9 @@
     </div>
 </section>
 
-<div class="w-full h-auto mb-6 bg-gray-200 p-4">
-    <div class="w-3/4 mx-auto">
-
-    <img src="/static/images/web_cover.jpg" class="w-full h-full" />
+<div class="w-full h-auto mt-8 mb-6">
+    <div class="w-3/4 mx-auto" data-aos="fade-in" data-aos-duration="1000">
+        <img src="/static/images/web_cover.jpg" class="w-full h-full rounded-xl border" />
     </div>
 </div>
 
@@ -60,11 +67,5 @@
                     <i class="fa-solid fa-rocket bg-blue-500 rounded-full p-8 text-4xl mr-6 text-white cursor-pointer border-8 border-transparent transition-all hover:border-6 hover:border-blue-300 hover:shadow-neutral-100 hover:drop-shadow-2xl hover:bg-indigo-500"></i>
             </div>
         </div>
-    </div>
-</div>
-
-<div class="w-full h-screen fixed bg-cover bg-center -top-96 z-50 transition-all duration-1000 ease-linear hidden" id="launched" style="background-image: url('/static/images/celebration3.png');">
-    <div class="w-1/2 h-1/2 mx-auto mt-24 text-center">
-        <h1 class="text-3xl text-center font-extrabold text-gray-800" style="font-family: 'Cairo';"></h1>
     </div>
 </div>

@@ -1,30 +1,33 @@
-<div class="w-3/4 grid grid-cols-1 mx-auto lg:mt-12 mb-10 border-2 border-gray-200 p-8">
+<div class="lg:w-3/4 md:w-3/4 w-4/5 bg-white grid grid-cols-1 mx-auto mt-44 mb-10 rounded-xl border-gray-200 p-8">
     <div class="grid grid-cols-1 space-y-6">
-        <p class="text-gray-400 text-3xl font-bold text-center border-b pb-2">Add Article</p>
-        <form action="/admin/add-article" enctype="multipart/form-data" class="grid lg:grid-cols-2 grid-cols-1 gap-3" method="POST"> 
-            <div class="grid grid-cols-1 space-y-2">
-                <label for="article_topic" class="font-bold text-lg text-gray-500">Topic</label>
-                <input type="text" id="article_topic" name="topic" placeholder="Topic" class="text-gray-700 p-2 border bg-white rounded border-gray-300 focus:outline-none focus:bg-blue-100">
+        <p class="text-gray-500 text-3xl font-bold text-center pb-2">Add Article</p>
+        <form action="/admin/add-article" enctype="multipart/form-data" class="" method="POST"> 
+            
+            <div class="flex md:flex-row lg:flex-row flex-col gap-3 my-3">
+                <div class="grid space-y-2 lg:w-1/2 md:w-1/2">
+                    <input type="text" id="article_topic" name="topic" placeholder="Topic" class="text-gray-500 p-2 bg-gray-200 rounded border-gray-300 focus:outline-none focus:bg-blue-100">
+                </div>
+                <div class="grid space-y-2 lg:w-1/2 md:w-1/2">
+                    <input type="text" id="article_author" name="author" placeholder="Author"  class="text-gray-500 p-2 bg-gray-200 rounded border-gray-300 focus:outline-none focus:bg-blue-100">
+                </div>
             </div>
-            <div class="grid grid-cols-1 space-y-2">
-                <label for="article_author" class="font-bold text-lg text-gray-500">Author</label>
-                <input type="text" id="article_author" name="author" placeholder="Author" class="text-gray-700 p-2 border bg-white rounded border-gray-300 focus:outline-none focus:bg-blue-100">
+            
+            <div class="grid col-span-2 space-y-2 my-3">
+                <textarea type="text" id="article" name="article" cols="10" rows="10" placeholder="Article" class="h-24 text-gray-500 p-2 bg-gray-200 rounded border-gray-300 focus:outline-none focus:bg-blue-100"></textarea>
             </div>
-            <div class="grid grid-cols-1 col-span-2 space-y-2">
-                <label for="article" class="font-bold text-lg text-gray-500">Article</label>
-                <textarea type="text" id="article" name="article" placeholder="Article" class="h-24 text-gray-700 p-2 border bg-white rounded border-gray-300 focus:outline-none focus:bg-blue-100"></textarea>
-            </div>
-            <div class="grid grid-cols-1 space-y-2">
-                <label for="catagory" class="font-bold text-lg text-gray-500">Catagory</label>
-                <input type="text" id="catagory" name="catagory" placeholder="Catagory" class="text-gray-700 p-2 border bg-white rounded border-gray-300 focus:outline-none focus:bg-blue-100">
-            </div>
-            <div class="grid grid-cols-1 space-y-2">
-                <label for="article_image" class="font-bold text-lg text-gray-500">Upload Image</label>
-                <input type="file" id="article_image" name="image" placeholder="Image" class="text-gray-700 p-2 border bg-white rounded border-gray-300 focus:outline-none focus:bg-blue-100">
-                <img id="resizedImg" class="hidden">
-            </div>
-                
+
+            <div class="flex md:flex-row lg:flex-row flex-col gap-3 my-3">
+                <div class="grid space-y-2 lg:w-1/2 md:w-1/2">
+                    <input type="text" id="catagory" name="catagory" placeholder="Catagory" class="text-gray-500 p-2 bg-gray-200 rounded border-gray-300 focus:outline-none focus:bg-blue-100">
+                </div>
+                <div class="grid space-y-2 lg:w-1/2 md:w-1/2">
+                    <input type="file" id="article_image" name="image" placeholder="Upload Image"  class="text-gray-500 p-2 bg-gray-200 rounded border-gray-300 focus:outline-none focus:bg-blue-100">
+                    <img id="resizedImg" class="hidden">
+                </div>
+            </div> 
+
             <button type="submit" class="p-2 rounded-lg bg-purple-900 text-white w-1/4 hover:bg-purple-700 justify-self-end col-span-2 mt-3">Save</button>
         </form>
     </div>
+</div>
     

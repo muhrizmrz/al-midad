@@ -1,5 +1,5 @@
 {
-  "name": "aksharam",
+  "name": "al-midad",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -12,17 +12,19 @@
     "debug": "~2.6.9",
     "dompurify": "^2.3.2",
     "dotenv": "^16.0.3",
-    "express": "~4.16.1",
+    "express": "^4.18.2",
     "express-fileupload": "^1.2.1",
+    "express-session": "^1.17.3",
     "hbs": "^4.1.2",
     "http-errors": "~1.6.3",
     "jsdom": "^17.0.0",
-    "marked": "^3.0.4",
+    "marked": "^4.2.5",
     "mongodb": "^4.1.2",
     "morgan": "~1.9.1",
     "nodemon": "^2.0.12",
     "postcss-cli": "^10.0.0",
     "promise": "^8.1.0",
+    "uuid": "^9.0.0",
     "wowjs": "^1.1.3"
   },
   "devDependencies": {

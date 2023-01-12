@@ -1,7 +1,9 @@
-<div class="lg:w-3/4 md:w-3/4 w-4/5 bg-white grid grid-cols-1 mx-auto mt-20 mb-10 rounded-xl border-gray-200 p-8">
+{{>admin_header}}
+
+<div class="lg:w-3/4 md:w-3/4 w-4/5 bg-white grid grid-cols-1 mx-auto mt-10 mb-10 rounded-xl border-gray-200 p-8">
     <div class="grid grid-cols-1 space-y-6">
         <p class="text-gray-500 text-3xl font-bold text-center pb-2">Add Article</p>
-        <form action="/admin/add-article" enctype="multipart/form-data" class="" method="POST"> 
+        <form id="add_article" action="/admin/add-article" enctype="multipart/form-data" class="" method="POST"> 
             
             <div class="flex md:flex-row lg:flex-row flex-col gap-3 my-3">
                 <div class="grid space-y-2 lg:w-1/2 md:w-1/2">

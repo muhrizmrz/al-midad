@@ -1,7 +1,9 @@
+{{>admin_header}}
+
 <div class="w-3/4 grid grid-cols-1 mx-auto lg:mt-12 mb-10 border-2 border-gray-200 p-8">
     <div class="grid grid-cols-1 space-y-6">
         <p class="text-gray-400 text-3xl font-bold text-center border-b pb-2">Edit Article</p>
-        <form action="/admin/edit/{{article._id}}" enctype="multipart/form-data" class="grid lg:grid-cols-2 grid-cols-1 gap-3" method="POST"> 
+        <form id="edit_review" action="/admin/edit/{{article._id}}" enctype="multipart/form-data" class="grid lg:grid-cols-2 grid-cols-1 gap-3" method="POST"> 
             <div class="grid grid-cols-1 space-y-2">
                 <label for="article_topic" class="font-bold text-lg text-gray-500">Topic</label>
                 <input type="text" id="article_topic" value="{{article.topic}}" name="topic" placeholder="Topic" class="text-gray-700 p-2 border bg-white rounded border-gray-300 focus:outline-none focus:bg-blue-100">
@@ -28,4 +30,5 @@
             <button type="submit" class="p-2 rounded-lg bg-purple-900 text-white w-1/4 hover:bg-purple-700 justify-self-end col-span-2 mt-3">Save</button>
         </form>
     </div>
+</div>
     

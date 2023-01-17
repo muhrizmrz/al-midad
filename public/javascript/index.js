@@ -14,9 +14,9 @@ $(document).ready(function(){
         $('#menu_button').removeClass('hidden')
     })
 
-    $('.deleteBtn').click(()=>{
+    $('.deleteBtn').click(function(){
         $('#popup').removeClass('hidden')
-        var id = $('.deleteBtn').attr('data-id')
+        var id = $(this).attr('data-id')
         var url = `/admin/delete/${id}`
         $('.sureDlt').attr('href',url)
     })

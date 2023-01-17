@@ -27,13 +27,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use('/static',express.static(path.join(__dirname, 'public')));
 app.use(fileUpload())
-const oneDay = 1000 * 60;
+const oneDay = 1000 * 60 * 60;
 app.use(session({secret:uuidv4(),resave:true,saveUninitialized:true,cookie:{maxAge:oneDay}}))
 
 // database connection
 db.connect((err)=>{
-  if(err) console.log(err)
-  else console.log("Database connected")
+  err ? console.log(`MongoDB: ${err}`) : console.log("Database connected")
 })
 
 app.use('/admin', adminRouter);

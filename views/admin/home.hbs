@@ -6,9 +6,9 @@
                             class="px-5 w-full md:w-48 py-2 bg-blue-500 text-white rounded text-center">New Article + </button></a>
     </div>
     
-    <div class="md:w-3/4 w-full p-4 mx-auto">
+    <div class="md:w-3/4 w-full md:p-4 lg:p-4 px-0 mx-auto">
         {{#each articles}}
-        <div class="flex gap-12 m-3 bg-white p-5 justify-between">
+        <div class="flex gap-12 md:m-3 lg:m-3 mx-0 my-3 bg-white p-5 justify-between">
             <div class="w-1/4 md:flex hidden">
                 <img src="/static/article-images/{{this._id}}.jpg" class="object-cover">
             </div>

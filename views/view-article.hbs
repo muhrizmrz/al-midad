@@ -1,20 +1,20 @@
 {{>user_header}}
 
-<section class="md:px-12 px-4 mt-20 mb-12 w-100 md:w-100 lg:w-3/4 mx-auto">
+<section class="md:px-12 px-2 mt-40 mb-12 w-100 md:w-100 lg:w-3/4 mx-auto">
     <div class="grid md:grid-cols-1 lg:grid-cols-4 sm:grid-cols-1 grid-cols-1  gap-4">
         <div class="col-span-3 ">
             <!--ARTICLE -->
             <div class="mb-6 px-6">
-                <h1 class="text-3xl mb-6 font-bold">{{article.topic}}</h1>
+                <h1 class="text-5xl mb-12 font-bold">{{article.topic}}</h1>
                 <div class="w-100 h-72">
                     <img class="h-72 rounded-xl object-cover w-full" src="/static/article-images/{{article._id}}.jpg">
                 </div>
-                <p class="capitalize tracking-wide text-blue-500 mt-4">{{article.catagory}}</p>
-                <div class="flex mb-4 items-center">
+                <!--<p class="capitalize tracking-wide text-blue-500 mt-10">{{article.catagory}}</p>-->
+                <div class="flex mb-4 items-center mt-10">
                     <p class="font-md font-bold text-gray-600">{{article.author}}</p>
                 
                 </div>
-                <div class="break-words text-gray-500">{{{article.markdown}}}</div>
+                <div class="break-words text-lg text-gray-500 text-justify">{{{article.markdown}}}</div>
             </div>
             <!--ARTICLE END -->
             

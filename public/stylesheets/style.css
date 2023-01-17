@@ -1,7 +1,9 @@
 .h1 {
     color:blue;
 }
-
+body {
+    font-family: ge-medium;
+}
 .top-100 {
     top: 40rem;
 }

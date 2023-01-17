@@ -88,15 +88,13 @@ router.get('/edit/:id',authorizeAdmin,async(req,res)=>{
 router.post('/edit/:id',authorizeAdmin,(req,res)=>{
   add_article.updateArticle(req.params.id,req.body).then(()=>{
     var path = 'public/article-images/'+req.params.id+'.jpg'
-    fs.unlink(path, function (err) {
-      if (err) {
-        console.error(err);
-      } else {
-        console.log("File removed:", path);
-      }
-    });
-    let editedImage = req.files.image
-    editedImage.mv('public/article-images/'+req.params.id+'.jpg')
+    if(req.files){
+      fs.unlink(path, function (err) {
+        err ? console.error(err) : console.log("File removed:", path)
+      });
+      let editedImage = req.files.image
+      editedImage.mv('public/article-images/'+req.params.id+'.jpg')
+    }
     res.redirect('/admin/'+req.params.id)
   })
 })

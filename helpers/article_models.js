@@ -1,7 +1,7 @@
 const { reject, resolve } = require('promise')
 const db = require('../confiq/connection')
 const collection = require('../confiq/collection')
-const marked = require('marked')
+const { marked } = require('marked')
 const createDomPurify = require('dompurify')
 const { JSDOM } = require('jsdom')
 const { ObjectId } = require('bson')
@@ -20,7 +20,7 @@ module.exports = {
     },
     getRecentArticles:()=>{
         return new Promise(async(resolve,reject)=>{
-            let articleDb = await db.get().collection(collection.ARTICLE_COLLECTION).find().sort({date:-1}).limit(4).toArray()
+            let articleDb = await db.get().collection(collection.ARTICLE_COLLECTION).find().sort({catagory:1}).limit(4).toArray()
             
             console.log(new Date().toISOString().slice(0,10))
             //console.log(articleDb)

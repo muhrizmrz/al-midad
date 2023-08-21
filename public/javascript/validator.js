@@ -17,7 +17,7 @@ $(document).ready(function(){
             if(elementValue.val().length === 0){
                 e.preventDefault()
                 elementValue.after(`<small class="error text-red-500">${msg}</small>`)
-                errState.push(true)
+                errState.push(true) 
             }
         }
 

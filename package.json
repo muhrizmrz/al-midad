@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "tailwind:css": "postcss styles.css -o public/stylesheets/tailwind3.css",
+    "tailwind:css": "postcss styles.css -o public/stylesheets/tailwind.css",
     "start": "nodemon ./bin/www"
   },
   "dependencies": {

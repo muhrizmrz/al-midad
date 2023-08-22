@@ -1,20 +1,22 @@
 require('dotenv').config()
 
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var session = require('express-session')
-var hbs = require('hbs')
-var { v4:uuidv4 } = require('uuid');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const rateLimit = require('express-rate-limit')
+const session = require('express-session')
+const hbs = require('hbs')
+const csrf = require('lusca').csrf
+const { v4:uuidv4 } = require('uuid');
+const logger = require('morgan');
 
-var adminRouter = require('./routes/admin');
-var usersRouter = require('./routes/users');
+const adminRouter = require('./routes/admin');
+const usersRouter = require('./routes/users');
 const db = require('./confiq/connection');
 const fileUpload = require('express-fileupload');
 
-var app = express();
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -29,6 +31,14 @@ app.use('/static',express.static(path.join(__dirname, 'public')));
 app.use(fileUpload())
 const oneDay = 1000 * 60 * 60;
 app.use(session({secret:uuidv4(),resave:true,saveUninitialized:true,cookie:{maxAge:oneDay}}))
+app.use(csrf())
+
+var RateLimit = require('express-rate-limit');
+var limiter = RateLimit({
+  windowMs: 1*60*1000, // 1 minute
+  max: 15
+});
+app.use(limiter)
 
 // database connection
 db.connect((err)=>{

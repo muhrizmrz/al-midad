@@ -22,7 +22,7 @@ module.exports = {
         return new Promise(async(resolve,reject)=>{
             let articleDb = await db.get().collection(collection.ARTICLE_COLLECTION).find().sort({catagory:1}).limit(4).toArray()
             
-            console.log(new Date().toISOString().slice(0,10))
+            //console.log(new Date().toISOString().slice(0,10))
             //console.log(articleDb)
             resolve(articleDb)
         })

@@ -42,7 +42,6 @@ router.post('/login',(req,res)=>{
       req.session.username = req.body.username
       res.redirect(currentUrl || '/admin')
     }else {
-      console.log(currentUrl)
       res.render('admin/login',{errorMsg:"Username or password is incorrect"})
     }
   } catch (error) {

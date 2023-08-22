@@ -20,10 +20,7 @@ router.get('/articles/:id',async(req,res)=>{
   sameTagArticles = await db.get().collection(collection.ARTICLE_COLLECTION).find().toArray()
   for (var i = 0; i < sameTagArticles.length; i++) {
     if (sameTagArticles[i]._id === req.params.id) {
-      console.log(sameTagArticles[i]._id)
       sameTagArticles.splice(i, 1);
-    } else{
-      console.log(req.params.id + sameTagArticles[i]._id) 
     }
    }
   let updatedSameTagArticles = sameTagArticles.filter(item => item._id !== objectId(req.params.id))

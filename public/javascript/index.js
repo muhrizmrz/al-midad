@@ -1,5 +1,3 @@
-const validateAndSanitizeUrl = require("../../confiq/urlValidator");
-
 $(document).ready(function(){
     AOS.init();
 
@@ -19,7 +17,6 @@ $(document).ready(function(){
     $('.deleteBtn').click(function(){
         $('#popup').removeClass('hidden')
         var id = $(this).attr('data-id')
-        id = validateAndSanitizeUrl(id)
         var url = `/admin/delete/${id}`
         $('.sureDlt').attr('href',url)
     })

@@ -13,7 +13,7 @@ const logger = require('morgan');
 
 const adminRouter = require('./routes/admin');
 const usersRouter = require('./routes/users');
-const db = require('./confiq/connection');
+const db = require('./config/connection');
 const fileUpload = require('express-fileupload');
 
 const app = express();
@@ -41,9 +41,7 @@ var limiter = RateLimit({
 app.use(limiter)
 
 // database connection
-db.connect((err)=>{
-  err ? console.log(`MongoDB: ${err}`) : console.log("Database connected")
-})
+db.connect();
 
 app.use('/admin', adminRouter);
 app.use('/', usersRouter);

@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var article_helper = require('../helpers/article_models')
-const collection = require('../confiq/collection');
-const db = require('../confiq/connection')
+const collection = require('../config/collection');
+const db = require('../config/connection')
 const objectId = require('mongodb').ObjectId
 
 /* GET users listing. */

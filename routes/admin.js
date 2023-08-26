@@ -4,10 +4,10 @@ const router = express.Router();
 const fs = require('fs')
 const objectId = require('mongodb').ObjectId
 
-const collection = require('../confiq/collection');
-const db = require('../confiq/connection')
+const collection = require('../config/collection');
+const db = require('../config/connection')
 const add_article = require('../helpers/article_models');
-const validateAndSanitizeUrl = require('../confiq/urlValidator');
+const validateAndSanitizeUrl = require('../config/urlValidator');
 
 var currentUrl
 

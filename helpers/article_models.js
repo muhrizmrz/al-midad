@@ -1,6 +1,6 @@
 const { reject, resolve } = require('promise')
-const db = require('../confiq/connection')
-const collection = require('../confiq/collection')
+const db = require('../config/connection')
+const collection = require('../config/collection')
 const { marked } = require('marked')
 const createDomPurify = require('dompurify')
 const { JSDOM } = require('jsdom')

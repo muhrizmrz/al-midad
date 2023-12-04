@@ -1,0 +1,40 @@
+{{>admin_header}}
+
+<section class="p-6 md:px-10 pt-12 h-screen" dir="ltr" style="font-family: Arial, Helvetica, sans-serif;">
+    <h1 class="text-2xl font-bold border-b">Settings</h1>
+    <div class="mt-6 w-1/2">
+        <p class="text-base font-semibold">Categories to be shown on Home page</p>
+         <form class="grid grid-cols-2 gap-4 mt-2" id="settings" enctype="application/x-www-form-urlencoded" action="/admin/settings" method="POST">  
+            <div>
+                <p class="text-md text-gray-700">Category 1</p>
+                <select name="category1" id=""
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3.5">
+                    {{#each categories}}
+                    {{#if (eq this.category_arabic ../category1.arabic)}}
+                        
+                        <option value="{{this._id}}" selected>{{this.category_arabic}}</option>
+                    {{else}}
+                   
+                        <option value="{{this._id}}">{{this.category_arabic}}</option>
+                    {{/if}}
+                    {{/each}}
+                </select>
+            </div>
+            <div>
+                <p class="text-md text-gray-700">Category 2</p>
+                <select name="category2" id=""
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3.5">
+                    {{#each categories}}
+                    {{#if (eq this.category_arabic ../category2.arabic)}}
+                    <option value="{{this._id}}" selected>{{this.category_arabic}}</option>
+                    {{else}} 
+                    <option value="{{this._id}}" >{{this.category_arabic}}</option>
+                    {{/if}}
+                    {{/each}}
+                </select>
+            </div>
+             <input type="hidden" name="_csrf" value="{{csrfToken}}">   
+            <button type="submit" class="mt-4 w-fit px-4 py-1 text-white rounded-lg bg-blue-500">Save</button>
+        </form>
+    </div>
+</section>

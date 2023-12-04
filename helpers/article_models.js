@@ -12,7 +12,7 @@ module.exports = {
         return new Promise((resolve,reject)=>{
             article.date = new Date().toISOString().slice(0,10)
             article.markdown = dompurify.sanitize(marked(article.article))
-
+            article.category = ObjectId(article.category)
             db.get().collection(collection.ARTICLE_COLLECTION).insertOne(article).then((result)=>{
                 resolve(result)  
             })
@@ -20,11 +20,74 @@ module.exports = {
     },
     getRecentArticles:()=>{
         return new Promise(async(resolve,reject)=>{
-            let articleDb = await db.get().collection(collection.ARTICLE_COLLECTION).find().sort({catagory:1}).limit(4).toArray()
+            let articleDb = await db.get().collection(collection.ARTICLE_COLLECTION).find().sort({date:-1}).limit(4).toArray()
+            let aggregatedArticles = await db.get().collection(collection.ARTICLE_COLLECTION).aggregate([
+                {
+                    $match: {
+                        _id: { $in: articleDb.map(article => article._id) }
+                    }
+                },
+                {
+                    $lookup: {
+                        from: collection.CATEGORY_COLLECTION,
+                        localField: "category",
+                        foreignField: "_id",
+                        as: "recentArticles"
+                    }
+                },
+                {
+                    $unwind: "$recentArticles"
+                },
+                {
+                    $project: {
+                        _id: 1,
+                        topic: 1,
+                        author: 1,
+                        category: "$recentArticles.category_arabic",
+                        category_id: "$recentArticles.trimmed"
+                    }
+                }
+            ]).toArray()
             
-            //console.log(new Date().toISOString().slice(0,10))
-            //console.log(articleDb)
-            resolve(articleDb)
+            // Fetch the results of the aggregation pipeline
+            resolve(aggregatedArticles)
+        })
+    },
+    getArticlesByCategory: (categoryType) => {
+        return new Promise(async (resolve, reject) => {
+
+            let categoryElement = await db.get().collection(collection.CATEGORY_COLLECTION).findOne({trimmed:categoryType})
+
+            let filtered = await db.get().collection(collection.ARTICLE_COLLECTION).aggregate([
+                {
+                    $match: {
+                        category: ObjectId(categoryElement._id)
+                    }
+                },
+                {
+                    $lookup: {
+                        from: collection.CATEGORY_COLLECTION,
+                        localField: "category",
+                        foreignField: "_id",
+                        as: "recentArticles"
+                    }
+                },
+                {
+                    $unwind: "$recentArticles"
+                },
+                {
+                    $project: {
+                        _id: 1,
+                        topic: 1,
+                        author: 1,
+                        markdown: 1,
+                        category: "$recentArticles.category_arabic",
+                        category_id: "$recentArticles.trimmed"
+                    }
+                }
+            ]).toArray()
+           // let articles = await db.get().collection(collection.ARTICLE_COLLECTION).find({ category: categoryType }).sort({ date: -1}).limit(2).toArray();
+            resolve(filtered);
         })
     },
     updateArticle:(article_id,articleDetails)=>{
@@ -35,7 +98,7 @@ module.exports = {
                    topic: articleDetails.topic, 
                    author: articleDetails.author,
                    article: articleDetails.article, 
-                   catagory: articleDetails.catagory,
+                   category: articleDetails.category && ObjectId(articleDetails.category),
                    markdown: dompurify.sanitize(marked(articleDetails.article))
                 }
             }).then((result)=>{

@@ -1,0 +1,49 @@
+{{>admin_header}}
+
+<section class="mt-10 p-4 px-6 grid place-items-center h-full" dir="ltr">
+    <div class="w-full md:w-1/2">
+        <p class="text-gray-500 text-3xl font-bold text-center pb-2">Add Category</p>
+        <form id="add_article" action="/admin/category/add" enctype="application/x-www-form-urlencoded" class=""
+            method="POST">
+
+            <div class="flex md:flex-row lg:flex-row flex-col gap-3 my-3">
+                <div class="grid space-y-2 lg:w-full md:w-full">
+                    <input type="text" id="category_arabic" name="category_arabic" placeholder="Category in Arabic"
+                        class="text-gray-500 p-2 bg-gray-200 rounded border-gray-300 focus:outline-none focus:bg-blue-100">
+                </div>
+            </div>
+
+            <div class="grid col-span-2 space-y-2 my-3">
+                <input type="text" id="category_english" name="category_english" placeholder="Category in English"
+                    class="text-gray-500 p-2 bg-gray-200 rounded border-gray-300 focus:outline-none focus:bg-blue-100">
+            </div>
+
+            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+            <button type="submit"
+                class="p-2 rounded-lg bg-purple-900 text-white w-1/4 hover:bg-purple-700 justify-self-end col-span-2 mt-3">Save</button>
+        </form>
+    </div>
+
+    <div class="mt-16 w-full md:w-3/4 mb-16">
+        <table class="w-full">
+            <thead class="bg-gray-200">
+                <th class="w-fit text-center py-2">Name</th>
+                <th class="w-fit text-center py-2">English Name</th>
+                <th class="w-fit text-center py-2">Url parameters</th>
+                <th class="w-fit text-center py-2">Edit</th>
+                <th class="w-fit text-center py-2">Delete</th>
+            </thead>
+            <tbody>
+                {{#each categories}}
+                <tr class="border-y-2 bg-gray-100 text-normal">
+                    <td class="py-2 text-center">{{this.category_arabic}}</td>
+                    <td class="py-2 text-center">{{this.category_english}}</td>
+                    <td class="py-2 text-center">{{this.trimmed}}</td>
+                    <td class="py-2 text-center"><a href="/admin/category/edit/{{this._id}}">Edit</a></td>
+                    <td class="py-2 text-center"><a href="/admin/category/delete/{{this._id}}">Delete</a></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</section>

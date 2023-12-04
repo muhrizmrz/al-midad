@@ -4,10 +4,15 @@
   "private": true,
   "scripts": {
     "tailwind:css": "postcss styles.css -o public/stylesheets/tailwind.css",
-    "start": "nodemon ./bin/www"
+    "start": "node ./bin/www",
+    "watch:css": "npm run tailwind:css -- --watch",
+    "watch": "concurrently \"npm run watch:css\" \"nodemon --ext *\""
   },
   "dependencies": {
+    "@glidejs/glide": "^3.6.0",
     "aos": "^2.3.4",
+    "body-parser": "^1.20.2",
+    "connect-livereload": "^0.6.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dompurify": "^2.3.2",
@@ -16,9 +21,11 @@
     "express-fileupload": "^1.2.1",
     "express-rate-limit": "^6.9.0",
     "express-session": "^1.17.3",
+    "handlebars-helpers": "^0.10.0",
     "hbs": "^4.1.2",
     "http-errors": "~1.6.3",
     "jsdom": "^17.0.0",
+    "livereload": "^0.9.3",
     "lusca": "^1.7.0",
     "marked": "^4.2.5",
     "mongodb": "^4.1.2",
@@ -27,6 +34,7 @@
     "postcss-cli": "^10.0.0",
     "promise": "^8.1.0",
     "sanitize-filename": "^1.6.3",
+    "slick-carousel": "^1.8.1",
     "uuid": "^9.0.0",
     "wowjs": "^1.1.3",
     "xss": "^1.0.14"

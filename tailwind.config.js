@@ -1,6 +1,6 @@
 module.exports = {
   mode: 'jit',
-  purge: ["./views/**/*.hbs"], // Specify your Handlebars files
+  content: ["./views/**/*.hbs"], // Specify your Handlebars files
   theme: {
     extend: {},
   },

@@ -1,63 +1,120 @@
-<header class="px-4 z-20 fixed w-full border-b-8 border-blue-800 shadow-lg fixed bg-white top-0" style="z-index:1;">
-        <nav class="w-full mx-auto lg:grid md:grid lg:grid-cols-4 md:grid-cols-4 sm:flex flex justify-between">
-            <a href="/" class="p-5 flex">
-                <img src="/static/images/midad_emblam.png" class="w-14 h-14" />
-                <img src="/static/images/Midad_typeface.png" class="w-20 h-14" />
-            </a>
-            <div class="col-span-2 hidden lg:flex sm:hidden p-5 my-auto font-bold text-lg text-gray-700">
-                <a href="/" class="mr-12 hover:text-blue-800">الرئيسية</a>
-                <a href="#" class="mr-12 hover:text-blue-800">دراسات</a>
-                <a href="#" class="mr-12 hover:text-blue-800">مقالات</a>
-                <a href="#" class="mr-12 hover:text-blue-800">يراع اليافعين</a>
-                <a href="#" class="mr-12 hover:text-blue-800">المزيد</a>
-            </div>
-            <div
-                class="p-5 my-auto mr-96 lg:cols lg:col-span-1 md:col-span-1 sm:col-span-2 lg:block  hidden lg:justify-self-end place-self-end">
-                <div class="flex">
-                    <a href=""><i class="fa-brands fa-facebook text-xl bg-blue-500 text-white p-2 rounded ml-4"></i></a>
-                    <a href="https://www.instagram.com//al_midad_/" target="_blank"><i
-                            class="fa-brands fa-instagram-square text-xl bg-blue-500 text-white p-2 rounded ml-4"></i></a>
-                    <a href="www.instagram.com/almidad"><i
-                            class="fa-brands fa-youtube text-xl bg-blue-500 text-white p-2 rounded ml-4"></i></a>
-                </div>
-            </div>
-            
-            <div id="sidebar_icon"
-                class="my-auto text-left w-10 justify-self-end lg:hidden md:hidden block text-gray-800 text-xl font-semibold cursor-pointer">
-                <div id="menu_button">
-                    <i class="fa-solid fa-bars"></i>
-                </div>
-                <div class="hidden transition-all duration-500 ease-in-out transform" id="menu_close">
-                    <i class="fa-solid fa-xmark"></i>
-                </div>
-            </div>
+<header class="z-10 lg:px-24 md:px-12 p-4 md:pt-10 md:pb-10 z-20 w-full bg-white top-0" style="z-index:1">
+    <nav class="w-full mx-auto lg:grid lg:grid-cols-5 flex justify-between" style="font-family: ge-medium;">
+        <a href="/" class="flex">
+            <img src="/static/images/midad_emblam.png" class="w-12 h-12 md:w-24 w-12 h-12 md:h-24" />
+            <img src="/static/images/Midad_typeface.png" class="w-12 h-12 md:w-24 w-12 h-12 md:h-24" />
+        </a>
+        <div class="col-span-3 z-50 hidden md:flex sm:hidden p-5 my-auto font-bold text-base text-gray-700">
+            <a href="/Mulifful-Adad" class="lg:mr-12 mr-8 hover:text-blue-800">ملف العدد</a>
+            <a href="/Maqamah" class="lg:mr-12 mr-8 hover:text-blue-800">مقامة</a>
+            <a href="/Dirasath" class="lg:mr-12 mr-8 hover:text-blue-800">دراسات</a>
+            <a href="/Faa'aliyath" class="lg:mr-12 mr-8 hover:text-blue-800">فعاليات</a>
 
-        </nav>
 
-    </header>
+            <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover"
+                class="inline-flex items-center lg:mr-12 mr-8" type="button">المزيد <svg
+                    class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 10 6">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="m1 1 4 4 4-4" />
+                </svg>
+            </button>
 
-    <nav class="lg:hidden md:hidden sm:hidden hidden w-full fixed top-24 z-10 transition-all duration-500 ease-in-out transform"
-        id="sidebar_menu">
-        <div class="w-full h-screen grid grid-cols-3">
-            <div class="bg-black opacity-50 relative" id="blank_model">
-
-            </div>
-            <div class="col-span-2 pt-12 bg-gray-200 px-8 font-bold text-sm text-gray-700">
-                <ul class="">
-                    <li class="py-4 border-b-2 border-t-2 border-gray-500 text-center"><a href="/"
-                            class=" hover:text-blue-800  cursor-pointer">الرئيسية</a></li>
-                    <li class="py-4 border-b-2 border-gray-500 text-center"><a href="#"
-                            class=" hover:text-blue-800  cursor-pointer">دراسات</a></li>
-                    <li class="py-4 border-b-2 border-gray-500 text-center"><a href="#"
-                            class=" hover:text-blue-800  cursor-pointer">مقالات</a></li>
-                    <li class="py-4 border-b-2 border-gray-500 text-center"><a href="#"
-                            class=" hover:text-blue-800  cursor-pointer">يراع اليافعين</a></li>
-                    <li class="py-4 border-b-2 border-gray-500 text-center"><a href="#"
-                            class=" hover:text-blue-800  cursor-pointer">المزيد</a></li>
+            <!-- Dropdown menu -->
+            <div id="dropdownHover"
+                class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
+                    <li>
+                        <a href="/Shakhsiya"
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">شخصية</a>
+                    </li>
+                    <li>
+                        <a href="/Fikra"
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">فكرة</a>
+                    </li>
+                    <li>
+                        <a href="/Ayam-Alamiyah"
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">عالمية </a>
+                    </li>
+                    <li>
+                        <a href="/Uswah-Hasana"
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">أسوة حسنة</a>
                     </li>
                 </ul>
             </div>
+
             
 
+
+
         </div>
+        <div
+            class="w-3/4 grid place-items-center my-auto mr-96 lg:cols lg:col-span-1 md:hideen lg:block  hidden lg:justify-self-end place-self-end">
+            <div class="flex justify-between items-center bg-[#3F7FA0] px-3 pr-6 text-gray-300 py-1 text-xs rounded-xl">
+                ابحث المقالات
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <div class="flex mt-1 justify-center space-x-1">
+                <a></a>
+                <p class="ml-1">تابعنا</p>
+                <a href="https://www.instagram.com/al_midad_/" target="_blank"><i
+                        class="fa-brands fa-instagram-square text-base bg-[#8C7791] text-white leading-none p-1 rounded"></i></a>
+                <a href=""><i
+                        class="fa-brands fa-facebook text-base bg-[#8C7791] text-white leading-none p-1 rounded"></i></a>
+                <a href="www.instagram.com/almidad"><i
+                        class="fa-brands fa-youtube text-base bg-[#8C7791] text-white leading-none p-1 rounded"></i></a>
+                <a href=""><i
+                        class="fa-brands fa-twitter text-base bg-[#8C7791] text-white leading-none p-1 rounded"></i></a>
+
+            </div>
+        </div>
+
+        <div id=""
+            class="sidebar_icon my-auto text-left w-10 justify-self-end md:hidden block text-gray-800 text-xl font-semibold cursor-pointer">
+            <div class="menu_button">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="menu_close hidden transition-all duration-500 ease-in-out transform" id="">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+        </div>
+
     </nav>
+
+</header>
+
+<nav class="lg:hidden md:hidden sm:hidden hidden w-full fixed top-0 z-10 transition-all duration-500 ease-in-out transform"
+    id="sidebar_menu">
+    <div class="w-full h-screen grid grid-cols-3">
+
+        <div class="col-span-3 pt-4 px-8 bg-white font-bold text-sm text-gray-700">
+            <nav class="w-full mx-auto mb-6 lg:grid lg:grid-cols-4 flex justify-between"
+                style="font-family: ge-medium;">
+                <a href="/" class="flex">
+                    <img src="/static/images/midad_emblam.png" class="w-12 h-12 md:w-24 w-12 h-12 md:h-24" />
+                    <img src="/static/images/Midad_typeface.png" class="w-12 h-12 md:w-24 w-12 h-12 md:h-24" />
+                </a>
+
+                <div
+                    class="sidebar_icon my-auto text-left w-10 justify-self-end md:hidden block text-gray-800 text-xl font-semibold cursor-pointer">
+                    <div>
+                        <i class="menu_button fa-solid fa-bars"></i>
+                    </div>
+                    <div class="menu_close hidden transition-all duration-500 ease-in-out transform">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+                </div>
+
+            </nav>
+            <ul class="">
+                {{#each nav_items}}
+                <li class="py-4 text-center"><a href="/{{this.category_english}}"
+                        class=" hover:text-blue-800  cursor-pointer">{{this.category_arabic}}</a></li>
+               
+                {{/each}}
+            </ul>
+        </div>
+
+
+    </div>
+</nav>

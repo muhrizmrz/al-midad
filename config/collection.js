@@ -1,3 +1,6 @@
 module.exports = {
-    ARTICLE_COLLECTION:'article'
+    ARTICLE_COLLECTION:'article',
+    NEWS_COLLECTION: 'news',
+    SETTINGS_COLLECTION: 'settings',
+    CATEGORY_COLLECTION: 'category'
 }

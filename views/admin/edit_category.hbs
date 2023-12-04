@@ -1,0 +1,27 @@
+{{>admin_header}}
+
+<div class="w-3/4 grid grid-cols-1 place-items-center mx-auto lg:mt-12 mb-10 p-8" dir="ltr">
+    <div class="w-full md:w-1/2">
+        <p class="text-gray-500 text-3xl font-bold text-center pb-2">Edit Category</p>
+        <form id="add_article" action="/admin/category/edit/{{category._id}}" enctype="application/x-www-form-urlencoded" class=""
+            method="POST">
+
+            <div class="flex md:flex-row lg:flex-row flex-col gap-3 my-3">
+                <div class="grid space-y-2 lg:w-full md:w-full">
+                    <input type="text" id="category_arabic" value="{{category.category_arabic}}" name="category_arabic" placeholder="Category in Arabic"
+                        class="text-gray-500 p-2 bg-gray-200 rounded border-gray-300 focus:outline-none focus:bg-blue-100">
+                </div>
+            </div>
+
+            <div class="grid col-span-2 space-y-2 my-3">
+                <input type="text" id="category_english" value="{{category.category_english}}" name="category_english" placeholder="Category in English"
+                    class="text-gray-500 p-2 bg-gray-200 rounded border-gray-300 focus:outline-none focus:bg-blue-100">
+            </div>
+
+            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+            <button type="submit"
+                class="p-2 rounded-lg bg-purple-900 text-white w-1/4 hover:bg-purple-700 justify-self-end col-span-2 mt-3">Save</button>
+        </form>
+    </div>
+</div>
+    

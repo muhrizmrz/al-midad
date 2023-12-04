@@ -3,33 +3,43 @@
 <div class="lg:w-3/4 md:w-3/4 w-4/5 bg-white grid grid-cols-1 mx-auto mt-10 mb-10 rounded-xl border-gray-200 p-8">
     <div class="grid grid-cols-1 space-y-6">
         <p class="text-gray-500 text-3xl font-bold text-center pb-2">Add Article</p>
-        <form id="add_article" action="/admin/add-article" enctype="multipart/form-data" class="" method="POST"> 
-            
+        <form id="add_article" action="/admin/article/add-article" enctype="multipart/form-data" class="" method="POST">
+
             <div class="flex md:flex-row lg:flex-row flex-col gap-3 my-3">
                 <div class="grid space-y-2 lg:w-1/2 md:w-1/2">
-                    <input type="text" id="article_topic" name="topic" placeholder="Topic" class="text-gray-500 p-2 bg-gray-200 rounded border-gray-300 focus:outline-none focus:bg-blue-100">
+                    <input type="text" id="article_topic" name="topic" placeholder="Topic"
+                        class="text-gray-500 p-2 bg-gray-200 rounded border-gray-300 focus:outline-none focus:bg-blue-100">
                 </div>
                 <div class="grid space-y-2 lg:w-1/2 md:w-1/2">
-                    <input type="text" id="article_author" name="author" placeholder="Author"  class="text-gray-500 p-2 bg-gray-200 rounded border-gray-300 focus:outline-none focus:bg-blue-100">
+                    <input type="text" id="article_author" name="author" placeholder="Author"
+                        class="text-gray-500 p-2 bg-gray-200 rounded border-gray-300 focus:outline-none focus:bg-blue-100">
                 </div>
             </div>
-            
+
             <div class="grid col-span-2 space-y-2 my-3">
-                <textarea type="text" id="article" name="article" placeholder="Article" class="h-96 text-gray-500 p-2 bg-gray-200 rounded border-gray-300 focus:outline-none focus:bg-blue-100"></textarea>
+                <textarea type="text" id="article" name="article" placeholder="Article"
+                    class="h-96 text-gray-500 p-2 bg-gray-200 rounded border-gray-300 focus:outline-none focus:bg-blue-100"></textarea>
             </div>
 
             <div class="flex md:flex-row lg:flex-row flex-col gap-3 my-3">
                 <div class="grid space-y-2 lg:w-1/2 md:w-1/2">
-                    <input type="text" id="catagory" name="catagory" placeholder="Catagory" class="text-gray-500 p-2 bg-gray-200 rounded border-gray-300 focus:outline-none focus:bg-blue-100">
+                    <select name="category" id=""
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3.5">
+                            <option value="">None</option>
+                        {{#each categories}}
+                            <option value="{{this._id}}">{{this.category_arabic}}</option>
+                        {{/each}}
+                    </select>
                 </div>
                 <div class="grid space-y-2 lg:w-1/2 md:w-1/2">
-                    <input type="file" id="article_image" name="image" placeholder="Upload Image"  class="text-gray-500 p-2 bg-gray-200 rounded border-gray-300 focus:outline-none focus:bg-blue-100">
+                    <input type="file" id="article_image" name="image" placeholder="Upload Image"
+                        class="text-gray-500 p-2 bg-gray-200 rounded border-gray-300 focus:outline-none focus:bg-blue-100">
                     <img id="resizedImg" class="hidden">
                 </div>
-            </div> 
+            </div>
             <input type="hidden" name="_csrf" value="{{csrfToken}}">
-            <button type="submit" class="p-2 rounded-lg bg-purple-900 text-white w-1/4 hover:bg-purple-700 justify-self-end col-span-2 mt-3">Save</button>
+            <button type="submit"
+                class="p-2 rounded-lg bg-purple-900 text-white w-1/4 hover:bg-purple-700 justify-self-end col-span-2 mt-3">Save</button>
         </form>
     </div>
 </div>
-    

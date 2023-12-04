@@ -5,12 +5,12 @@
         <img class="object-cover h-64 w-full" src="/static/article-images/{{article._id}}.jpg">
     </div>
     <div class="flex my-4 gap-4">
-        <a href="/admin/edit/{{article._id}}"><button
+        <a href="/admin/article/edit/{{article._id}}"><button
                             class="px-5 w-full md:w-48 py-2 bg-blue-500 text-white rounded text-center">Edit</button></a>
         <a href="" class="sureDlt"><button
                             class="px-5 w-full md:w-48 py-2 bg-red-500 text-white rounded text-center">Delete</button></a>
     </div>
-    <p class="capitalize tracking-wide text-blue-500 mt-4">{{article.catagory}}</p>
+    <p class="capitalize tracking-wide text-blue-500 mt-4">{{article.category}}</p>
     <h1 class="text-2xl mb-2 font-bold">{{article.topic}}</h1>
     <div class="flex mb-4">
         <small class="font-bold text-gray-600">{{article.author}}</small>

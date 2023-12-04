@@ -7,7 +7,7 @@ const state = {
 
 module.exports.connect = async function () {
     try {
-        state.client = new MongoClient(process.env.MY_MONGO_URI, {
+        state.client = new MongoClient(process.env.MY_MONGO_URI, { //mongodb+srv://muhriz:zirhum286@cluster0.4hhp2.mongodb.net/?retryWrites=true&w=majority
             useNewUrlParser: true,
             useUnifiedTopology: true
         });

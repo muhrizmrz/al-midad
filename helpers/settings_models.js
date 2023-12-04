@@ -1,0 +1,97 @@
+const db = require('../config/connection')
+const collection = require('../config/collection')
+const { ObjectId } = require('bson')
+const { reject } = require('promise')
+
+module.exports = {
+    setDefaultSettings: () => {
+        return new Promise(async (resolve, reject) => {
+            const collections = await db.get().listCollections({ name: collection.SETTINGS_COLLECTION }).toArray();
+            if (collections.length === 0) {
+                let categories = await db.get().collection(collection.CATEGORY_COLLECTION).find().toArray()
+                await db.get().collection(collection.SETTINGS_COLLECTION).insert({
+                    settings_id: 's1',
+                    description: 'Categories to be shown on Home page',
+                    category1: ObjectId(categories[0]._id),
+                    category2: ObjectId(categories[1]._id)
+                })
+                resolve(true)
+            } else {
+                console.log("Settings Collection already exists")
+                resolve(true)
+            }
+        })
+    },
+    changeCategoryInHomePage: ({ category1, category2 }) => {
+        return new Promise((resolve, reject) => {
+            let filter = { settings_id: 's1' }
+
+            let updateData = {
+                $set: {
+                    category1: ObjectId(category1),
+                    category2: ObjectId(category2)
+                }
+            }
+            db.get()
+                .collection(collection.SETTINGS_COLLECTION)
+                .updateOne(filter, updateData, (err, res) => {
+                    if (!err) {
+                        resolve(res);
+                    } else {
+                        console.error(err)
+                        reject(err);
+                    }
+                });
+        })
+
+    },
+    getSelectedCategories: () => {
+        return new Promise(async(resolve,reject)=>{
+            let category = await db.get().collection(collection.SETTINGS_COLLECTION).aggregate([
+                {
+                  $match: {
+                    settings_id: 's1'
+                  }
+                },
+                {
+                  $lookup: {
+                    from: collection.CATEGORY_COLLECTION,
+                    localField: "category1",
+                    foreignField: "_id",
+                    as: "category1Details"
+                  }
+                },
+                {
+                  $unwind: "$category1Details"
+                },
+                {
+                  $lookup: {
+                    from: collection.CATEGORY_COLLECTION,
+                    localField: "category2",
+                    foreignField: "_id",
+                    as: "category2Details"
+                  }
+                },
+                {
+                  $unwind: "$category2Details"
+                },
+                {
+                  $project: {
+                    category1: {
+                      id: "$category1Details._id",
+                      arabic: "$category1Details.category_arabic",
+                      trimmed: "$category1Details.trimmed"
+                    },
+                    category2: {
+                      id: "$category2Details._id",
+                      arabic: "$category2Details.category_arabic",
+                      trimmed: "$category2Details.trimmed"
+                    }
+                  }
+                }
+              ]).toArray()
+              category = category[0];
+              resolve(category)
+        })
+    }
+}

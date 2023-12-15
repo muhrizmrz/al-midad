@@ -14,7 +14,6 @@ router.use(async (req, res, next) => {
     result = result.map(obj => {
       return { ...obj, encodedCategory: encodeURIComponent(obj.category_arabic) }
     })
-    console.log(result)
     return result;
   })
   next()
@@ -25,7 +24,7 @@ router.use(async (req, res, next) => {
 router.get('/', async (req, res) => {
   //let filterArticles = await db.get().collection(collection.ARTICLE_COLLECTION).find({category:'التواريخ'}).limit(6).toArray()
   try {
-    settings_helper.setDefaultSettings();
+    //settings_helper.setDefaultSettings();
     let category = await settings_helper.getSelectedCategories().then((result) => {
       return result;
     })

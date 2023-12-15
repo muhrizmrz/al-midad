@@ -9,7 +9,6 @@ module.exports = {
             categoryData.trimmed = categoryData.trimmed.replace(/\s/g, '-')
             db.get().collection(collection.CATEGORY_COLLECTION).insertOne(categoryData)
                 .then(result => {
-                    console.log("New Category added successfully");
                     resolve({ status: true, message: "Category Added Successfully" })
                 }).catch(err => {
                     console.error(err);

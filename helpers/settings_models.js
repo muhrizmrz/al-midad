@@ -2,23 +2,41 @@ const db = require('../config/connection')
 const collection = require('../config/collection')
 const { ObjectId } = require('bson')
 const { reject } = require('promise')
+const { addCategory } = require('./category_models')
 
 module.exports = {
     setDefaultSettings: () => {
         return new Promise(async (resolve, reject) => {
             const collections = await db.get().listCollections({ name: collection.SETTINGS_COLLECTION }).toArray();
             if (collections.length === 0) {
-                let categories = await db.get().collection(collection.CATEGORY_COLLECTION).find().toArray()
-                await db.get().collection(collection.SETTINGS_COLLECTION).insert({
+              let categoryData = {
+                category_arabic: "ملف العدد",
+                category_english: "Mulifful Adad"
+              }
+              categoryData.trimmed = categoryData.category_english.trim()
+              categoryData.trimmed = categoryData.trimmed.replace(/\s/g, '-')
+              addCategory(categoryData).then(async() => {
+                let categoryData = {
+                  category_arabic: "مقامة",
+                  category_english: "Maqamah"
+                }
+                categoryData.trimmed = categoryData.category_english.trim()
+                categoryData.trimmed = categoryData.trimmed.replace(/\s/g, '-')
+                addCategory(categoryData).then(async()=>{
+                  let categories = await db.get().collection(collection.CATEGORY_COLLECTION).find().toArray()  
+                  await db.get().collection(collection.SETTINGS_COLLECTION).insertOne({
                     settings_id: 's1',
                     description: 'Categories to be shown on Home page',
                     category1: ObjectId(categories[0]._id),
                     category2: ObjectId(categories[1]._id)
+                  })
                 })
-                resolve(true)
+              
+              })
+              resolve(true)
             } else {
-                console.log("Settings Collection already exists")
-                resolve(true)
+              console.log("Settings Collection already exists")
+              resolve(true)
             }
         })
     },

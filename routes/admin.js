@@ -66,9 +66,7 @@ router.get('/logout', (req, res) => {
 
 /* GET home page. */
 router.get('/', authorizeAdmin, async (req, res) => {
-  settings_models.setDefaultSettings().then(() => {
     res.render('admin/home',)
-  })
 });
 
 // GET Article page
@@ -163,7 +161,7 @@ router.post('/news/add-news', authorizeAdmin, (req, res) => {
       let image = req.files.image
       image.mv('public/news-images/' + result.insertedId.toString() + '.jpg', (err, done) => {
         if (!err) {
-          console.log(result)
+          console.log('')
         } else {
           console.log(err)
         }
@@ -224,7 +222,6 @@ router.get('/article/add-article', authorizeAdmin, (req, res) => {
 /* POST new article */
 router.post('/article/add-article', authorizeAdmin, (req, res) => {
   article_models.addArticle(req.body).then((result) => {
-    console.log(req.files)
     if (req.files.image) {
       let image = req.files.image
       image.mv('public/article-images/' + result.insertedId.toString() + '.jpg', (err, done) => {

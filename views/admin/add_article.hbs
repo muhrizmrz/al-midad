@@ -5,13 +5,20 @@
         <p class="text-gray-500 text-3xl font-bold text-center pb-2">Add Article</p>
         <form id="add_article" action="/admin/article/add-article" enctype="multipart/form-data" class="" method="POST">
 
-            <div class="flex md:flex-row lg:flex-row flex-col gap-3 my-3">
-                <div class="grid space-y-2 lg:w-1/2 md:w-1/2">
+            <div class="w-full my-3">
+                <div class="grid space-y-2 w-full">
                     <input type="text" id="article_topic" name="topic" placeholder="Topic"
                         class="text-gray-500 p-2 bg-gray-200 rounded border-gray-300 focus:outline-none focus:bg-blue-100">
                 </div>
+            </div>
+
+            <div class="flex md:flex-row lg:flex-row flex-col gap-3 my-3">
                 <div class="grid space-y-2 lg:w-1/2 md:w-1/2">
                     <input type="text" id="article_author" name="author" placeholder="Author"
+                        class="text-gray-500 p-2 bg-gray-200 rounded border-gray-300 focus:outline-none focus:bg-blue-100">
+                </div>
+                <div class="grid space-y-2 lg:w-1/2 md:w-1/2">
+                    <input type="text" id="author_credential" name="author_credential" placeholder="Author's credential"
                         class="text-gray-500 p-2 bg-gray-200 rounded border-gray-300 focus:outline-none focus:bg-blue-100">
                 </div>
             </div>

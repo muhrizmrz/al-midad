@@ -1,31 +1,32 @@
 {{>user_header}}
 
 <section class="p-4 px-6">
-    <div class="lg:w-3/4 w-full p-4 mx-auto">
-        <div>
-            <p class="text-2xl font-bold text-center mb-8 capitalize border-b-2 pb-4 border-gray-300">
+    <div class="w-full max-w-[68rem] p-4 mx-auto" style="font-family: ge-medium;">
+
+            <h1 class="text-[#886C8D] text-3xl mx-auto text-center w-fit px-10 border-b mb-8 border-[#A0A0A0] font-bold pb-4">
                 {{#if isEmpty}}
                 {{category}}
                 {{else}}
                 {{allArticle.0.category}}
                 {{/if}}
-            </p>
-        </div>
+            </h1>
+          
+
         <div class="grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
             {{#if isEmpty}}
-            <p class="text-2xl font-bold text-center mb-8 capitalize text-center">
+            <p class="text-2xl col-span-3 font-bold text-center mb-8 capitalize">
                 No articles in this category
             </p>
             {{/if}}
         {{#each allArticle}}
             <div class="grid grid-cols-1 m-3 bg-white">
-                <div class="border-b-2 border-opacity-25 border-gray-300">
-                    <img src="/static/article-images/{{this._id}}.jpg" class="h-48 w-full lg:h-100 md:h-100 sm:h-100 object-cover">
+                <div class="">
+                    <img src="/static/article-images/{{this._id}}.jpg" class="h-48 w-full lg:h-100 md:h-100 sm:h-100 object-cover rounded-3xl">
                 </div>
                 <div class="p-5">
                  
-                    <a href="/{{this._id}}"><h2 class="text-xl font-bold mb-2">{{this.topic}}</h2></a>
-                    <small class="font-bold text-gray-600">{{this.author}}</small>
+                    <a href="/article/{{this._id}}"><h2 class="text-xl font-bold mb-2 text-center text-[#655252]">{{this.topic}}</h2></a>
+                    <p class="text-sm font-bold text-[#57637C] text-center">{{this.author}}</p>
                 </div>
                 
             </div>

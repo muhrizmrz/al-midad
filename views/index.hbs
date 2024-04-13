@@ -1,66 +1,61 @@
 {{>user_header}}
 
-<main class="w-full lg:px-24 md:px-12 p-4 border-b border-gray-500 mb-3">
-    <section class="md:w-full sm:w-full sm:h-full max-sm:min-h-[650px] max-sm:max-h-screen">
+<main class=" w-[90%] mx-auto max-w-7xl p-4 mt-7 sm:mt-0 lg:mt-7  mb-3">
+    <section class="w-full flex flex-col-reverse lg:flex-row gap-3 pb-5">
+        <div class="w-full lg:w-[73%]">
+            <div id="latest_articles" class="swiper swiper-articles w-full overflow-hidden">
+                <div class="swiper-wrapper pb-10">
+                    {{#each recentArticles}}
+                    <a href="articles/{{this._id}}" class="swiper-slide">
+                        <div id="article_bg"
+                            class="transition-all w-full ease-in duration-5000 rounded-[1.8rem] bg-cover bg-center min-h-[300px] max-h-fit delay-150 grid grid-cols-1 overflow-hidden"
+                            style="background-image: url('/static/article-images/{{this._id}}.jpg');box-shadow:rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;">
+                            <div class="h-full grid grid-cols-1 place-content-center z-10 bg-black bg-opacity-40">
+                                <div class="px-12">
+                                    <small
+                                        class="text-xs p-[1px] px-2 text-white bg-[#4484A4] rounded-md">{{this.category}}</small>
+                                    <h2
+                                        class="text-xl md:text-2xl my-4 text-right capitalize font-bold text-white hover:text-blue-200">
+                                        {{this.topic}}
+                                    </h2>
+                                    <p class="pt-3 border-t border-[#615447] w-3/4"><small
+                                            class="font-smallml-6 font-bold text-white">{{this.author}}</small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    {{/each}}
 
-        <div id="header_img" class="w-full h-full md:h-64 bg-cover bg-top mx-auto"
-            style="background-image: url('/static/images/cover_.img.jpg')">
-
-            <div
-                class="flex flex-col-reverse bg-black bg-opacity-40 w-full h-full p-12 md:pb-12 pb-16 md:px-12 px-6 lg:flex-row md:flex-row">
-                <div id="hadith"
-                    class="w-full md:grid flex flex-col justify-center md:justify-start items-center text-white text-center lg:w-4/5 md:w-4/5">
-                    <p id="hadith_p"
-                        class="text-xl sm:text-2xl pb-3 w-fit border-b border-white leading-none tracking-wide text-center lg:text-right md:text-right">
-                        في هذا العدد
-                    </p>
-                    <h2 id="hadith_h2" class="text-3xl sm:text-4xl mt-[1.25rem] font-bold text-center lg:text-right md:text-right">
-                        دروس و عبر من
-                        الهجرة</h2>
-
-                    <button class="bg-gray-100 h-6 text-gray-600 grid place-items-center px-4 w-fit mt-4">شاهد
-                        المزيد</button>
 
                 </div>
-                <div class="mx-auto my-auto">
-                    <div
-                        class="text-white relative -top-[3rem] lg:-top-32 md:-top-[3rem] lg:left-24 md:left-0 lg:h-80 md:h-[16rem] h-[25rem] mx-auto">
-                        <a href="#">
-                            <img src="/static/images/midad_covers/9.png" id="cover"
-                                class="z-10 h-full lg:scale-125 w-42 object-cover transition-all duration-500 ease-in-out transform" />
-                        </a>
-                    </div>
-                </div>
+                <div class="swiper-pagination swiper-articles-pagination"></div>
+                <div class="hidden md:block swiper-button-prev swiper-articles-button-prev"></div>
+                <div class="hidden md:block swiper-button-next swiper-articles-button-next"></div>
             </div>
         </div>
-    </section>
 
-    <section id="latest_articles" class="swiper swiper-articles w-full mt-10 md:mt-16 overflow-hidden">
-        <div class="swiper-wrapper py-20">
-            {{#each recentArticles}}
-            <a href="articles/{{this._id}}" class="swiper-slide">
-                <div id="article_bg"
-                    class="transition-all w-full ease-in duration-5000 rounded-[1.8rem] cover min-h-[350px] max-h-fit delay-150 grid grid-cols-1 overflow-hidden"
-                    style="background-image: url('/static/article-images/{{this._id}}.jpg');">
-                    <div class="h-full  my-auto p-10 pt-16 z-10 bg-black bg-opacity-40 border border-gray-500">
-                        <small class="text-sm p-[1px] px-2 text-white bg-[#4484A4] rounded-md">{{this.category}}</small>
-                        <h2 class="text-2xl md:text-3xl my-4 text-right capitalize font-bold text-white hover:text-blue-200">
-                            {{this.topic}}
-                        </h2>
-                        <p class="mb-8 pt-3 border-t border-[#615447] w-1/2"><small
-                                class="font-smallml-6 font-bold text-white">{{this.author}}</small>
-                        </p>
+        <div class="w-full py-7 sm:py-10 lg:py-3 mt-10 sm:mt-0
+         lg:w-[27%] h-3/3 mb-10 relative flex flex-col sm:flex-row lg:flex-col    bg-[#856969] rounded-3xl">
+            <img src="/static/cover-images/{{covers.[0]._id}}.jpg" id="cover"
+                class="w-1/2 sm:w-1/5 lg:w-1/2 -rotate-6 -mt-[28%] sm:mt-0 lg:-mt-[28%] sm:mr-24 lg:mr-auto max-[500px]:mt-0 mb-5 shadow-2xl mx-auto  transition-all duration-500 ease-in-out transform" />
+            <div id="hadith"
+                class="w-full px-3 lg:grid flex flex-col justify-center items-center sm:gap-5 lg:gap-0 text-white text-center">
+                <p id="hadith_p"
+                    class="w-fit text-base sm:text-xl mx-auto pb-2 border-b border-white leading-none tracking-wide text-center">
+                    في هذا العدد
+                </p>
+                <h2 id="hadith_h2"
+                    class="text-xl sm:text-[22px] xl:text-[26px] px-4 sm:px-2 xl:px-8 tracking-[0.09em] mt-[1rem] font-extrabold text-center">
+                     {{covers.[0].content}}
+                    </h2>
 
-                    </div>
-                </div>
-            </a>
-            {{/each}}
+                <button
+                    class="bg-gray-100 text-xs rounded-sm shadow-sm h-6 mx-auto text-[#896C8D] grid place-items-center px-4 w-fit mt-2">شاهد
+                    المزيد</button>
 
-
+            </div>
         </div>
-        <div class="swiper-pagination swiper-articles-pagination"></div>
-        <div class="hidden md:block swiper-button-prev swiper-articles-button-prev"></div>
-        <div class="hidden md:block swiper-button-next swiper-articles-button-next"></div>
     </section>
 
     <section class="w-full grid sm:grid-cols-2 grid-cols-1 gap-12 sm:gap-5 mt-[4.5rem]">
@@ -70,9 +65,9 @@
             <div>
                 {{#each category1Articles}}
                 <a href="/articles/{{this._id}}" class="">
-                    <div
-                        class="flex gap-5 p-3 border border-[#ECECEC] shadow rounded-md lg:flex-row flex-col mb-3">
-                        <img src="/static/article-images/{{this._id}}.jpg" alt="" class="w-full h-auto lg:w-5/12 lg:h-32">
+                    <div class="flex gap-5 p-3 border border-[#ECECEC] shadow rounded-md lg:flex-row flex-col mb-3">
+                        <img src="/static/article-images/{{this._id}}.jpg" alt=""
+                            class="w-full object-cover h-auto lg:w-5/12 lg:h-32">
                         <div>
                             <h1 class="text-2xl text-[#5A4949]">{{this.topic}}</h1>
                             <small class="text-[#19476E]">{{this.author}}</small>
@@ -81,19 +76,19 @@
                 </a>
                 {{/each}}
             </div>
-            <a class="self-center" href="/{{category.category1.trimmed}}"><button
-                class="bg-[#886C8D] p-1 px-[1.8rem] relative bottom-0 text-white rounded-xl text-center flex items-center gap-1"><i
-                    class="fa-solid fa-angle-down text-md text-white"></i> المزيد</button></a>
+            <a class="self-center" href="/category/{{category.category1.trimmed}}"><button
+                    class="bg-[#886C8D] p-1 px-[1.8rem] relative bottom-0 text-white rounded-xl text-center flex items-center gap-1"><i
+                        class="fa-solid fa-angle-down text-md text-white"></i> المزيد</button></a>
         </div>
         <div class="p-6 flex flex-col relative justify-between space-y-3 border border-[#886C8D] shadow-lg rounded-lg">
             <h1 class="absolute -top-[.8rem] bg-[#886C8D] text-white pr-2 pl-6 py-1 rounded-bl-xl">
-                 {{category.category2.arabic}}</h1>
+                {{category.category2.arabic}}</h1>
             <div>
                 {{#each category2Articles}}
                 <a href="/articles/{{this._id}}" class="">
-                    <div
-                        class="flex gap-5 p-3 border border-[#ECECEC] shadow rounded-md lg:flex-row flex-col mb-3">
-                        <img src="/static/article-images/{{this._id}}.jpg" alt="" class="w-full h-auto lg:w-5/12 lg:h-32">
+                    <div class="flex gap-5 p-3 border border-[#ECECEC] shadow rounded-md lg:flex-row flex-col mb-3">
+                        <img src="/static/article-images/{{this._id}}.jpg" alt=""
+                            class="w-full object-cover h-auto lg:w-5/12 lg:h-32">
                         <div>
                             <h1 class="text-2xl text-[#5A4949]">{{this.topic}}</h1>
                             <small class="text-[#19476E]">{{this.author}}</small>
@@ -102,16 +97,16 @@
                 </a>
                 {{/each}}
             </div>
-            <a class="self-center" href="/{{category.category2.trimmed}}"><button
-                class="bg-[#886C8D] p-1 px-[1.8rem] relative bottom-0 text-white rounded-xl text-center flex items-center gap-1"><i
-                    class="fa-solid fa-angle-down text-md text-white"></i> المزيد</button></a>
+            <a class="self-center" href="/category/{{category.category2.trimmed}}"><button
+                    class="bg-[#886C8D] p-1 px-[1.8rem] relative bottom-0 text-white rounded-xl text-center flex items-center gap-1"><i
+                        class="fa-solid fa-angle-down text-md text-white"></i> المزيد</button></a>
         </div>
     </section>
 
 
     <section class="px-8 pt-5 relative h-auto bg-[#D5D4D4] mt-16">
         <h1
-            class="text-base mx-auto absolute top-0 left-1/2 -translate-y-1/2 -translate-x-1/2 text-white w-fit px-5 md:px-12 py-1 rounded-full bg-[#896D8E]">
+            class="text-base mx-auto absolute top-0 left-1/2 -translate-y-1/2 -translate-x-1/2 text-white w-3/4 text-center sm:w-fit px-5 md:px-12 py-1 rounded-full bg-[#896D8E]">
             الطبعات الأخيرة</h1>
         <div class="swiper swiper-cover h-full">
             <div class="swiper-wrapper py-8">
@@ -139,17 +134,23 @@
                 <div class="swiper-slide">
                     <img class="cover w-full h-full scale-[1.6]" src="/static/images/midad_covers/8.png" alt="">
                 </div>
+                {{#each covers}}
+                <div class="swiper-slide">
+                    <img src="/static/cover-images/{{this._id}}.jpg"
+                class="w-[53%] -rotate-6 shadow-2xl mx-auto  transition-all duration-500 ease-in-out transform" />
+                </div>
+                {{/each}}
             </div>
 
         </div>
     </section>
 
-    <section class="px-6 grid border-y grid-cols-1 md:grid-cols-2 gap-16 mt-[3rem] py-8">
-        <section id="latest_articles" class="swiper swiper-news w-full h-full overflow-hidden">
+    <section class="md:px-0 lg:px-8 flex border-y flex-col md:flex-row gap-8 lg:gap-16 mt-[3rem] py-8">
+        <section id="" class="swiper swiper-news w-full md:w-1/2">
             <div class="swiper-wrapper">
                 {{#each news}}
-                <div class="swiper-slide shadow-inner">
-                    <img class="cover w-full h-full" src="/static/news-images/{{this._id}}.jpg" alt="">
+                <div class="news_image h-full swiper-slide shadow-inner">
+                    <img class="w-full object-cover h-full"  src="/static/news-images/{{this._id}}.jpg" alt="">
                 </div>
                 {{/each}}
             </div>
@@ -157,19 +158,23 @@
             <div class="swiper-button-next swiper-news-button-next"></div>
         </section>
 
-        <div>
-            <h3 class="text-white mb-4 rounded-bl-xl w-fit py-1 pr-2 pl-12 bg-[#896D8E]">أخبار</h3>
-            <div class="space-y-4">
-                {{#each news}}
+        <div class="md:w-full lg:w-3/5">
+            <div id="news_content" class="lg:w-3/4 md:w-full">
+                <h3 class="text-white mb-6 rounded-bl-xl w-fit py-1 pr-2 pl-12 bg-[#896D8E]">أخبار</h3>
+                <div class="space-y-4">
+                    {{#each news}}
 
-                <h1 class="text-xl text-[#655252] even:border even:border-x-0 even:border-1 even:border-gray-700 py-4">
-                    <a href="/news/{{this._id}}">
-                        {{this.title}}
-                    </a>
-                </h1>
+                    <h1
+                        class="text-xl text-[#655252] even:border even:border-x-0 even:border-1 even:border-gray-700 even:py-4 last:pb-7">
+                        <a href="/news/{{this._id}}">
+                            {{this.title}}
+                        </a>
+                    </h1>
 
-                {{/each}}
+                    {{/each}}
+                </div>
             </div>
+
         </div>
     </section>
 
@@ -193,5 +198,3 @@
         </div>
     </div>
 </main>
-
-

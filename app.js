@@ -10,12 +10,13 @@ const session = require('express-session')
 const hbs = require('hbs')
 const handlebarsHelpers = require('handlebars-helpers')();
 const csrf = require('lusca').csrf
-const { v4:uuidv4 } = require('uuid');
+const { v4: uuidv4 } = require('uuid');
 const logger = require('morgan');
 const livereload = require("livereload");
 const connectLiveReload = require("connect-livereload");
 
 const adminRouter = require('./routes/admin');
+const apiRouter = require('./routes/api');
 const usersRouter = require('./routes/users');
 const db = require('./config/connection');
 const fileUpload = require('express-fileupload');
@@ -25,19 +26,24 @@ const fileUpload = require('express-fileupload');
 const app = express();
 
 //// FOR DEVELOPMENT ////
-const liveReloadServer = livereload.createServer();
-liveReloadServer.server.once("connection", () => {
-  setTimeout(() => {
-    liveReloadServer.refresh("/");
-  }, 100);
-});
+let mode = "development"
+if (mode == "development") {
+  const liveReloadServer = livereload.createServer();
+  liveReloadServer.server.once("connection", () => {
+    setTimeout(() => {
+      liveReloadServer.refresh("/");
+    }, 100);
+  });
+  app.use(connectLiveReload());
+}
 
-app.use(connectLiveReload());
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-const partialFolder = path.join(__dirname,'views/partials')
+const partialFolder = path.join(__dirname, 'views/partials')
 hbs.registerPartials(partialFolder)
 
 // Register handlebars-helpers
@@ -50,43 +56,44 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use('/static',express.static(path.join(__dirname, 'public')));
+app.use('/static', express.static(path.join(__dirname, 'public')));
 app.use(fileUpload())
 const oneDay = 1000 * 60 * 60;
-app.use(session({secret:uuidv4(),resave:true,saveUninitialized:true,cookie:{maxAge:oneDay}}))
+app.use(session({ secret: uuidv4(), resave: true, saveUninitialized: true, cookie: { maxAge: oneDay } }))
 app.use(csrf({ cookie: true }))
 
 // Error 500 Handling
 app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send('Internal Server Error');
+  console.error(err);
+  res.status(500).render('error',{url:req.url || '/'})
 });
 
 
 
 var RateLimit = require('express-rate-limit');
 var limiter = RateLimit({
-  windowMs: 1*60*1000, // 1 minute
+  windowMs: 1 * 60 * 1000, // 1 minute
   max: 15
 });
 app.use(limiter)
 
 // database connection
-db.connect();
+db.connect(); 
 
 app.use('/admin', adminRouter);
+app.use('/api',apiRouter)
 app.use('/', usersRouter);
 app.use((req, res, next) => {
   res.redirect('/');
 });
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

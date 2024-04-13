@@ -1,22 +1,80 @@
 {{>user_header}}
 
 <section class="w-full lg:px-32 md:px-12 p-4 mt-1 border-t pt-8 mb-12 mx-auto">
-    <div class="grid md:grid-cols-1 lg:grid-cols-3 sm:grid-cols-1 grid-cols-1  gap-4" style="font-family: ge-medium;">
-        <div class="col-span-2 max-w-[670px]">
-            <!--ARTICLE -->
+    <div class="grid md:grid-cols-1 lg:grid-cols-5 sm:grid-cols-1 grid-cols-1  gap-4" style="font-family: ge-medium;">
+
+        <!--ARTICLE Section -->
+        <div class="col-span-3 max-w-[670px]">
             <div class="mb-6 px-6">
-                <h1 class="text-4xl md:text-5xl mb-12 font-bold">{{article.topic}}</h1>
-                <div class="w-100 h-72">
-                    <img class="h-72 rounded-xl object-cover w-full" src="/static/article-images/{{article._id}}.jpg">
+                <small class="text-sm bg-gray-300 p-[1px] px-2 text-[#4484A4] rounded-md">{{article.category}}</small>
+                <h1 class="text-2xl md:text-4xl mt-2 mb-7 font-bold">{{article.topic}}</h1>
+                <div class="flex flex-col sm:flex-row justify-between pb-4 sm:items-center">
+                    <div>
+                        <p class="font-medium text-base">{{article.author}}</p>
+
+                        <p class="text-xs text-gray-500 dark:text-
+                        gray-400 font-thin">{{article.author_credential}}</p>
+
+                    </div>
+                    <div class="inline-flex items-center text-xs" style="font-family: Arial, Helvetica, sans-serif;"
+                        lang="en">
+                        <i class="fa-regular fa-calendar-days"></i>
+                        <p dir="ltr" class="mr-2 leading-5 text
+                         font-medium text-black">{{article.formattedDate}}</p>
+                    </div>
+                </div>
+                <div class="w-100">
+                    <img class="h-auto md:h-[24rem] rounded-xl object-cover w-full"
+                        src="/static/article-images/{{article._id}}.jpg">
                 </div>
                 <!--<p class="capitalize tracking-wide text-blue-500 mt-10">{{article.category}}</p>-->
-                <div class="flex mb-4 items-center mt-10">
-                    <p class="font-md font-bold text-gray-600">{{article.author}}</p>
-                
+
+                <div class="markdown break-words mt-4 text-lg text-gray-500 text-justify">{{{article.markdown}}}</div>
+                <div class="flex justify-between py-2 items-center">
+                    <div class="flex gap-2">
+                        <a href="https://twitter.com/almidadarabic">
+                            <i class="fa-brands fa-square-x-twitter text-5xl text-[#4281A2]"></i>
+                        </a>
+                        <a href="" class="py-[3px]">
+                            <div class="rounded-lg h-full bg-[#4281A2] px-2 grid place-items-center">
+                                <i class="fa-brands fa-facebook text-2xl text-white bg-[#4281A2]"></i>
+                            </div>
+                        </a>
+                        <a href="https://web.whatsapp.com/send?text=Check out this page: {{article.topic}} -  http://localhost:3000/articles/{{currentArticle}}" target="_blank" data-action="share/whatsapp/share">
+                            <i class="fa-brands fa-square-whatsapp text-5xl text-[#4281A2]"></i>
+                        </a>
+                    </div>
+                    <p class="inline-flex items-center space-x-1 py-4"
+                        style="font-family: Arial, Helvetica, sans-serif;">
+                        <span class="text-gray-500 ml-1 font-semibold">{{article.viewCount}}</span>
+                        <i class="fa-regular fa-eye"></i>
+                    </p>
                 </div>
-                <div class="break-words text-lg text-gray-500 text-justify">{{{article.markdown}}}</div>
             </div>
             <!--ARTICLE END -->
-            
+
+        </div>
+
+        <!--ARTICLE Recommends -->
+
+        <div class="col-span-2 pt-10">
+            <h1 class="text-[#886C8D] text-2xl font-bold mt-2 mb-3 pb-3 border-b border-[#A0A0A0]">أحدث المنشورات</h1>
+            {{#each sameTagArticles}}
+            <a href="/articles/{{this._id}}" class="">
+                <div
+                    class="flex items-center gap-5 p-3 border border-[#ECECEC] shadow rounded-md lg:flex-row flex-col mb-3">
+                    <img src="/static/article-images/{{this._id}}.jpg" alt=""
+                        class="w-full object-cover h-auto lg:w-4/12 lg:h-24">
+                    <div>
+                        <h1 class="text-2xl text-[#5A4949]">{{this.topic}}</h1>
+                        <small class="text-[#19476E]">{{this.author}}</small>
+                    </div>
+                </div>
+            </a>
+            {{/each}}
+
+            <img src="/static/ad-image/ad.jpg" alt="">
+        </div>
+
     </div>
 </section>

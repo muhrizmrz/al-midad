@@ -1,17 +1,20 @@
 {{>user_header}}
 
-<section class="md:px-12 px-2 mt-10 mb-12 w-100 md:w-100 lg:w-3/4 mx-auto">
-    <div class="grid md:grid-cols-1 lg:grid-cols-4 sm:grid-cols-1 grid-cols-1  gap-4">
-        <div class="col-span-3 ">
+<section class="w-full lg:px-32 md:px-12 p-4 mt-1 border-t pt-8 mb-12 mx-auto" style="font-family: ge-medium">
+    <div class="grid md:grid-cols-1 lg:grid-cols-3 sm:grid-cols-1 grid-cols-1  gap-4">
+        <div class="col-span-2 max-w-[670px]">
             <!--news -->
             <div class="mb-6 px-6">
                 <h1 class="text-5xl mb-12 font-bold">{{news.title}}</h1>
                 <div class="w-100 h-72">
                     <img class="h-72 rounded-xl object-cover w-full" src="/static/news-images/{{news._id}}.jpg">
                 </div>
-                <div class="break-words text-lg text-gray-500 text-justify">{{{news.markdown}}}</div>
+                <div class="markdown mt-4 break-words text-lg text-gray-500 text-justify">{{{news.markdown}}}</div>
             </div>
             <!--news END -->
-            
+            </div>
+            <div class="pt-10">
+                <img src="/static/ad-image/ad.jpg" alt="">
+        </div>
     </div>
 </section>

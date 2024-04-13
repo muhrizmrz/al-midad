@@ -39,8 +39,16 @@
                     <td class="py-2 text-center">{{this.category_arabic}}</td>
                     <td class="py-2 text-center">{{this.category_english}}</td>
                     <td class="py-2 text-center">{{this.trimmed}}</td>
-                    <td class="py-2 text-center"><a href="/admin/category/edit/{{this._id}}">Edit</a></td>
-                    <td class="py-2 text-center"><a href="/admin/category/delete/{{this._id}}">Delete</a></td>
+                    <td class="py-2 text-center">
+                        <a href="/admin/category/edit/{{this._id}}">
+                            <i class="fa-solid fa-pen-to-square text-base"></i>
+                        </a>
+                    </td>
+                    <td class="py-2 text-center">
+                        <a data-id="{{this._id}}" data-type="category" class="dltBtnCategory cursor-pointer" >
+                            <i class="fa-solid fa-trash text-base"></i>
+                        </a>
+                    </td>
                 </tr>
                 {{/each}}
             </tbody>

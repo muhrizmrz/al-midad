@@ -10,7 +10,11 @@ module.exports = {
     addNews:(news)=>{
         return new Promise((resolve,reject)=>{
             news.date = new Date().toISOString().slice(0,10)
-            news.markdown = dompurify.sanitize(marked(news.news_content))
+            news.markdown = dompurify.sanitize(marked(news.news_content),{
+                breaks: true, // Enables paragraph breaks
+                sanitize: true, // Sanitizes the output HTML
+                gfm: true, // Enables GitHub Flavored Markdown
+              })
 
             db.get().collection(collection.NEWS_COLLECTION).insertOne(news).then((result)=>{
                 resolve(result)  
@@ -30,7 +34,11 @@ module.exports = {
                 $set: {
                     title: newsDetails.title,
                     news_content: newsDetails.news_content,
-                    markdown: dompurify.sanitize(marked(newsDetails.news_content))
+                    markdown: dompurify.sanitize(marked(newsDetails.news_content),{
+                        breaks: true, // Enables paragraph breaks
+                        sanitize: true, // Sanitizes the output HTML
+                        gfm: true, // Enables GitHub Flavored Markdown
+                      })
                 }
             }).then((result)=>{
                 resolve(result)

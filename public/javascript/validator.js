@@ -51,7 +51,7 @@ $(document).ready(function () {
     })
 
     $('#add_article').submit(function (e) {
-        validator(e)
+        validator(e);
     })
 
     $('#edit_review').submit((e) => {

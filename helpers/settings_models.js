@@ -111,5 +111,28 @@ module.exports = {
               category = category[0];
               resolve(category)
         })
+    },
+    uploadCover: (coverDetails) => {
+      return new Promise((resolve,reject)=>{
+        db.get().collection(collection.SETTINGS_COLLECTION).insertOne({
+          settings_id: 's2',
+          description: 'Uploading of Cover editions',
+          edition: coverDetails.edition,
+          content: coverDetails.content,
+          date: new Date(),
+          showCover: true
+        }).then(result => resolve(result));
+      })
+    },
+    getAllCover: () => {
+      return new Promise(async(resolve,reject)=>{
+        try {
+          let latestCover = await db.get().collection(collection.SETTINGS_COLLECTION).find({settings_id: 's2'}).sort({date:-1}).toArray();
+          resolve(latestCover)
+        } catch (err){
+          console.log(err);
+          reject({error:err,});
+        }
+      })
     }
 }

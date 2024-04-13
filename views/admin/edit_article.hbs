@@ -5,7 +5,7 @@
         <p class="text-gray-400 text-3xl font-bold text-center border-b pb-2">Edit Article</p>
         <form id="edit_review" action="/admin/article/edit/{{article._id}}" enctype="multipart/form-data"
             class="grid lg:grid-cols-2 grid-cols-1 gap-3" method="POST">
-            <div class="grid grid-cols-1 space-y-2">
+            <div class="grid grid-cols-1 col-span-2 space-y-2">
                 <label for="article_topic" class="font-bold text-lg text-gray-500">Topic</label>
                 <input type="text" id="article_topic" value="{{article.topic}}" name="topic" placeholder="Topic"
                     class="text-gray-700 p-2 border bg-white rounded border-gray-300 focus:outline-none focus:bg-blue-100">
@@ -15,30 +15,38 @@
                 <input type="text" id="article_author" value="{{article.author}}" name="author" placeholder="Author"
                     class="text-gray-700 p-2 border bg-white rounded border-gray-300 focus:outline-none focus:bg-blue-100">
             </div>
+            <div class="grid grid-cols-1 space-y-2">
+                <label for="author_credential" class="font-bold text-lg text-gray-500">Author Credential</label>
+                <input type="text" id="author_credential" value="{{article.author_credential}}" name="author_credential"
+                    placeholder="Author Credential"
+                    class="text-gray-700 p-2 border bg-white rounded border-gray-300 focus:outline-none focus:bg-blue-100">
+            </div>
             <div class="grid grid-cols-1 col-span-2 space-y-2">
-                <label for="article" class="font-bold text-lg text-gray-500">Article</label>
-                <textarea type="text" id="article" name="article" placeholder="Article"
+                <label class="font-bold text-lg text-gray-500">Article</label>
+                <textarea type="text" id="markdown-editor" name="article" placeholder="Article"
                     class="h-96 text-gray-700 p-2 border bg-white rounded border-gray-300 focus:outline-none focus:bg-blue-100">{{article.article}}</textarea>
             </div>
             <div class="grid grid-cols-1 space-y-2">
                 <label for="category" class="font-bold text-lg text-gray-500">Category</label>
-                <select name="category" id=""
+                <select name="category" id="category"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3.5">
                     {{#each categories}}
                     {{#if (eq this.category_arabic ../article.category)}}
-                    <option value="{{this._id}}">{{this.category_arabic}}</option>
+                    <option value="{{this._id}}" selected>{{this.category_arabic}}</option>
                     {{else}}
                     <option value="{{this._id}}">{{this.category_arabic}}</option>
                     {{/if}}
                     {{/each}}
-                    <option value="">None</option>
+                    <option value="">None {{article.category}}</option>
                 </select>
             </div>
-            <div class="grid grid-cols-1 space-y-2">
-                <label for="article_image" class="font-bold text-lg text-gray-500">Upload Image</label>
-                <img class="w-32" src="/static/article-images/{{article._id}}.jpg">
-                <input type="file" id="article_image" name="image" placeholder="Image"
-                    class="text-gray-700 p-2 border bg-white rounded border-gray-300 focus:outline-none focus:bg-blue-100">
+            <div class="grid grid-cols-3 space-y-2">
+                <div class="col-span-2">
+                    <label for="article_image" class="font-bold  text-lg text-gray-500">Upload Image</label>
+                    <input type="file" id="article_image" name="image" placeholder="Image"
+                        class="text-gray-700 p-2 border bg-white rounded border-gray-300 focus:outline-none focus:bg-blue-100">
+                </div>
+                <img class="" src="/static/article-images/{{article._id}}.jpg">
 
             </div>
             <input type="hidden" name="_csrf" value="{{csrfToken}}">

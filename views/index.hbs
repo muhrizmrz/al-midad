@@ -1,6 +1,6 @@
 {{>user_header}}
 
-<main class=" w-[90%] mx-auto max-w-7xl p-4 mt-7 sm:mt-0 lg:mt-7  mb-3">
+<main class="w-[98%] sm:w-[90%] mx-auto max-w-7xl p-4 mt-7 sm:mt-0 lg:mt-7  mb-3">
     <section class="w-full flex flex-col-reverse lg:flex-row gap-3 pb-5">
         <div class="w-full lg:w-[73%]">
             <div id="latest_articles" class="swiper swiper-articles w-full overflow-hidden">
@@ -36,40 +36,43 @@
         </div>
 
         <div class="w-full py-7 sm:py-10 lg:py-3 mt-10 sm:mt-0
-         lg:w-[27%] h-3/3 mb-10 relative flex flex-col sm:flex-row lg:flex-col    bg-[#856969] rounded-3xl">
+         lg:w-[27%] h-3/3 mb-10 relative hidden sm:flex sm:flex-row lg:flex-col    bg-[#856969] rounded-3xl">
             <img src="/static/cover-images/{{covers.[0]._id}}.jpg" id="cover"
-                class="w-1/2 sm:w-1/5 lg:w-1/2 -rotate-6 -mt-[28%] sm:mt-0 lg:-mt-[28%] sm:mr-24 lg:mr-auto max-[500px]:mt-0 mb-5 shadow-2xl mx-auto  transition-all duration-500 ease-in-out transform" />
+                class="w-1/2 sm:w-1/5 lg:w-1/2 -rotate-6 -mt-[28%] hover:scale-110 sm:mt-0 lg:-mt-[28%] sm:mr-24 lg:mr-auto max-[500px]:mt-0 mb-5 shadow-2xl mx-auto  transition-all duration-500 ease-in-out transform" />
             <div id="hadith"
                 class="w-full px-3 lg:grid flex flex-col justify-center items-center sm:gap-5 lg:gap-0 text-white text-center">
                 <p id="hadith_p"
                     class="w-fit text-base sm:text-xl mx-auto pb-2 border-b border-white leading-none tracking-wide text-center">
-                    في هذا العدد
+                    طبعة جديدة
                 </p>
                 <h2 id="hadith_h2"
                     class="text-xl sm:text-[22px] xl:text-[26px] px-4 sm:px-2 xl:px-8 tracking-[0.09em] mt-[1rem] font-extrabold text-center">
                      {{covers.[0].content}}
                     </h2>
 
-                <button
+                <a href="{{covers.[0].youtubeLink}}" target="_blank" rel="noopener"><button
                     class="bg-gray-100 text-xs rounded-sm shadow-sm h-6 mx-auto text-[#896C8D] grid place-items-center px-4 w-fit mt-2">شاهد
-                    المزيد</button>
+                    المزيد</button></a>
 
             </div>
         </div>
     </section>
 
-    <section class="w-full grid sm:grid-cols-2 grid-cols-1 gap-12 sm:gap-5 mt-[4.5rem]">
-        <div class="p-6 flex flex-col relative justify-between space-y-3 border border-[#886C8D] shadow-lg rounded-lg">
+    <section class="w-full grid sm:grid-cols-2 grid-cols-1 gap-12 sm:gap-5 mt-[2.5rem]">
+        <div class="p-2 pb-4 md:p-6 flex flex-col relative justify-between space-y-6 md:space-y-3 border border-[#886C8D] shadow-lg rounded-lg">
             <h1 class="absolute -top-[.8rem] bg-[#886C8D] text-white pr-2 pl-6 py-1 rounded-bl-xl">
                 {{category.category1.arabic}}</h1>
             <div>
                 {{#each category1Articles}}
                 <a href="/articles/{{this._id}}" class="">
-                    <div class="flex gap-5 p-3 border border-[#ECECEC] shadow rounded-md lg:flex-row flex-col mb-3">
-                        <img src="/static/article-images/{{this._id}}.jpg" alt=""
-                            class="w-full object-cover h-auto lg:w-5/12 lg:h-32">
-                        <div>
-                            <h1 class="text-2xl text-[#5A4949]">{{this.topic}}</h1>
+                    <div class="grid grid-cols-3 pb-3 md:p-3 lg:grid-cols-12 gap-5 py-1 border-b md:border border-[#ECECEC] shadow-none md:shadow  rounded-md mb-3">
+                        <div class="col-span-1 lg:col-span-5">
+                           <img src="/static/article-images/{{this._id}}.jpg" alt=""
+                            class="w-full object-cover h-20 lg:h-32"> 
+                        </div>
+                        
+                        <div class="col-span-2 lg:col-span-7">
+                            <h1 class="text-lg md:text-2xl text-[#5A4949]">{{this.topic}}</h1>
                             <small class="text-[#19476E]">{{this.author}}</small>
                         </div>
                     </div>
@@ -80,17 +83,21 @@
                     class="bg-[#886C8D] p-1 px-[1.8rem] relative bottom-0 text-white rounded-xl text-center flex items-center gap-1"><i
                         class="fa-solid fa-angle-down text-md text-white"></i> المزيد</button></a>
         </div>
-        <div class="p-6 flex flex-col relative justify-between space-y-3 border border-[#886C8D] shadow-lg rounded-lg">
+
+        <div class="p-2 pb-4 md:p-6 flex flex-col relative justify-between space-y-6 md:space-y-3 border border-[#886C8D] shadow-lg rounded-lg">
             <h1 class="absolute -top-[.8rem] bg-[#886C8D] text-white pr-2 pl-6 py-1 rounded-bl-xl">
                 {{category.category2.arabic}}</h1>
             <div>
                 {{#each category2Articles}}
                 <a href="/articles/{{this._id}}" class="">
-                    <div class="flex gap-5 p-3 border border-[#ECECEC] shadow rounded-md lg:flex-row flex-col mb-3">
-                        <img src="/static/article-images/{{this._id}}.jpg" alt=""
-                            class="w-full object-cover h-auto lg:w-5/12 lg:h-32">
-                        <div>
-                            <h1 class="text-2xl text-[#5A4949]">{{this.topic}}</h1>
+                    <div class="grid grid-cols-3 pb-3 md:p-3 lg:grid-cols-12 gap-5 py-1 border-b md:border border-[#ECECEC] shadow-none md:shadow  rounded-md mb-3">
+                        <div class="col-span-1 lg:col-span-5">
+                           <img src="/static/article-images/{{this._id}}.jpg" alt=""
+                            class="w-full object-cover h-20 lg:h-32"> 
+                        </div>
+                        
+                        <div class="col-span-2 lg:col-span-7">
+                            <h1 class="text-lg md:text-2xl text-[#5A4949]">{{this.topic}}</h1>
                             <small class="text-[#19476E]">{{this.author}}</small>
                         </div>
                     </div>
@@ -101,6 +108,7 @@
                     class="bg-[#886C8D] p-1 px-[1.8rem] relative bottom-0 text-white rounded-xl text-center flex items-center gap-1"><i
                         class="fa-solid fa-angle-down text-md text-white"></i> المزيد</button></a>
         </div>
+
     </section>
 
 
@@ -134,19 +142,25 @@
                 <div class="swiper-slide">
                     <img class="cover w-full h-full scale-[1.6]" src="/static/images/midad_covers/8.png" alt="">
                 </div>
-                {{#each covers}}
+                 <div class="swiper-slide">
+                    <img class="w-[53%] -rotate-6 shadow-2xl mx-auto  transition-all duration-500 ease-in-out transform" src="/static/images/midad_covers/9.jpg" alt="">
+                </div>
+                 <div class="swiper-slide">
+                    <img class="w-[53%] -rotate-6 shadow-2xl mx-auto  transition-all duration-500 ease-in-out transform" src="/static/images/midad_covers/10.jpg" alt="">
+                </div>
+                <!--{{#each covers}}
                 <div class="swiper-slide">
                     <img src="/static/cover-images/{{this._id}}.jpg"
                 class="w-[53%] -rotate-6 shadow-2xl mx-auto  transition-all duration-500 ease-in-out transform" />
                 </div>
-                {{/each}}
+                {{/each}}-->
             </div>
 
         </div>
     </section>
 
     <section class="md:px-0 lg:px-8 flex border-y flex-col md:flex-row gap-8 lg:gap-16 mt-[3rem] py-8">
-        <section id="" class="swiper swiper-news w-full md:w-1/2">
+        <section id="" class="hidden md:block swiper swiper-news w-full md:w-1/2">
             <div class="swiper-wrapper">
                 {{#each news}}
                 <div class="news_image h-full swiper-slide shadow-inner">

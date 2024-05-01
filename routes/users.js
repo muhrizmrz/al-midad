@@ -34,7 +34,7 @@ router.get('/', async (req, res, next) => {
         return result;
       }
     })
-    let noOfArticles = 4;
+    let noOfArticles = 3;
     let category1Articles = await article_helper.getArticlesByCategory(category.category1.trimmed, noOfArticles).then((result) => {
       return result;
     })
@@ -96,7 +96,7 @@ router.get('/articles/:id', async (req, res, next) => {
       }
       return result;
     })
-    sameTagArticles = await article_helper.getArticlesByCategory(articleToBeView.trimmedCategory, 6).then((result) => {
+    sameTagArticles = await article_helper.getArticlesByCategory(articleToBeView.trimmedCategory, 3).then((result) => {
       return result;
     })
     let updatedSameTagArticles = sameTagArticles.filter(item => {

@@ -6,6 +6,12 @@ $(document).ready(function () {
     const mySwiper = new Swiper('.swiper-articles', {
         // Optional parameters
         loop: true,
+        speed: 500,
+        slidesPerView: 1,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
         grabCursor: true,
         slidesPerView: 2,  // Display two slides at a time
         effect: 'cards',

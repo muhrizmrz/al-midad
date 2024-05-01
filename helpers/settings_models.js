@@ -119,6 +119,7 @@ module.exports = {
           description: 'Uploading of Cover editions',
           edition: coverDetails.edition,
           content: coverDetails.content,
+          youtubeLink: coverDetails.youtubeLink,
           date: new Date(),
           showCover: true
         }).then(result => resolve(result));

@@ -20,12 +20,12 @@
             {{/if}}
         {{#each allArticle}}
             <div class="grid grid-cols-1 m-3 bg-white">
-                <div class="">
-                    <img src="/static/article-images/{{this._id}}.jpg" class="h-48 w-full lg:h-100 md:h-100 sm:h-100 object-cover rounded-3xl">
-                </div>
+                <a href="/articles/{{this._id}}">
+                    <img src="/static/article-images/{{this._id}}.jpg" class="h-48 w-full lg:h-100 md:h-100 sm:h-100 object-cover rounded-xl">
+                </a>
                 <div class="p-5">
                  
-                    <a href="/article/{{this._id}}"><h2 class="text-xl font-bold mb-2 text-center text-[#655252]">{{this.topic}}</h2></a>
+                    <a href="/articles/{{this._id}}"><h2 class="text-xl font-bold mb-2 text-center text-[#655252]">{{this.topic}}</h2></a>
                     <p class="text-sm font-bold text-[#57637C] text-center">{{this.author}}</p>
                 </div>
                 

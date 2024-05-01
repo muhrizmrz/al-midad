@@ -68,12 +68,16 @@ app.use((err, req, res, next) => {
   res.status(500).render('error',{url:req.url || '/'})
 });
 
+app.set('trust proxy', 1 /* number of proxies between user and server */)
 
+app.get('/ip', (request, response) => response.send(`IP ADDRESS : ${request.ip}`))
 
 var RateLimit = require('express-rate-limit');
 var limiter = RateLimit({
-  windowMs: 1 * 60 * 1000, // 1 minute
-  max: 15
+  windowMs: 15 * 60 * 1000, // 1 minute
+  max: 100,
+  standardHeaders: true ,
+  legacyHeaders: false
 });
 app.use(limiter)
 

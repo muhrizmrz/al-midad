@@ -26,7 +26,7 @@ const fileUpload = require('express-fileupload');
 const app = express();
 
 //// FOR DEVELOPMENT ////
-let mode = "development"
+let mode = "production"
 if (mode == "development") {
   const liveReloadServer = livereload.createServer();
   liveReloadServer.server.once("connection", () => {

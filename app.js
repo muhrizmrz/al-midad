@@ -72,14 +72,14 @@ app.set('trust proxy', 1 /* number of proxies between user and server */)
 
 app.get('/ip', (request, response) => response.send(`IP ADDRESS : ${request.ip}`))
 
-var RateLimit = require('express-rate-limit');
+/*var RateLimit = require('express-rate-limit');
 var limiter = RateLimit({
   windowMs: 15 * 60 * 1000, // 1 minute
   max: 100,
   standardHeaders: true ,
   legacyHeaders: false
 });
-app.use(limiter)
+app.use(limiter)*/
 
 // database connection
 db.connect(); 

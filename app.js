@@ -5,7 +5,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser')
-const rateLimit = require('express-rate-limit')
+//const rateLimit = require('express-rate-limit')
 const session = require('express-session')
 const hbs = require('hbs')
 const handlebarsHelpers = require('handlebars-helpers')();
@@ -67,10 +67,6 @@ app.use((err, req, res, next) => {
   console.error(err);
   res.status(500).render('error',{url:req.url || '/'})
 });
-
-app.set('trust proxy', 1 /* number of proxies between user and server */)
-
-app.get('/ip', (request, response) => response.send(`IP ADDRESS : ${request.ip}`))
 
 /*var RateLimit = require('express-rate-limit');
 var limiter = RateLimit({

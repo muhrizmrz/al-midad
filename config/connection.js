@@ -20,7 +20,7 @@ module.exports.connect = async function () {
 
         await state.client.connect();
 
-        state.db = state.client.db("Aksharam"); //Aksharam
+        state.db = state.client.db("test2"); //Aksharam
 
         this.setDefaultSettings()
         console.log("Connected to MongoDB!");

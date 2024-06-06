@@ -34,6 +34,7 @@
     "nodemon": "^2.0.12",
     "postcss-cli": "^10.0.0",
     "promise": "^8.1.0",
+    "razorpay": "^2.9.4",
     "sanitize-filename": "^1.6.3",
     "simplemde": "^1.11.2",
     "slick-carousel": "^1.8.1",

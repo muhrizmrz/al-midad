@@ -1,0 +1,66 @@
+<div class="bg-[#577D8A] w-full grid place-items-center text-white p-6" style="">
+    <div class="container flex gap-6 items-center mx-auto" dir="ltr">
+      <a href="/" class="justify-self-end"><img
+          src="/static/images/Midad_typeface_white_2.png"
+          alt="Al Midad Logo"
+          class="mx-auto mb-4 w-44"
+        /></a>
+      <div class="justify-self-start">
+        <h1 class="text-xl">AL MIDAD ARABIC BIMONTHLY</h1>
+        <p class="text-2xl font-bold">PORTAL</p>
+      </div>
+
+    </div>
+</div>  
+
+<div class="min-h-screen bg-gray-100 flex flex-col md:justify-center pt-7 md:pt-0 pb-7 px-5">
+
+<div id="payment_success" class="text-center w-full mx-auto" dir="ltr">
+    <div
+      class="flex flex-col justify-center bg-white rounded-lg shadow-lg my-4 max-w-md mx-auto mt-5 py-3 px-4"
+    >
+    <div class="w-full grid place-items-center py-2">
+      <div class="bg-green-500 rounded-full p-3">
+        <svg
+          class="h-8 w-8 text-white"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M5 13l4 4L19 7"
+          ></path>
+        </svg>
+      </div>
+    </div>
+      <h1 class="text-2xl font-semibold mb-2">Payment Success</h1>
+      <p class="text-gray-600 mb-6">Congratulations! You have subscribed to the
+        <b>Al Midad Arabic Bimonthly</b> for 1 year.</p>
+      <div class="bg-gray-50 p-4 rounded-lg shadow-inner mb-6">
+        <div class="flex justify-between mb-2">
+          <span class="text-gray-700">Transcation Id</span>
+          <span
+            class="text-gray-700"
+            id="razorpay_payment_id"
+          >{{payment_id}}</span>
+        </div>
+        <div class="flex justify-between mb-2">
+          <span class="text-gray-700">Subscription</span>
+          <span class="text-gray-700">1 Year</span>
+        </div>
+        <div class="border-t border-gray-200 my-2"></div>
+        <div class="flex justify-between font-semibold">
+          <span>Total</span>
+          <span class="text-red-500">₹500.00</span>
+        </div>
+      </div>
+      <a href="/"><button
+          class="bg-[#577D8A] text-white py-2 px-6 rounded-lg font-semibold"
+        >Return to Home</button></a>
+    </div>
+  </div>
+</div>

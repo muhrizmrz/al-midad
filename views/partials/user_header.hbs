@@ -32,12 +32,12 @@
                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">فكرة</a>
                     </li>
                     <li>
-                        <a href="/category/Ayam-Alamiyah"
-                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">عالمية </a>
+                        <a href="/category/Hivar"
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">حوار </a>
                     </li>
                     <li>
-                        <a href="/category/Uswah-Hasana"
-                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">أسوة حسنة</a>
+                        <a href="/category/Thareekh"
+                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">تاريخ</a>
                     </li>
                 </ul>
             </div>
@@ -49,10 +49,13 @@
         </div>
         <div
             class="w-3/4 place-items-center my-auto mr-96 lg:cols lg:col-span-1 md:hideen lg:block  hidden lg:justify-self-end place-self-end">
-            <div class="flex justify-between items-center bg-[#3F7FA0] px-3 pr-6 text-gray-300 py-1 text-xs rounded-xl">
-                <input type="text" id=""  class="p-0 focus:bg-transparent focus:border-b leading-none bg-transparent text-sm w-full" placeholder="ابحث المقالات">
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </div>
+            <form action="/search" method="GET" class="flex justify-between items-center bg-[#3F7FA0] px-3 pr-6 text-gray-300 py-1 text-xs rounded-xl">
+                <input type="text" name="query" id="searchQuery" class="p-0 focus:bg-transparent focus:border-b leading-none bg-transparent text-sm w-full" placeholder="ابحث المقالات">
+                <button type="submit" class="bg-transparent border-none p-0">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
+            
             <div class="flex mt-1 justify-center space-x-1">
                 <a></a>
                 <p class="ml-1">تابعنا</p>

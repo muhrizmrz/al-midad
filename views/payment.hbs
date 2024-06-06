@@ -1,0 +1,111 @@
+<div class="bg-[#577D8A] grid place-items-center text-white p-6" style="">
+  <div class="container flex gap-6 items-center mx-auto" dir="ltr">
+    <a href="/" class="justify-self-end"><img
+        src="/static/images/Midad_typeface_white_2.png"
+        alt="Al Midad Logo"
+        class="mx-auto mb-4 w-44"
+      /></a>
+    <div class="justify-self-start">
+      <h1 class="text-xl">AL MIDAD ARABIC BIMONTHLY</h1>
+      <p class="text-2xl font-bold">PORTAL</p>
+    </div>
+
+  </div>
+</div>
+
+<div
+  class="min-h-screen bg-gray-100 flex flex-col md:justify-center pt-7 pb-7 md:pt-0 px-5"
+>
+
+  <div class="w-full mt-8 pb-12" id="payment_confirmation">
+
+    <div
+      class="w-full md:w-2/5 mx-auto bg-white border border-gray-300 rounded-lg shadow-lg"
+      dir="ltr"
+    >
+      <div class="bg-gray-600 w-full p-6 rounded-lg overflow-hidden">
+        <h1
+          class="text-2xl text-gray-100 font-bold text-center mt-4 mb-3"
+        >SUBSCRIPTION PENDING</h1>
+        <p class="text-white text-center mb-6">Complete payment for confirmation</p>
+      </div>
+      <div class="p-6">
+        <table class="w-full">
+          <tbody>
+            <tr class="flex justify-between items-center py-2 border-t">
+              <td class="w-1/3 text-gray-700 text-sm font-bold">
+                Name
+              </td>
+              <td class="w-2/3 text-gray-700">Muhriz Kottila</td>
+            </tr>
+            <tr class="flex justify-between items-center py-2 border-t">
+              <td class="w-1/3 text-gray-700 text-sm font-bold">
+                Phone Number
+              </td>
+              <td class="w-2/3 text-gray-700">09539627121</td>
+            </tr>
+            <tr class="flex justify-between items-center py-2 border-t">
+              <td class="w-1/3 text-gray-700 text-sm font-bold">
+                Email
+              </td>
+              <td class="w-2/3 text-gray-700">muhrizmadathil@gmail.com</td>
+            </tr>
+            <tr class="flex justify-between items-center py-2 border-t">
+              <td class="w-1/3 text-gray-700 text-sm font-bold">
+                Pin code
+              </td>
+              <td class="w-2/3 text-gray-700">339322</td>
+            </tr>
+            <tr class="flex justify-between items-center py-2 border-t">
+              <td class="w-1/3 text-gray-700 text-sm font-bold">
+                Subscription
+              </td>
+              <td class="w-2/3 text-gray-700">1 Year</td>
+            </tr>
+            <tr class="flex justify-between items-center py-2 border-t">
+              <td class="w-1/3 text-gray-700 text-sm font-bold">
+                Amount
+              </td>
+              <td class="w-2/3 text-gray-700">₹500.00</td>
+            </tr>
+            <tr class="flex justify-between items-center py-2 border-t">
+              <td class="w-1/3 text-gray-700 text-sm font-bold">
+                Processing fee
+              </td>
+              <td class="w-2/3 text-gray-700">₹10.00 (applicable on online
+                payment)</td>
+            </tr>
+            <tr class="flex justify-between items-center py-2 border-t">
+              <td class="w-1/3 text-gray-700 text-sm font-bold">
+                Total
+              </td>
+              <td
+                class="w-2/3 text-gray-700 text-2xl font-semibold"
+              >₹510.00</td>
+            </tr>
+            <tr class="hidden">
+              <td><input type="hidden" id="name" value="Muhriz Kottila" /></td>
+              <td><input type="hidden" id="contact" value="09539627121" /></td>
+              <td><input
+                  type="hidden"
+                  id="email"
+                  value="muhrizmadathil@gmail.com"
+                /></td>
+              <td><input type="hidden" id="subscription_id" value="" /></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="flex justify-center mt-3">
+          <form><script
+              src="https://checkout.razorpay.com/v1/payment-button.js"
+              data-payment_button_id="pl_OJJcCdBFPTbSTg"
+              async
+            > </script>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

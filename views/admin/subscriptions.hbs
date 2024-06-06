@@ -1,0 +1,64 @@
+{{>admin_header}}
+
+<div class="container mx-auto mt-8" dir="ltr">
+  <div class="flex flex-col">
+      <div class="py-2 px-10 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+        <div class="shadow border-b border-gray-200 sm:rounded-lg" >
+          <div >
+            <table class="w-full divide-y divide-gray-200" style="overflow-x:scroll;">
+              <thead class="bg-gray-50">
+                <tr>
+                  <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Subscription Month
+                  </th>
+                  <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Name
+                  </th>
+                  <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Email
+                  </th>
+                  <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Phone Number
+                  </th>
+                  <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Address
+                  </th>
+                  <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Payment Status
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="bg-white divide-y divide-gray-200">
+                <!-- Dummy data -->
+                {{#each subscriptions}}
+                <tr>
+                  <td class="px-3 py-4 whitespace-nowrap">
+                    {{this.date}}
+                  </td>
+                  <td class="px-3 py-4 whitespace-nowrap">
+                    {{this.name}}
+                  </td>
+                  <td class="px-3 py-4 whitespace-nowrap">
+                    {{this.email}}
+                  </td>
+                  <td class="px-3 py-4 whitespace-nowrap">
+                    {{this.contact}}
+                  </td>
+                  <td class="px-3 py-4 break-words">
+                    {{this.house}}, {{this.place}}, {{this.post}}(PO), {{this.district}}, {{this.state}} - {{this.pin}}
+                  </td>
+                  <td class="px-3 py-4 whitespace-nowrap capitalize rounded-lg">
+                    <span class="bg-green-500 text-white px-2 py-1">{{this.payment_status}}</span>
+                  </td>
+                </tr>
+                {{/each}}
+                
+                <!-- More rows can be added similarly -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

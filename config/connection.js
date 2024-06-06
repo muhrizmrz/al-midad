@@ -19,8 +19,8 @@ module.exports.connect = async function () {
         });
 
         await state.client.connect();
-
-        state.db = state.client.db("test2"); //Aksharam
+        let dbName = process.env.IS_PRODUCTION_MODE == 'false' ? process.env.DEVELOP_DBNAME : process.env.PRODUCTION_DBNAME; 
+        state.db = state.client.db(dbName); //Aksharam
 
         this.setDefaultSettings()
         console.log("Connected to MongoDB!");

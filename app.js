@@ -26,8 +26,8 @@ const fileUpload = require('express-fileupload');
 const app = express();
 
 //// FOR DEVELOPMENT ////
-let mode = "production"
-if (mode == "development") {
+
+if (process.env.IS_PRODUCTION_MODE == 'false') {
   const liveReloadServer = livereload.createServer();
   liveReloadServer.server.once("connection", () => {
     setTimeout(() => {
@@ -60,7 +60,25 @@ app.use('/static', express.static(path.join(__dirname, 'public')));
 app.use(fileUpload())
 const oneDay = 1000 * 60 * 60;
 app.use(session({ secret: uuidv4(), resave: true, saveUninitialized: true, cookie: { maxAge: oneDay } }))
-app.use(csrf({ cookie: true }))
+
+var conditionalCSRF = function (req, res, next) {
+  //compute needCSRF here as appropriate based on req.path or whatever
+  if (!req.originalUrl == '/subscribe/payment-success') {
+    csrf({ cookie: true });
+  } else {
+    next();
+  }
+}
+// Custom middleware wrapper around csurf
+//app.use(csrf({ cookie: true }));
+const csrfInstance = csrf({ cookie: true });
+app.use((req, res, next) => {
+  if (req.path === '/subscribe/payment-success') {
+    // Skip CSRF; route will be unprotected
+    return next();
+  }
+  csrfInstance(req, res, next);
+});
 
 // Error 500 Handling
 app.use((err, req, res, next) => {

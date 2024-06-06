@@ -99,7 +99,7 @@ router.post("/subscribe", async (req, res, next)=> {
     const subDetails = req.body;
     console.log(subDetails)
     const subAmount = 500.00;
-    await db.get().collection(collection.SUBSCRIPTION_DETAILS).deleteMany({})
+    //await db.get().collection(collection.SUBSCRIPTION_DETAILS).deleteMany({})
     settings_helper.addSubscribtion(subDetails,subAmount).then((result)=>{
       // result.order.amount = result.order.amount / 100;
       console.log(result);

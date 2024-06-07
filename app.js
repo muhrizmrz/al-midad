@@ -26,7 +26,7 @@ const fileUpload = require('express-fileupload');
 const app = express();
 
 //// FOR DEVELOPMENT ////
-
+/*const isDevelopmentMode = true;
 if (process.env.IS_PRODUCTION_MODE == 'false') {
   const liveReloadServer = livereload.createServer();
   liveReloadServer.server.once("connection", () => {
@@ -37,7 +37,7 @@ if (process.env.IS_PRODUCTION_MODE == 'false') {
   app.use(connectLiveReload());
 }
 
-
+*/
 
 
 // view engine setup

@@ -6,10 +6,10 @@ const { ObjectId } = require("bson");
 const { reject, resolve } = require("promise");
 const { addCategory } = require("./category_models");
 
-var instance = new razorpay({
+/*var instance = new razorpay({
   key_id: process.env.RAZORPAY_KEY,
   key_secret: process.env.RAZORPAY_SECRET,
-});
+});*/
 
 module.exports = {
   setDefaultSettings: () => {

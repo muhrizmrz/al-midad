@@ -19,7 +19,7 @@ module.exports.connect = async function () {
         });
 
         await state.client.connect();
-        let dbName = process.env.IS_PRODUCTION_MODE == 'false' ? process.env.DEVELOP_DBNAME : process.env.PRODUCTION_DBNAME; 
+        let dbName = "test2"; 
         state.db = state.client.db(dbName); //Aksharam
 
         this.setDefaultSettings()

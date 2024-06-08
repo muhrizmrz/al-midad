@@ -94,6 +94,24 @@ router.delete("/subscriptions/clear", async (req, res, next) => {
   }
 });
 
+router.get("/search", async (req, res, next) => {
+  try {
+    
+    const searchTerm = req.query.query;
+    if (!searchTerm) {
+      return res.render("search-result", { articles: [], searchTerm: '' });
+    }
+    
+    const articles = await article_helper.searchArticles(searchTerm);
+    res.render("search-result", { results: articles, query: searchTerm });
+  } catch (error) {
+    console.error("Search failed:", error);
+    next(error);
+  }
+});
+
+
+
 router.post("/subscribe", async (req, res, next)=> {
   try {
     const subDetails = req.body;

@@ -69,7 +69,7 @@
                         class="fa-brands fa-twitter text-base bg-[#8C7791] text-white leading-none p-1 rounded"></i></a>
 
             </div>
-        </div>
+        </div> 
 
         <div id=""
             class="sidebar_icon my-auto text-left w-10 justify-self-end md:hidden block text-gray-800 text-xl font-semibold cursor-pointer">
@@ -85,7 +85,7 @@
 
 </header>
 
-<nav class="lg:hidden md:hidden sm:hidden hidden w-full fixed top-0 z-10 transition-all duration-500 ease-in-out transform"
+<nav class="lg:hidden md:hidden sm:hidden hidden w-3/4 fixed top-0 z-10 transition-all duration-500 ease-in-out transform"
     id="sidebar_menu">
     <div class="w-full h-screen grid grid-cols-3">
 
@@ -99,9 +99,7 @@
 
                 <div
                     class="sidebar_icon my-auto text-left w-10 justify-self-end md:hidden block text-gray-800 text-xl font-semibold cursor-pointer">
-                    <div>
-                        <i class="menu_button fa-solid fa-bars"></i>
-                    </div>
+                   
                     <div class="menu_close hidden transition-all duration-500 ease-in-out transform">
                         <i class="fa-solid fa-xmark"></i>
                     </div>
@@ -110,8 +108,8 @@
             </nav>
             <ul class="">
                 {{#each nav_items}}
-                <li class="py-4 text-center"><a href="/category/{{this.trimmed}}"
-                        class=" hover:text-blue-800  cursor-pointer">{{this.category_arabic}}</a></li>
+                <li class="py-4 text-center border-y"><a href="/category/{{this.trimmed}}"
+                        class=" hover:text-blue-800  cursor-pointer text-base">{{this.category_arabic}}</a></li>
                
                 {{/each}}
             </ul>

@@ -19,7 +19,7 @@ module.exports.connect = async function () {
         });
 
         await state.client.connect();
-        let dbName = "Aksharam"; //test2
+        let dbName = process.env.DBNAME; //test2
         state.db = state.client.db(dbName); //Aksharam
 
         this.setDefaultSettings()

@@ -32,6 +32,7 @@ router.get("/", async (req, res, next) => {
       .then((result) => {
         return result;
       });
+      console.log(category);
     let covers = await settings_helper.getAllCover().then((result) => {
       // if result is empty
       if (!result || !Array.isArray(result)) {
@@ -41,16 +42,28 @@ router.get("/", async (req, res, next) => {
       }
     });
     let noOfArticles = 3;
-    let category1Articles = await article_helper
-      .getArticlesByCategory(category.category1.trimmed, noOfArticles)
-      .then((result) => {
-        return result;
-      });
-    let category2Articles = await article_helper
-      .getArticlesByCategory(category.category2.trimmed, noOfArticles)
-      .then((result) => {
-        return result;
-      });
+    let category1Articles = [];
+    let category2Articles = [];
+    let category1 = "";
+    let category2 = "";
+
+    if (category.category1) {
+      category1 = category.category1.arabic;
+      category1Articles = await article_helper
+        .getArticlesByCategory(category.category1.trimmed, noOfArticles)
+        .then((result) => {
+          return result;
+        });
+    }
+
+    if (category.category2) {
+      category2 = category.category2.arabic;
+      category2Articles = await article_helper
+        .getArticlesByCategory(category.category2.trimmed, noOfArticles)
+        .then((result) => {
+          return result;
+        });
+    }
     let news = await news_helper.getRecentNews().then((result) => {
       return result;
     });
@@ -60,7 +73,8 @@ router.get("/", async (req, res, next) => {
         covers,
         category1Articles,
         category2Articles,
-        category,
+        category1,
+        category2,
         news,
       });
     });
@@ -101,7 +115,6 @@ router.get("/search", async (req, res, next) => {
     if (!searchTerm) {
       return res.render("search-result", { articles: [], searchTerm: '' });
     }
-    
     const articles = await article_helper.searchArticles(searchTerm);
     res.render("search-result", { results: articles, query: searchTerm });
   } catch (error) {

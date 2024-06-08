@@ -234,7 +234,7 @@ $(document).ready(function () {
   var senderEmail = $("#email").val();
   var subscriptionId = $("#subscription_id").val();
 
-  var options = {
+  /*var options = {
     key: "rzp_test_ir6rbJEfHASIUM", // Enter the Key ID generated from the Dashboard
     amount: amount * 100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
     currency: "INR",
@@ -282,7 +282,7 @@ $(document).ready(function () {
     } else {
       console.error("Failed to create Razorpay instance");
     }
-  });
+  });*/
 
   // $('#subscription_form').submit(function(event) {
   //     event.preventDefault(); // Prevent the default form submission

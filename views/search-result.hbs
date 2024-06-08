@@ -9,11 +9,7 @@
           
 
         <div class="grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
-            {{#if isEmpty}}
-            <p class="text-xl col-span-3 font-bold text-center mb-8">
-                لا توجد مقالات متعلقة بـ "{{query}}"
-            </p>
-            {{/if}}
+            {{#if results}}
         {{#each results}}
             <div class="grid grid-cols-1 m-3 bg-white">
                 <a href="/articles/{{this._id}}">
@@ -27,6 +23,11 @@
                 
             </div>
         {{/each}}
+        {{else}}
+        <p class="text-xl col-span-3 font-bold text-center mb-8">
+                لا توجد مقالات متعلقة بـ "{{query}}"
+            </p>
+        {{/if}}
         </div>
     </div>
 </section>

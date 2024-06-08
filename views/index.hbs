@@ -61,7 +61,8 @@
     <section class="w-full grid sm:grid-cols-2 grid-cols-1 gap-12 sm:gap-5 mt-[2.5rem]">
         <div class="p-2 pb-4 md:p-6 flex flex-col relative justify-between space-y-6 md:space-y-3 border border-[#886C8D] shadow-lg rounded-lg">
             <h1 class="absolute -top-[.8rem] bg-[#886C8D] text-white pr-2 pl-6 py-1 rounded-bl-xl">
-                {{category.category1.arabic}}</h1>
+                {{category1}}</h1>
+                {{#if category1Articles.length}}
             <div>
                 {{#each category1Articles}}
                 <a href="/articles/{{this._id}}" class="">
@@ -82,11 +83,15 @@
             <a class="self-center" href="/category/{{category.category1.trimmed}}"><button
                     class="bg-[#886C8D] p-1 px-[1.8rem] relative bottom-0 text-white rounded-xl text-center flex items-center gap-1"><i
                         class="fa-solid fa-angle-down text-md text-white"></i> المزيد</button></a>
+            {{else}}
+            <p class="text-center font-semibold text-lg">لا توجد مقالات</p>
+{{/if}}
         </div>
 
         <div class="p-2 pb-4 md:p-6 flex flex-col relative justify-between space-y-6 md:space-y-3 border border-[#886C8D] shadow-lg rounded-lg">
             <h1 class="absolute -top-[.8rem] bg-[#886C8D] text-white pr-2 pl-6 py-1 rounded-bl-xl">
-                {{category.category2.arabic}}</h1>
+                {{category2}}</h1>
+                {{#if category2Articles.length}}
             <div>
                 {{#each category2Articles}}
                 <a href="/articles/{{this._id}}" class="">
@@ -107,6 +112,9 @@
             <a class="self-center" href="/category/{{category.category2.trimmed}}"><button
                     class="bg-[#886C8D] p-1 px-[1.8rem] relative bottom-0 text-white rounded-xl text-center flex items-center gap-1"><i
                         class="fa-solid fa-angle-down text-md text-white"></i> المزيد</button></a>
+            {{else}}
+            <p class="text-center font-semibold text-lg">لا توجد مقالات</p>
+        {{/if}}
         </div>
 
     </section>

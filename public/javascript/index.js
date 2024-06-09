@@ -2,6 +2,13 @@ $(document).ready(function () {
   var heightOfNewContent = $("#news_content").height();
   $(".news_image").height(heightOfNewContent);
 
+    AOS.init({
+        duration: 1200, // Animation duration
+        easing: 'ease-in-out', // Easing function
+        once: true // Whether animation should happen only once
+    });
+
+
   const mySwiper = new Swiper(".swiper-articles", {
     // Optional parameters
     loop: true,

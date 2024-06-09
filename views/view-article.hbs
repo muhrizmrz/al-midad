@@ -5,7 +5,7 @@
 
         <!--ARTICLE Section -->
         <div class="col-span-3">
-            <div class="mb-6 px-6">
+            <div class="mb-6 px-6" data-aos="fade-in">
                 <small class="text-sm bg-gray-300 p-[1px] px-2 text-[#4484A4] rounded-md">{{article.category}}</small>
                 <h1 class="text-2xl md:text-4xl mt-2 mb-7 font-bold">{{article.topic}}</h1>
                 <div class="flex flex-col sm:flex-row justify-between pb-4 sm:items-center">
@@ -57,7 +57,7 @@
 
         <!--ARTICLE Recommends -->
 
-        <div class="col-span-2 pt-10">
+        <div class="col-span-2 pt-10" data-aos="fade-in">
             <h1 class="text-[#886C8D] text-2xl font-bold mt-2 mb-3 pb-3 border-b border-[#A0A0A0]">أحدث المنشورات</h1>
             {{#each sameTagArticles}}
             <a href="/articles/{{this._id}}" class="">

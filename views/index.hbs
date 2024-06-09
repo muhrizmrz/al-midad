@@ -6,19 +6,19 @@
             <div id="latest_articles" class="swiper swiper-articles w-full overflow-hidden">
                 <div class="swiper-wrapper pb-10">
                     {{#each recentArticles}}
-                    <a href="articles/{{this._id}}" class="swiper-slide">
+                    <a href="articles/{{this._id}}" class="swiper-slide" data-aos="fade-in">
                         <div id="article_bg"
                             class="transition-all w-full ease-in duration-5000 rounded-[1.8rem] bg-cover bg-center min-h-[300px] max-h-fit delay-150 grid grid-cols-1 overflow-hidden"
                             style="background-image: url('/static/article-images/{{this._id}}.jpg');box-shadow:rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;">
                             <div class="h-full grid grid-cols-1 place-content-center z-10 bg-black bg-opacity-40">
                                 <div class="px-12">
                                     <small
-                                        class="text-xs p-[1px] px-2 text-white bg-[#4484A4] rounded-md">{{this.category}}</small>
+                                        class="text-xs p-[1px] px-2 text-white bg-[#4484A4] rounded-md" data-aos="fade-out">{{this.category}}</small>
                                     <h2
-                                        class="text-xl md:text-2xl my-4 text-right capitalize font-bold text-white hover:text-blue-200">
+                                        class="text-xl md:text-2xl my-4 text-right capitalize font-bold text-white hover:text-blue-200" data-aos="fade-up">
                                         {{this.topic}}
                                     </h2>
-                                    <p class="pt-3 border-t border-[#615447] w-3/4"><small
+                                    <p class="pt-3 border-t border-[#615447] w-3/4" data-aos="fade-up"><small
                                             class="font-smallml-6 font-bold text-white">{{this.author}}</small>
                                     </p>
                                 </div>
@@ -29,24 +29,24 @@
 
 
                 </div>
-                <div class="swiper-pagination swiper-articles-pagination"></div>
-                <div class="hidden md:block swiper-button-prev swiper-articles-button-prev"></div>
-                <div class="hidden md:block swiper-button-next swiper-articles-button-next"></div>
+                <div class="swiper-pagination swiper-articles-pagination" data-aos="fade-up"></div>
+                <div class="hidden md:block swiper-button-prev swiper-articles-button-prev" data-aos="fade-right"></div>
+                <div class="hidden md:block swiper-button-next swiper-articles-button-next" data-aos="fade-left"></div>
             </div>
         </div>
 
         <div class="w-full py-7 sm:py-10 lg:py-3 mt-10 sm:mt-0
-         lg:w-[27%] h-3/3 mb-10 relative hidden sm:flex sm:flex-row lg:flex-col    bg-[#856969] rounded-3xl">
+         lg:w-[27%] h-3/3 mb-10 relative hidden sm:flex sm:flex-row lg:flex-col    bg-[#856969] rounded-3xl" data-aos="fade-left">
             <img src="/static/cover-images/{{covers.[0]._id}}.jpg" id="cover"
-                class="w-1/2 sm:w-1/5 lg:w-1/2 -rotate-6 -mt-[28%] hover:scale-110 sm:mt-0 lg:-mt-[28%] sm:mr-24 lg:mr-auto max-[500px]:mt-0 mb-5 shadow-2xl mx-auto  transition-all duration-500 ease-in-out transform" />
+                class="w-1/2 sm:w-1/5 lg:w-1/2 -rotate-6 -mt-[28%] hover:scale-110 sm:mt-0 lg:-mt-[28%] sm:mr-24 lg:mr-auto max-[500px]:mt-0 mb-5 shadow-2xl mx-auto  transition-all duration-500 ease-in-out transform" data-aos="fade-right" />
             <div id="hadith"
-                class="w-full px-3 lg:grid flex flex-col justify-center items-center sm:gap-5 lg:gap-0 text-white text-center">
+                class="w-full px-3 lg:grid flex flex-col justify-center items-center sm:gap-5 lg:gap-0 text-white text-center" data-aos="fade-up">
                 <p id="hadith_p"
                     class="w-fit text-base sm:text-xl mx-auto pb-2 border-b border-white leading-none tracking-wide text-center">
                     طبعة جديدة
                 </p>
                 <h2 id="hadith_h2"
-                    class="text-xl sm:text-[22px] xl:text-[26px] px-4 sm:px-2 xl:px-8 tracking-[0.09em] mt-[1rem] font-extrabold text-center">
+                    class="text-xl sm:text-[22px] xl:text-[26px] px-4 sm:px-2 xl:px-8 tracking-[0.09em] mt-[1rem] font-extrabold text-center" data-aos="fade-up">
                      {{covers.[0].content}}
                     </h2>
 
@@ -58,22 +58,22 @@
         </div>
     </section>
 
-    <section class="w-full grid sm:grid-cols-2 grid-cols-1 gap-12 sm:gap-5 mt-[2.5rem]">
-        <div class="p-2 pb-4 md:p-6 flex flex-col relative justify-between space-y-6 md:space-y-3 border border-[#886C8D] shadow-lg rounded-lg">
+    <section class="w-full grid sm:grid-cols-2 grid-cols-1 gap-12 sm:gap-5 mt-[2.5rem]" data-aos="fade-up">
+        <div class="p-2 pb-4 md:p-6 flex flex-col relative justify-between space-y-6 md:space-y-3 border border-[#886C8D] shadow-lg rounded-lg" data-aos="fade-up">
             <h1 class="absolute -top-[.8rem] bg-[#886C8D] text-white pr-2 pl-6 py-1 rounded-bl-xl">
                 {{category1}}</h1>
                 {{#if category1Articles.length}}
             <div>
                 {{#each category1Articles}}
-                <a href="/articles/{{this._id}}" class="">
+                <a href="/articles/{{this._id}}" data-aos="fade-up" class="">
                     <div class="grid grid-cols-3 pb-3 md:p-3 lg:grid-cols-12 gap-5 py-1 border-b md:border border-[#ECECEC] shadow-none md:shadow  rounded-md mb-3">
                         <div class="col-span-1 lg:col-span-5">
                            <img src="/static/article-images/{{this._id}}.jpg" alt=""
-                            class="w-full object-cover h-20 lg:h-32"> 
+                            class="w-full object-cover h-20 lg:h-32" data-aos="fade-in"> 
                         </div>
                         
-                        <div class="col-span-2 lg:col-span-7">
-                            <h1 class="text-lg md:text-2xl text-[#5A4949]">{{this.topic}}</h1>
+                        <div class="col-span-2 lg:col-span-7" data-aos="fade-up">
+                            <h1 class="text-lg md:text-2xl text-[#5A4949]" >{{this.topic}}</h1>
                             <small class="text-[#19476E]">{{this.author}}</small>
                         </div>
                     </div>
@@ -81,28 +81,28 @@
                 {{/each}}
             </div>
             <a class="self-center" href="/category/{{category.category1.trimmed}}"><button
-                    class="bg-[#886C8D] p-1 px-[1.8rem] relative bottom-0 text-white rounded-xl text-center flex items-center gap-1"><i
+                    class="bg-[#886C8D] p-1 px-[1.8rem] relative bottom-0 text-white rounded-xl text-center flex items-center gap-1" data-aos="fade-in"><i
                         class="fa-solid fa-angle-down text-md text-white"></i> المزيد</button></a>
             {{else}}
-            <p class="text-center font-semibold text-lg">لا توجد مقالات</p>
-{{/if}}
+            <p class="text-center font-semibold text-lg" data-aos="fade-up">لا توجد مقالات</p>
+            {{/if}}
         </div>
 
-        <div class="p-2 pb-4 md:p-6 flex flex-col relative justify-between space-y-6 md:space-y-3 border border-[#886C8D] shadow-lg rounded-lg">
+        <div class="p-2 pb-4 md:p-6 flex flex-col relative justify-between space-y-6 md:space-y-3 border border-[#886C8D] shadow-lg rounded-lg" data-aos="fade-up">
             <h1 class="absolute -top-[.8rem] bg-[#886C8D] text-white pr-2 pl-6 py-1 rounded-bl-xl">
                 {{category2}}</h1>
                 {{#if category2Articles.length}}
             <div>
                 {{#each category2Articles}}
-                <a href="/articles/{{this._id}}" class="">
+                <a href="/articles/{{this._id}}"  data-aos="fade-up" class="">
                     <div class="grid grid-cols-3 pb-3 md:p-3 lg:grid-cols-12 gap-5 py-1 border-b md:border border-[#ECECEC] shadow-none md:shadow  rounded-md mb-3">
                         <div class="col-span-1 lg:col-span-5">
                            <img src="/static/article-images/{{this._id}}.jpg" alt=""
-                            class="w-full object-cover h-20 lg:h-32"> 
+                            class="w-full object-cover h-20 lg:h-32" data-aos="fade-in"> 
                         </div>
                         
-                        <div class="col-span-2 lg:col-span-7">
-                            <h1 class="text-lg md:text-2xl text-[#5A4949]">{{this.topic}}</h1>
+                        <div class="col-span-2 lg:col-span-7" data-aos="fade-up">
+                            <h1 class="text-lg md:text-2xl text-[#5A4949]" >{{this.topic}}</h1>
                             <small class="text-[#19476E]">{{this.author}}</small>
                         </div>
                     </div>
@@ -110,54 +110,54 @@
                 {{/each}}
             </div>
             <a class="self-center" href="/category/{{category.category2.trimmed}}"><button
-                    class="bg-[#886C8D] p-1 px-[1.8rem] relative bottom-0 text-white rounded-xl text-center flex items-center gap-1"><i
+                    class="bg-[#886C8D] p-1 px-[1.8rem] relative bottom-0 text-white rounded-xl text-center flex items-center gap-1" data-aos="fade-in"><i
                         class="fa-solid fa-angle-down text-md text-white"></i> المزيد</button></a>
             {{else}}
-            <p class="text-center font-semibold text-lg">لا توجد مقالات</p>
-        {{/if}}
+            <p class="text-center font-semibold text-lg" data-aos="fade-up">لا توجد مقالات</p>
+            {{/if}}
         </div>
 
     </section>
 
 
-    <section class="px-8 pt-5 relative h-auto bg-[#D5D4D4] mt-16">
+    <section class="px-8 relative h-auto bg-[#D5D4D4] mt-16" data-aos="fade-up">
         <h1
-            class="text-base mx-auto absolute top-0 left-1/2 -translate-y-1/2 -translate-x-1/2 text-white w-3/4 text-center sm:w-fit px-5 md:px-12 py-1 rounded-full bg-[#896D8E]">
+            class="text-base mx-auto absolute top-0 left-1/2 -translate-y-1/2 -translate-x-1/2 text-white w-3/4 text-center sm:w-fit px-5 md:px-12 py-1 rounded-full bg-[#896D8E]" >
             الطبعات الأخيرة</h1>
-        <div class="swiper swiper-cover h-full">
+        <div class="swiper swiper-cover h-full pt-5" data-aos="fade-up">
             <div class="swiper-wrapper py-8">
-                <div class="swiper-slide">
+                <div class="swiper-slide" data-aos="fade-up">
                     <img class="cover w-full h-full scale-[1.6]" src="/static/images/midad_covers/1.png" alt="">
                 </div>
-                <div class="swiper-slide">
+                <div class="swiper-slide" data-aos="fade-up">
                     <img class="cover w-full h-full scale-[1.6]" src="/static/images/midad_covers/2.png" alt="">
                 </div>
-                <div class="swiper-slide">
+                <div class="swiper-slide" data-aos="fade-up">
                     <img class="cover w-full h-full scale-[1.6]" src="/static/images/midad_covers/3.png" alt="">
                 </div>
-                <div class="swiper-slide">
+                <div class="swiper-slide" data-aos="fade-up">
                     <img class="cover w-full h-full scale-[1.6]" src="/static/images/midad_covers/4.png" alt="">
                 </div>
-                <div class="swiper-slide">
+                <div class="swiper-slide" data-aos="fade-up">
                     <img class="cover w-full h-full scale-[1.6]" src="/static/images/midad_covers/5.png" alt="">
                 </div>
-                <div class="swiper-slide">
+                <div class="swiper-slide" data-aos="fade-up">
                     <img class="cover w-full h-full scale-[1.6]" src="/static/images/midad_covers/6.png" alt="">
                 </div>
-                <div class="swiper-slide">
+                <div class="swiper-slide" data-aos="fade-up">
                     <img class="cover w-full h-full scale-[1.6]" src="/static/images/midad_covers/7.png" alt="">
                 </div>
-                <div class="swiper-slide">
+                <div class="swiper-slide" data-aos="fade-up">
                     <img class="cover w-full h-full scale-[1.6]" src="/static/images/midad_covers/8.png" alt="">
                 </div>
-                 <div class="swiper-slide">
+                 <div class="swiper-slide" data-aos="fade-up">
                     <img class="w-[53%] -rotate-6 shadow-2xl mx-auto  transition-all duration-500 ease-in-out transform" src="/static/images/midad_covers/9.jpg" alt="">
                 </div>
-                 <div class="swiper-slide">
+                 <div class="swiper-slide" data-aos="fade-up">
                     <img class="w-[53%] -rotate-6 shadow-2xl mx-auto  transition-all duration-500 ease-in-out transform" src="/static/images/midad_covers/10.jpg" alt="">
                 </div>
                 <!--{{#each covers}}
-                <div class="swiper-slide">
+                <div class="swiper-slide" data-aos="fade-up">
                     <img src="/static/cover-images/{{this._id}}.jpg"
                 class="w-[53%] -rotate-6 shadow-2xl mx-auto  transition-all duration-500 ease-in-out transform" />
                 </div>
@@ -167,27 +167,27 @@
         </div>
     </section>
 
-    <section class="md:px-0 lg:px-8 flex border-y flex-col md:flex-row gap-8 lg:gap-16 mt-[3rem] py-8">
-        <section id="" class="hidden md:block swiper swiper-news w-full md:w-1/2">
+    <section class="md:px-0 lg:px-8 flex border-y flex-col md:flex-row gap-8 lg:gap-16 mt-[3rem] py-8" data-aos="fade-up">
+        <section id="" class="hidden md:block swiper swiper-news w-full md:w-1/2" data-aos="fade-up">
             <div class="swiper-wrapper">
                 {{#each news}}
-                <div class="news_image h-full swiper-slide shadow-inner">
+                <div class="news_image h-full swiper-slide shadow-inner" data-aos="fade-up">
                     <img class="w-full object-cover h-full"  src="/static/news-images/{{this._id}}.jpg" alt="">
                 </div>
                 {{/each}}
             </div>
-            <div class="swiper-button-prev swiper-news-button-prev"></div>
-            <div class="swiper-button-next swiper-news-button-next"></div>
+            <div class="swiper-button-prev swiper-news-button-prev" data-aos="fade-out"></div>
+            <div class="swiper-button-next swiper-news-button-next" data-aos="fade-out"></div>
         </section>
 
-        <div class="md:w-full lg:w-3/5">
-            <div id="news_content" class="lg:w-3/4 md:w-full">
-                <h3 class="text-white mb-6 rounded-bl-xl w-fit py-1 pr-2 pl-12 bg-[#896D8E]">أخبار</h3>
+        <div class="md:w-full lg:w-3/5" data-aos="fade-up">
+            <div id="news_content" class="lg:w-3/4 md:w-full" data-aos="fade-up">
+                <h3 class="text-white mb-6 rounded-bl-xl w-fit py-1 pr-2 pl-12 bg-[#896D8E]" data-aos="fade-up">أخبار</h3>
                 <div class="space-y-4">
                     {{#each news}}
 
                     <h1
-                        class="text-xl text-[#655252] even:border even:border-x-0 even:border-1 even:border-gray-700 even:py-4 last:pb-7">
+                        class="text-xl text-[#655252] even:border even:border-x-0 even:border-1 even:border-gray-700 even:py-4 last:pb-7" data-aos="fade-up">
                         <a href="/news/{{this._id}}">
                             {{this.title}}
                         </a>
@@ -202,7 +202,7 @@
 
 
     <div class="w-full h-screen backdrop-filter backdrop-blur-2xl hidden fixed top-0 z-50 transition-all duration-1000 ease-linear"
-        id="launch_page">
+        id="launch_page" data-aos="fade-up">
         <div class="w-3/4 h-5/6 mx-auto mt-16 bg rounded-3xl overflow-hidden shadow-xl bg-cover bg-center bg-opacity-50"
             style="background-image: url('/static/images/background_1.jpg')">
             <div class="bg-black bg-opacity-70 h-full p-4">

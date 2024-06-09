@@ -93,7 +93,11 @@ router.get('/subscriptions', async (req, res, next) => {
 
 router.get("/subscribe", async (req, res, next) => {
   try {
-    res.render("subscribe", { csrfToken: req.csrfToken() });
+    let amount = 500.00;
+      let fee = 12.00;
+      let total = amount + fee;
+      // res.render('payment',{orderDetails: result.order, subDetails: subDetails, subscription_id: result.subscription_id});
+      res.render('payment',{amount,fee,total});
   } catch (error) {
     next(error);
   }
@@ -134,8 +138,11 @@ router.post("/subscribe", async (req, res, next)=> {
     settings_helper.addSubscribtion(subDetails,subAmount).then((result)=>{
       // result.order.amount = result.order.amount / 100;
       console.log(result);
+      let amount = 500.00;
+      let fee = 12.00;
+      let total = amount + fee;
       // res.render('payment',{orderDetails: result.order, subDetails: subDetails, subscription_id: result.subscription_id});
-      res.render('payment',{subDetails: subDetails});
+      res.render('payment',{subDetails: subDetails,amount,fee,total});
     })
   } catch (error) {
     next(error)

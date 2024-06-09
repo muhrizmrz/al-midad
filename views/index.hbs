@@ -3,10 +3,10 @@
 <main class="w-[98%] sm:w-[90%] mx-auto max-w-7xl p-4 mt-7 sm:mt-0 lg:mt-7  mb-3">
     <section class="w-full flex flex-col-reverse lg:flex-row gap-3 pb-5">
         <div class="w-full lg:w-[73%]">
-            <div id="latest_articles" class="swiper swiper-articles w-full overflow-hidden">
+            <div id="latest_articles" class="swiper swiper-articles w-full overflow-hidden" data-aos="fade-right">
                 <div class="swiper-wrapper pb-10">
                     {{#each recentArticles}}
-                    <a href="articles/{{this._id}}" class="swiper-slide" data-aos="fade-in">
+                    <a href="articles/{{this._id}}" class="swiper-slide">
                         <div id="article_bg"
                             class="transition-all w-full ease-in duration-5000 rounded-[1.8rem] bg-cover bg-center min-h-[300px] max-h-fit delay-150 grid grid-cols-1 overflow-hidden"
                             style="background-image: url('/static/article-images/{{this._id}}.jpg');box-shadow:rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;">
@@ -38,7 +38,7 @@
         <div class="w-full py-7 sm:py-10 lg:py-3 mt-10 sm:mt-0
          lg:w-[27%] h-3/3 mb-10 relative hidden sm:flex sm:flex-row lg:flex-col bg-[#856969] rounded-3xl" data-aos="fade-left">
             <img src="/static/cover-images/{{covers.[0]._id}}.jpg" id="cover"
-                class="w-1/2 sm:w-1/5 lg:w-1/2 -rotate-6 -mt-[28%] hover:scale-110 sm:mt-0 lg:-mt-[28%] sm:mr-24 lg:mr-auto max-[500px]:mt-0 mb-5 shadow-2xl mx-auto  transition-all duration-500 ease-in-out transform" data-aos="fade-right" />
+                class="w-1/2 sm:w-1/5 lg:w-1/2 -rotate-6 -mt-[28%] hover:scale-110 sm:mt-0 lg:-mt-[28%] sm:mr-24 lg:mr-auto max-[500px]:mt-0 mb-5 shadow-2xl mx-auto  transition-all duration-500 ease-in-out transform"/>
             <div id="hadith"
                 class="w-full px-3 lg:grid flex flex-col justify-center items-center sm:gap-5 lg:gap-0 text-white text-center" data-aos="fade-up">
                 <p id="hadith_p"

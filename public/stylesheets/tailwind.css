@@ -511,6 +511,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 .z-20 {
   z-index: 20;
 }
+.order-last {
+  order: 9999;
+}
+.order-first {
+  order: -9999;
+}
 .col-span-1 {
   grid-column: span 1 / span 1;
 }
@@ -607,9 +613,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mr-4 {
   margin-right: 1rem;
 }
-.mt-6 {
-  margin-top: 1.5rem;
-}
 .-mt-8 {
   margin-top: -2rem;
 }
@@ -627,6 +630,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .mb-8 {
   margin-bottom: 2rem;
+}
+.mt-6 {
+  margin-top: 1.5rem;
 }
 .mb-12 {
   margin-bottom: 3rem;
@@ -857,11 +863,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .max-w-3xl {
   max-width: 48rem;
 }
-.max-w-\[870px\] {
-  max-width: 870px;
+.max-w-\[1500px\] {
+  max-width: 1500px;
 }
-.max-w-\[670px\] {
-  max-width: 670px;
+.max-w-6xl {
+  max-width: 72rem;
 }
 .flex-1 {
   flex: 1 1 0%;
@@ -2105,6 +2111,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 @media (min-width: 768px) {
 
+  .md\:order-none {
+    order: 0;
+  }
+
   .md\:mb-0 {
     margin-bottom: 0px;
   }
@@ -2179,6 +2189,10 @@ Ensure the default browser behavior of the `hidden` attribute.
     width: 15rem;
   }
 
+  .md\:w-4\/5 {
+    width: 80%;
+  }
+
   .md\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -2237,6 +2251,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .md\:p-3 {
     padding: 0.75rem;
+  }
+
+  .md\:p-8 {
+    padding: 2rem;
   }
 
   .md\:px-12 {
@@ -2443,14 +2461,14 @@ Ensure the default browser behavior of the `hidden` attribute.
     padding-right: 8rem;
   }
 
-  .lg\:py-0 {
-    padding-top: 0px;
-    padding-bottom: 0px;
-  }
-
   .lg\:px-12 {
     padding-left: 3rem;
     padding-right: 3rem;
+  }
+
+  .lg\:py-0 {
+    padding-top: 0px;
+    padding-bottom: 0px;
   }
 
   .lg\:text-7xl {

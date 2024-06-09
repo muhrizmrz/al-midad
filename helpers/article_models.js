@@ -11,7 +11,8 @@ module.exports = {
   getAllArticles: () => {
     return new Promise(async (resolve, reject) => {
       try {
-        let articles = await db
+        let articles = [];
+        articles = await db
           .get()
           .collection(collection.ARTICLE_COLLECTION)
           .aggregate([

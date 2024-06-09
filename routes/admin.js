@@ -95,6 +95,7 @@ router.get("/subscriptions", authorizeAdmin, async (req, res, next) => {
 // GET Article page
 router.get("/article", authorizeAdmin, async (req, res, next) => {
   try {
+
     let articles = await db
       .get()
       .collection(collection.ARTICLE_COLLECTION)
@@ -102,6 +103,13 @@ router.get("/article", authorizeAdmin, async (req, res, next) => {
       .sort({ date: -1 })
       .toArray();
     let categories = await category_models.getCategories();
+    if (!articles) {
+      articles = [];
+    }
+
+    if (!categories) {
+      categories = [];
+    }
     res.render("admin/articles", { articles, categories });
   } catch (error) {
     next(error);

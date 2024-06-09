@@ -8,22 +8,29 @@
       class="bg-black bg-opacity-70 grid place-items-center text-white py-6"
       style="min-height: 600px;max-height: auto;"
     >
-      <div class="container mx-auto text-center p-3">
+      <div class="container mx-auto text-center p-6 w-full max-w-7xl">
         <a href="/"><img
           src="/static/images/Midad_typeface_white_2.png"
           alt="Al Midad Logo"
           class="mx-auto mb-4 w-64"
         /></a>
         <h1 class="text-2xl">AL MIDAD ARABIC BIMONTHLY</h1>
-        <p class="text-3xl font-bold">PORTAL</p>
+        <p class="text-3xl font-bold">SUBSCRIPTION PORTAL</p>
       </div>
     </div>
   </section>
 
   <!-- About Section -->
   <section class="bg-white py-12 px-12">
-    <div class="container grid md:grid-cols-2 gap-4 mx-auto place-items-center">
-      <p class="text-base max-w-4xl mx-auto" dir="ltr">
+    <div class="container grid md:grid-cols-2 gap-4 mx-auto w-full max-w-7xl place-items-center" dir="ltr">
+      <div class="flex items-center mb-8">
+        <img
+          src="/static/images/covers.png"
+          alt="Al Midad Magazine 1"
+          class="w-3/4 mx-auto"
+        />
+      </div>
+      <p class="text-base max-w-4xl mx-auto w-full md:w-4/5 text-justify" dir="ltr">
         Al-Midad magazine is a bright idea of enthusiasts from Darul Hasanath
         Islamic College, aiming to spread and flourish the Arabic language and
         its literature among students. It has published eleven issues throughout
@@ -35,25 +42,18 @@
         viable future. We ask God Almighty for success and mercy in what He
         loves and is pleased with.
       </p>
-      <div class="flex items-center mb-8">
-        <img
-          src="/static/images/covers.png"
-          alt="Al Midad Magazine 1"
-          class="w-3/4 mx-auto"
-        />
-      </div>
     </div>
   </section>
 
   <!-- Subscription Form Section -->
   <section class="bg-[#577D8A] py-12" dir="ltr">
-    <div class="container mx-auto p-8">
+    <div class="container mx-auto p-6 md:p-8">
       <h2 class="text-3xl font-bold text-white text-center mb-2">SUBSCRIPTION FORM</h2>
       <p class="text-center text-gray-200 mb-8 font-extralight text-sm">Required fields are indicated *</p>
       <form
         method="post"
         action="/subscribe"
-        class="max-w-3xl mx-auto bg-white p-8 shadow-md rounded-3xl"
+        class="max-w-3xl mx-auto bg-white p-4 py-8 md:p-8 shadow-md rounded-3xl"
         dir="ltr"
 
       >
@@ -143,19 +143,6 @@
         <div class="flex flex-wrap -mx-3 mb-4">
           <div class="w-full md:w-1/2 px-3 mb-4 md:mb-0">
             <label
-              for="state"
-              class="block text-gray-700 mb-2"
-            >State*</label>
-            <input
-              type="text"
-              id="state"
-              name="state"
-              class="w-full p-2 border border-gray-300 rounded-xl"
-              required
-            />
-          </div>
-          <div class="w-full md:w-1/2 px-3">
-            <label
               for="district"
               class="block text-gray-700 mb-2"
             >District*</label>
@@ -163,6 +150,19 @@
               type="text"
               id="district"
               name="district"
+              class="w-full p-2 border border-gray-300 rounded-xl"
+              required
+            />
+          </div>
+          <div class="w-full md:w-1/2 px-3">
+            <label
+              for="state"
+              class="block text-gray-700 mb-2"
+            >State*</label>
+            <input
+              type="text"
+              id="state"
+              name="state"
               class="w-full p-2 border border-gray-300 rounded-xl"
               required
             />

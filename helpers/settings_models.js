@@ -263,6 +263,7 @@ module.exports = {
           .get()
           .collection(collection.SUBSCRIPTION_DETAILS)
           .find()
+          .sort({ _id: -1 })
           .toArray();
         resolve(subscriptions);
       } catch (error) {

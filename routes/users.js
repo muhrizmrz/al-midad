@@ -138,7 +138,7 @@ router.post("/subscribe", async (req, res, next)=> {
       let fee = 12.00;
       let total = amount + fee;
       // res.render('payment',{orderDetails: result.order, subDetails: subDetails, subscription_id: result.subscription_id});
-      res.render('payment',{subDetails: subDetails,amount,fee,total});
+      res.render('payment',{subDetails: subDetails,amount,fee,total,title: "Al Midad Subscription Portal", ogTitle: "Al Midad Subscription Portal"});
     })
   } catch (error) {
     next(error)

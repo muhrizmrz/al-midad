@@ -6,10 +6,10 @@ const { ObjectId } = require("bson");
 const { reject, resolve } = require("promise");
 const { addCategory } = require("./category_models");
 
-/*var instance = new razorpay({
-  key_id: process.env.RAZORPAY_KEY,
-  key_secret: process.env.RAZORPAY_SECRET,
-});*/
+// var instance = new razorpay({
+//   key_id: process.env.RAZORPAY_KEY,
+//   key_secret: process.env.RAZORPAY_SECRET,
+// });
 
 module.exports = {
   setDefaultSettings: () => {
@@ -179,30 +179,53 @@ module.exports = {
     amount
   ) => {
     return new Promise(async (resolve, reject) => {
-      db.get()
-        .collection(collection.SUBSCRIPTION_DETAILS)
-        .insertOne({
-          name,
-          email,
-          house,
-          contact,
-          whatsapp,
-          place,
-          state,
-          district,
-          pin,
-          post,
-          payment_status: "pending",
-          // '06/202024' is the result of this code. I want in the format of '06/2024'.
-          date: new Date().toLocaleDateString("en-GB", {
-            month: "2-digit",
-            year: "numeric",
-          }),
-        })
-        .then(async (result) => {
-          resolve(result)
-          // });
-        });
+      try {
+        db.get()
+          .collection(collection.SUBSCRIPTION_DETAILS)
+          .insertOne({
+            name,
+            email,
+            house,
+            contact,
+            whatsapp,
+            place,
+            state,
+            district,
+            pin,
+            post,
+            payment_status: "pending",
+            // '06/202024' is the result of this code. I want in the format of '06/2024'.
+            date: new Date().toLocaleDateString("en-GB", {
+              month: "2-digit",
+              year: "numeric",
+            }),
+          })
+          .then(async (result) => {
+              // var razorOrder = {
+              //   amount: amount * 100,
+              //   currency: "INR",
+              //   payment_capture: 1,
+              //   transfers: [
+              //     {
+              //       account: "acc_OHlu2vV0JHgsUy",
+              //       amount: amount * 100,
+              //       currency: "INR",
+              //       notes: {
+              //         branch: "Farooque Hudawi's Account",
+              //         name: "Al Midad",
+              //       },
+              //       on_hold: 0,
+              //     },
+              //   ],
+              // };
+              
+            resolve(result);
+            // });
+          });
+      } catch (err) {
+        console.log(err);
+        reject(err);
+      }
     });
   },
   updatePaymentStatus: (subscribtion_id) => {

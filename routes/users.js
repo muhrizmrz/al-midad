@@ -231,7 +231,8 @@ router.get("/articles/:id", async (req, res, next) => {
       sameTagArticles: updatedSameTagArticles,
       currentArticle: req.params.id,
       ogTitle: articleToBeView.topic,
-      ogImage: `/static/article-images/${articleToBeView._id}.jpg`,
+      ogImage: `https://almidad.darulhasanath.com/static/article-images/${articleToBeView._id}.jpg`,
+      ogUrl: `https://almidad.darulhasanath.com/articles/${articleToBeView._id}`
     });
   } catch (error) {
     next(error);

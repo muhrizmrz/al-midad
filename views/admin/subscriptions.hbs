@@ -1,8 +1,8 @@
 {{>admin_header}}
 
-<div class="container mx-auto mt-8" dir="ltr">
+<div class="w-full sm:w-[95%] max-w-max min-h-screen mx-auto mt-8" dir="ltr">
   <div class="flex flex-col px-4 pt-1 pb-12">
-      <form action="/admin/subscriptions/clear" method="POST" class="sm:px-6 lg:px-8">
+      <form action="/admin/subscriptions/clear" method="POST" class="md:px-6 lg:px-8">
         <input type="hidden" name="_csrf" value="{{csrfToken}}">
         <button type="submit" class="bg-red-500 hover:bg-red-700 w-fit mx-auto text-white font-bold py-2 px-4 rounded-md mb-2">
           Reset data
@@ -10,7 +10,7 @@
       </form>
       <div class="py-10 px-0 sm:px-2 align-middle inline-block min-w-full lg:px-8">
         <div class="shadow border-b border-gray-200 sm:rounded-lg" >
-          <div class="overflow-x-scroll overflow-y-hidden xl:overflow-x-auto">
+          <div class="overflow-x-auto overflow-y-hidden xl:overflow-x-auto">
             <table class="w-full divide-y divide-gray-200" style="overflow-x:scroll;">
               <thead class="bg-gray-50">
                 <tr>

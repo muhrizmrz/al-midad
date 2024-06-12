@@ -842,6 +842,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .max-w-3xl {
   max-width: 48rem;
 }
+.max-w-max {
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
+}
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -2013,6 +2018,18 @@ Ensure the default browser behavior of the `hidden` attribute.
     width: fit-content;
   }
 
+  .sm\:w-4\/5 {
+    width: 80%;
+  }
+
+  .sm\:w-11\/12 {
+    width: 91.666667%;
+  }
+
+  .sm\:w-\[95\%\] {
+    width: 95%;
+  }
+
   .sm\:max-w-md {
     max-width: 28rem;
   }
@@ -2062,6 +2079,10 @@ Ensure the default browser behavior of the `hidden` attribute.
     padding: 1rem;
   }
 
+  .sm\:p-24 {
+    padding: 6rem;
+  }
+
   .sm\:py-10 {
     padding-top: 2.5rem;
     padding-bottom: 2.5rem;
@@ -2075,6 +2096,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   .sm\:px-6 {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+  }
+
+  .sm\:px-24 {
+    padding-left: 6rem;
+    padding-right: 6rem;
   }
 
   .sm\:text-xl {
@@ -2262,6 +2288,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   .md\:px-10 {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
+  }
+
+  .md\:px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 
   .md\:pt-0 {

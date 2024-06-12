@@ -32,7 +32,6 @@ router.get("/", async (req, res, next) => {
       .then((result) => {
         return result;
       });
-      console.log(category);
     let covers = await settings_helper.getAllCover().then((result) => {
       // if result is empty
       if (!result || !Array.isArray(result)) {
@@ -98,15 +97,7 @@ router.get("/subscribe", async (req, res, next) => {
     next(error);
   }
 });
-router.delete("/subscriptions/clear", async (req, res, next) => {
-  try {
-    await db.get().collection('subscription').deleteMany({});
-    res.status(200).send("All subscriptions have been deleted successfully.");
-  } catch (error) {
-    console.error("Failed to delete subscriptions:", error);
-    next(error);
-  }
-});
+
 
 router.get("/search", async (req, res, next) => {
   try {
@@ -128,12 +119,10 @@ router.get("/search", async (req, res, next) => {
 router.post("/subscribe", async (req, res, next)=> {
   try {
     const subDetails = req.body;
-    console.log(subDetails)
     const subAmount = 500.00;
     //await db.get().collection(collection.SUBSCRIPTION_DETAILS).deleteMany({})
     settings_helper.addSubscribtion(subDetails,subAmount).then((result)=>{
       // result.order.amount = result.order.amount / 100;
-      console.log(result);
       let amount = 500.00;
       let fee = 12.00;
       let total = amount + fee;

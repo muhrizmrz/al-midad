@@ -85,9 +85,18 @@ router.get("/subscriptions", authorizeAdmin, async (req, res, next) => {
       .then((result) => {
         return result;
       });
-    console.log(subscriptions);
-    res.render("admin/subscriptions", { subscriptions });
+    res.render("admin/subscriptions", { subscriptions,csrfToken: req.csrfToken() });
   } catch (error) {
+    next(error);
+  }
+});
+
+router.post("/subscriptions/clear", authorizeAdmin, async (req, res, next) => {
+  try {
+    await db.get().collection(collection.SUBSCRIPTION_DETAILS).deleteMany({});
+    res.redirect("/admin/subscriptions");
+  } catch (error) {
+    console.error("Failed to delete subscriptions:", error);
     next(error);
   }
 });
@@ -333,7 +342,6 @@ router.post("/article/add-article", authorizeAdmin, (req, res, next) => {
           "public/article-images/" + result.insertedId.toString() + ".jpg",
           (err, done) => {
             if (!err) {
-              console.log(result);
             } else {
               console.log(err);
             }

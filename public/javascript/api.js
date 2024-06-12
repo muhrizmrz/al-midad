@@ -188,7 +188,6 @@ $(document).ready(function () {
                     showSuccessMsg('Uploaded Successfully')
                 } else {
                     showErrorMsg();
-                    console.log(response.msg);
                 }
             },
             error: function (error) {

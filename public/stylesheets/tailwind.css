@@ -812,6 +812,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 .min-w-full {
   min-width: 100%;
 }
+.min-w-\[4rem\] {
+  min-width: 4rem;
+}
+.min-w-\[24rem\] {
+  min-width: 24rem;
+}
 .max-w-7xl {
   max-width: 80rem;
 }
@@ -988,6 +994,15 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .overflow-hidden {
   overflow: hidden;
+}
+.overflow-x-auto {
+  overflow-x: auto;
+}
+.overflow-y-hidden {
+  overflow-y: hidden;
+}
+.overflow-x-scroll {
+  overflow-x: scroll;
 }
 .whitespace-normal {
   white-space: normal;
@@ -1365,6 +1380,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .py-2\.5 {
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
+}
+.px-0 {
+  padding-left: 0px;
+  padding-right: 0px;
 }
 .pb-1 {
   padding-bottom: 0.25rem;
@@ -1769,6 +1788,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-bg-opacity: 1;
   background-color: rgb(29 78 216 / var(--tw-bg-opacity));
 }
+.hover\:bg-red-700:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(185 28 28 / var(--tw-bg-opacity));
+}
 .hover\:bg-red-600:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(220 38 38 / var(--tw-bg-opacity));
@@ -2035,6 +2058,10 @@ Ensure the default browser behavior of the `hidden` attribute.
     padding: 2rem;
   }
 
+  .sm\:p-4 {
+    padding: 1rem;
+  }
+
   .sm\:py-10 {
     padding-top: 2.5rem;
     padding-bottom: 2.5rem;
@@ -2142,6 +2169,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .md\:w-60 {
     width: 15rem;
+  }
+
+  .md\:min-w-\[16rem\] {
+    min-width: 16rem;
   }
 
   .md\:grid-cols-3 {
@@ -2428,6 +2459,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
 }
 @media (min-width: 1280px) {
+
+  .xl\:overflow-x-auto {
+    overflow-x: auto;
+  }
 
   .xl\:p-0 {
     padding: 0px;

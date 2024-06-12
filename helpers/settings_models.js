@@ -230,7 +230,6 @@ module.exports = {
   },
   updatePaymentStatus: (subscribtion_id) => {
     return new Promise(async (resolve, reject) => {
-      console.log(subscribtion_id);
       let subscription = db
         .get()
         .collection(collection.SUBSCRIPTION_DETAILS)
@@ -244,7 +243,6 @@ module.exports = {
           )
           .then((result) => {
             if (result.modifiedCount === 1) {
-              console.log("Payment status updated successfully.");
               resolve({
                 status: true,
                 message: "Payment status updated successfully.",

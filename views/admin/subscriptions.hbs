@@ -36,6 +36,8 @@
               </thead>
               <tbody class="bg-white divide-y divide-gray-200">
                 <!-- Dummy data -->
+                
+                {{#if subscriptions.length}}
                 {{#each subscriptions}}
                 <tr>
                   <td class="px-3 py-4 whitespace-nowrap">
@@ -58,7 +60,11 @@
                   </td>
                 </tr>
                 {{/each}}
-                
+                {{else}}
+                  <tr>
+                    <td colspan="6" class="px-3 py-4 text-center text-gray-500">Subscriptions is empty</td>
+                  </tr>
+                {{/if}}
                 <!-- More rows can be added similarly -->
               </tbody>
             </table>

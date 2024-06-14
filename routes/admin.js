@@ -71,7 +71,7 @@ router.get("/logout", (req, res, next) => {
 /* GET home page. */
 router.get("/", authorizeAdmin, async (req, res, next) => {
   try {
-    res.render("admin/home");
+    res.render("admin/home",{title: "Al Midad - Admin Dashboard"});
   } catch (error) {
     next(error);
   }
@@ -93,7 +93,7 @@ router.get("/subscriptions", authorizeAdmin, async (req, res, next) => {
 
 router.post("/subscriptions/clear", authorizeAdmin, async (req, res, next) => {
   try {
-    await db.get().collection(collection.SUBSCRIPTION_DETAILS).deleteMany({});
+    await db.get().collection(collection.SUBSCRIPTION_DETAILS).deleteOne({});
     res.redirect("/admin/subscriptions");
   } catch (error) {
     console.error("Failed to delete subscriptions:", error);

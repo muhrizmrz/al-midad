@@ -812,9 +812,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .min-w-full {
   min-width: 100%;
 }
-.min-w-\[4rem\] {
-  min-width: 4rem;
-}
 .min-w-\[24rem\] {
   min-width: 24rem;
 }
@@ -1005,12 +1002,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .overflow-y-hidden {
   overflow-y: hidden;
-}
-.overflow-x-scroll {
-  overflow-x: scroll;
-}
-.whitespace-normal {
-  white-space: normal;
 }
 .whitespace-nowrap {
   white-space: nowrap;
@@ -1374,10 +1365,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-top: 3px;
   padding-bottom: 3px;
 }
-.px-24 {
-  padding-left: 6rem;
-  padding-right: 6rem;
-}
 .py-10 {
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
@@ -1640,10 +1627,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-text-opacity: 1;
   color: rgb(87 99 124 / var(--tw-text-opacity));
 }
-.text-indigo-600 {
-  --tw-text-opacity: 1;
-  color: rgb(79 70 229 / var(--tw-text-opacity));
-}
 .text-\[\#4484A4\] {
   --tw-text-opacity: 1;
   color: rgb(68 132 164 / var(--tw-text-opacity));
@@ -1812,10 +1795,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .hover\:text-gray-400:hover {
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity));
-}
-.hover\:text-indigo-900:hover {
-  --tw-text-opacity: 1;
-  color: rgb(49 46 129 / var(--tw-text-opacity));
 }
 .hover\:text-gray-800:hover {
   --tw-text-opacity: 1;
@@ -2018,14 +1997,6 @@ Ensure the default browser behavior of the `hidden` attribute.
     width: fit-content;
   }
 
-  .sm\:w-4\/5 {
-    width: 80%;
-  }
-
-  .sm\:w-11\/12 {
-    width: 91.666667%;
-  }
-
   .sm\:w-\[95\%\] {
     width: 95%;
   }
@@ -2075,14 +2046,6 @@ Ensure the default browser behavior of the `hidden` attribute.
     padding: 2rem;
   }
 
-  .sm\:p-4 {
-    padding: 1rem;
-  }
-
-  .sm\:p-24 {
-    padding: 6rem;
-  }
-
   .sm\:py-10 {
     padding-top: 2.5rem;
     padding-bottom: 2.5rem;
@@ -2091,11 +2054,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   .sm\:px-2 {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
-  }
-
-  .sm\:px-6 {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
   }
 
   .sm\:px-24 {

@@ -196,11 +196,11 @@ router.get("/category/:category", async (req, res, next) => {
 /* GET view article */
 router.get("/articles/:id", async (req, res, next) => {
   try {
-    const aritcleId = req.params.id;
-    await article_helper.IncrementArticleViewCount(aritcleId);
-    let url = `https://almidad.darulhasanath.com/articles/${aritcleId};`;
+    const articleId = req.params.id;
+    await article_helper.IncrementArticleViewCount(articleId);
+    let url = `https://almidad.darulhasanath.com/articles/${articleId};`;
     let articleToBeView = await article_helper
-      .getArticleById(aritcleId)
+      .getArticleById(articleId)
       .then((result) => {
         if (!result.author_credential) {
           result.author_credential = "مؤلف";
@@ -220,6 +220,7 @@ router.get("/articles/:id", async (req, res, next) => {
       sameTagArticles: updatedSameTagArticles,
       currentArticle: req.params.id,
       ogTitle: articleToBeView.topic,
+      title: articleToBeView.topic,
       ogImage: `https://almidad.darulhasanath.com/static/article-images/${articleToBeView._id}.jpg`,
       ogUrl: `https://almidad.darulhasanath.com/articles/${articleToBeView._id}`
     });

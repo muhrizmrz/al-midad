@@ -3,8 +3,8 @@
 <div class="w-full sm:w-[95%] max-w-max min-h-screen mx-auto mt-8" dir="ltr">
   <div class="flex flex-col px-4 pt-1 pb-12">
       <form action="/admin/subscriptions/clear" method="POST" class="md:px-6 lg:px-8">
-        <input type="hidden" name="_csrf" value="{{csrfToken}}">
-        <button type="submit" class="bg-red-500 hover:bg-red-700 w-fit mx-auto text-white font-bold py-2 px-4 rounded-md mb-2">
+        <input type="hidden" name="_csrf" value="{{csrfToken1}}">
+        <button type="submit" disabled class="bg-red-500 hover:bg-red-700 w-fit mx-auto text-white font-bold py-2 px-4 rounded-md mb-2 cursor-not-allowed opacity-50">
           Reset data
         </button>
       </form>
@@ -55,14 +55,22 @@
                   <td class="px-3 py-4 min-w-[24rem] md:min-w-[16rem]  break-words">
                     {{this.house}}, {{this.place}}, {{this.post}}(PO), {{this.district}}, {{this.state}} - {{this.pin}}
                   </td>
-                  <td class="px-3 py-4 whitespace-nowrap capitalize rounded-lg">
-                    <span class="bg-green-500 text-white px-2 py-1">{{this.payment_status}}</span>
+                  <td class="px-3 py-4  capitalize rounded-lg flex justify-center items-center gap-2">
+                    {{!-- <span class="bg-green-500 text-white px-2 py-1">{{this.payment_status}}</span> --}}
+                      <span class="{{#if (eq this.payment_status 'completed')}}bg-green-500{{/if}} {{#if (eq this.payment_status 'pending')}}bg-red-500{{/if}} status_indicator text-white w-2 h-2 rounded-full"></span>
+                      <form method="POST" class="payment_status flex justify-center items-center mb-0" data-id="{{this._id}}" enctype="application/x-www-form-urlencoded">
+                        <select name="payment_status" id="payment_status_element" class="w-24 ltr-select bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option {{#if (eq this.payment_status 'completed')}}selected{{/if}} value="completed" class="py-1">Completed</option>
+                            <option {{#if (eq this.payment_status 'pending')}}selected{{/if}} value="pending" class="py-1">Pending</option>
+                        </select>
+                        <input type="hidden" name="_csrf" value="{{../csrfToken2}}" />
+                      </form>
                   </td>
                 </tr>
                 {{/each}}
                 {{else}}
                   <tr>
-                    <td colspan="6" class="px-3 py-4 text-center text-gray-500">Subscriptions is empty</td>
+                    <td colspan="6" class="px-3 py-4 text-center text-gray-500">No Data</td>
                   </tr>
                 {{/if}}
                 <!-- More rows can be added similarly -->

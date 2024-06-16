@@ -25,13 +25,18 @@ function authorizeAdmin(req, res, next) {
   }
 }
 
+router.use((req,res,next)=> {
+  res.locals.admin = true;
+  next();
+})
+
 // GET login Page
 router.get("/login", (req, res, next) => {
   try {
     if (req.session.username) {
       res.redirect("/admin");
     } else {
-      res.render("admin/login", { csrfToken: req.csrfToken() });
+      res.render("admin/login", { csrfToken: req.csrfToken(), title: "Al Midad - Login" });
     }
   } catch (error) {
     next(error);
@@ -80,12 +85,8 @@ router.get("/", authorizeAdmin, async (req, res, next) => {
 /* GET home page. */
 router.get("/subscriptions", authorizeAdmin, async (req, res, next) => {
   try {
-    let subscriptions = await settings_models
-      .getSubscriptions()
-      .then((result) => {
-        return result;
-      });
-    res.render("admin/subscriptions", { subscriptions,csrfToken: req.csrfToken() });
+    let subscriptions = await settings_models.getSubscriptions()
+    res.render("admin/subscriptions", { subscriptions,title: "Al Midad - Admin Dashboard",csrfToken1: req.csrfToken(), csrfToken2: req.csrfToken(), csrfToken3: req.csrfToken() });
   } catch (error) {
     next(error);
   }
@@ -119,7 +120,7 @@ router.get("/article", authorizeAdmin, async (req, res, next) => {
     if (!categories) {
       categories = [];
     }
-    res.render("admin/articles", { articles, categories });
+    res.render("admin/articles", { title: "Al Midad - Admin Dashboard",articles, categories });
   } catch (error) {
     next(error);
   }
@@ -134,7 +135,7 @@ router.get("/news", authorizeAdmin, async (req, res, next) => {
       .find()
       .sort({ date: -1 })
       .toArray();
-    res.render("admin/news", { news });
+    res.render("admin/news", { title: "Al Midad - Admin Dashboard",news });
   } catch (error) {
     next(error);
   }
@@ -148,7 +149,7 @@ router.get("/category", authorizeAdmin, async (req, res, next) => {
       .collection(collection.CATEGORY_COLLECTION)
       .find()
       .toArray();
-    res.render("admin/category", { categories, csrfToken: req.csrfToken() });
+    res.render("admin/category", { categories,title: "Al Midad - Admin Dashboard", csrfToken: req.csrfToken() });
   } catch (error) {
     next(error);
   }
@@ -171,7 +172,7 @@ router.get("/category/edit/:id", authorizeAdmin, async (req, res, next) => {
       .get()
       .collection(collection.CATEGORY_COLLECTION)
       .findOne({ _id: objectId(id) });
-    res.render("admin/edit_category", { category, csrfToken: req.csrfToken() });
+    res.render("admin/edit_category", { category,title: "Al Midad - Admin Dashboard", csrfToken: req.csrfToken() });
   } catch (error) {
     next(error);
   }
@@ -216,6 +217,7 @@ router.get("/settings", authorizeAdmin, async (req, res, next) => {
       category1,
       category2,
       categories,
+      title: "Al Midad - Admin Dashboard",
       csrfToken1: req.csrfToken(),
       csrfToken2: req.csrfToken(),
       csrfToken3: req.csrfToken(),
@@ -228,7 +230,7 @@ router.get("/settings", authorizeAdmin, async (req, res, next) => {
 /* GET add news form. */
 router.get("/news/add-news", authorizeAdmin, (req, res, next) => {
   try {
-    res.render("admin/add_news", { csrfToken: req.csrfToken() });
+    res.render("admin/add_news", { title: "Al Midad - Admin Dashboard",csrfToken: req.csrfToken() });
   } catch (error) {
     next(error);
   }
@@ -265,7 +267,7 @@ router.get("/news/:id", authorizeAdmin, async (req, res, next) => {
       .get()
       .collection(collection.NEWS_COLLECTION)
       .findOne({ _id: objectId(req.params.id) });
-    res.render("admin/view-news", { news: newsToBeView });
+    res.render("admin/view-news", { title: "Al Midad - Admin Dashboard",news: newsToBeView });
   } catch (error) {
     next(error);
   }
@@ -281,6 +283,7 @@ router.get("/news/edit/:id", authorizeAdmin, async (req, res, next) => {
       .findOne({ _id: objectId(_id) });
     res.render("admin/edit_news", {
       news: newsToBeEdit,
+      title: "Al Midad - Admin Dashboard",
       csrfToken: req.csrfToken(),
     });
   } catch (error) {
@@ -324,6 +327,7 @@ router.get("/article/add-article", authorizeAdmin, (req, res, next) => {
     category_models.getCategories().then((result) => {
       res.render("admin/add_article", {
         categories: result,
+        title: "Al Midad - Admin Dashboard",
         csrfToken: req.csrfToken(),
       });
     });
@@ -362,7 +366,7 @@ router.get("/article/:id", authorizeAdmin, async (req, res, next) => {
       .get()
       .collection(collection.ARTICLE_COLLECTION)
       .findOne({ _id: objectId(req.params.id) });
-    res.render("admin/view-article", { article: articleToBeView });
+    res.render("admin/view-article", { title: "Al Midad - Admin Dashboard",article: articleToBeView });
   } catch (error) {
     next(error);
   }
@@ -382,6 +386,7 @@ router.get("/article/edit/:id", authorizeAdmin, async (req, res, next) => {
     category_models.getCategories().then((result) => {
       res.render("admin/edit_article", {
         categories: result,
+        title: "Al Midad - Admin Dashboard",
         article: articleToBeEdit,
         csrfToken: req.csrfToken(),
       });

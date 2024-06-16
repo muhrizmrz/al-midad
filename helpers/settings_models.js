@@ -228,18 +228,18 @@ module.exports = {
       }
     });
   },
-  updatePaymentStatus: (subscribtion_id) => {
+  updatePaymentStatus: (subscription_id, status_value) => {
     return new Promise(async (resolve, reject) => {
       let subscription = db
         .get()
         .collection(collection.SUBSCRIPTION_DETAILS)
-        .find({ _id: ObjectId(subscribtion_id) });
+        .find({ _id: ObjectId(subscription_id) });
       if (subscription) {
         db.get()
           .collection(collection.SUBSCRIPTION_DETAILS)
           .updateOne(
-            { _id: ObjectId(subscribtion_id) },
-            { $set: { payment_status: "completed" } }
+            { _id: ObjectId(subscription_id) },
+            { $set: { payment_status: status_value } }
           )
           .then((result) => {
             if (result.modifiedCount === 1) {

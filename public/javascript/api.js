@@ -5,13 +5,14 @@ $(document).ready(function () {
             msg = 'Successfull'
         }
         let successElement = $('#success-msg');
-        successElement.text(msg)
-        successElement.removeClass('-top-1/2');
-        successElement.addClass('top-14');
+        let success_msg_content = $('#success-msg-content')
+        success_msg_content.text(msg)
+        successElement.removeClass('hidden');
+        successElement.addClass('flex');
         setTimeout(() => {
-            successElement.removeClass('top-14');
-            successElement.addClass('-top-1/2');
-        }, 5000)
+            successElement.removeClass('flex');
+            successElement.addClass('hidden');
+        }, 3000)
     }
 
     function showErrorMsg(msg) {
@@ -19,18 +20,58 @@ $(document).ready(function () {
             msg = 'Error'
         }
         let errorElement = $('#error-msg');
-        errorElement.text(msg)
-        errorElement.removeClass('-top-1/2');
-        errorElement.addClass('top-14');
+        let error_msg_content = $('#success-msg-content')
+        error_msg_content.text(msg)
+        errorElement.removeClass('hidden');
+        errorElement.addClass('flex');
         setTimeout(() => {
-            errorElement.removeClass('top-14');
-            errorElement.addClass('-top-1/2');
-        }, 5000)
+            errorElement.removeClass('flex');
+            errorElement.addClass('hidden');
+        }, 3000)
     }
+
+    $('.payment_status').on('change', function(){
+        var formData = new FormData($(this)[0]);
+        var status_indicator = $(this).prev();
+        console.log(status_indicator)
+        var csrfToken = $(this).find('[name="_csrf"]');
+        var payment_status_element = $(this).find('#payment_status_element').val();
+        console.log(payment_status_element)
+        var id = $(this).data('id');
+        if(payment_status_element === "completed") {
+            status_indicator.removeClass("bg-red-500").addClass("bg-green-500");
+        } else {
+            status_indicator.removeClass("bg-green-500").addClass("bg-red-500");
+        }
+
+
+        $.ajax({
+            url: `/api/admin/subscription/payment-status/${id}`,
+            type: 'POST',
+            data: formData,
+            contentType: false,
+            processData: false,
+            headers: {
+                'CSRF-Token': csrfToken
+            },
+            success: function (response) {
+                showSuccessMsg('Changes saved');
+            },
+            error: function (error) {
+                showErrorMsg();
+                console.error('Error:', error);
+            }
+        })
+
+    })
 
     $('#category_settings').on('change', function () {
         var formData = new FormData($('#category_settings')[0]);
         var csrfToken = $('#category_settings [name="_csrf"');
+        
+        console.log(formData)
+        console.log(csrfToken)
+        
 
         $.ajax({
             url: '/api/admin/settings',
@@ -42,6 +83,7 @@ $(document).ready(function () {
                 'CSRF-Token': csrfToken
             },
             success: function (response) {
+
                 showSuccessMsg('Changes saved');
             },
             error: function (error) {
@@ -127,6 +169,7 @@ $(document).ready(function () {
             }
         }
     }
+
 
     function uploadCover() {
         var formData = new FormData($('#cover_upload_form')[0]);

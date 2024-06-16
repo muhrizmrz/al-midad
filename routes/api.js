@@ -43,6 +43,18 @@ router.post('/admin/settings', authorizeAdmin, (req, res) => {
   }
 })
 
+router.post('/admin/subscription/payment-status/:id', authorizeAdmin, (req,res)=>{
+  try {
+    const id = req.params.id;
+    settings_helper.updatePaymentStatus(id, req.body.payment_status).then((result)=>{
+      res.json(result);
+    })
+  } catch (error){
+    console.log(error);
+    res.send(error);
+  }
+})
+
 router.post('/admin/upload-cover',authorizeAdmin,async(req,res)=>{
       settings_helper.uploadCover(req.body).then((result)=>{
         if (req.files['new-cover']) {

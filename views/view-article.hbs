@@ -1,7 +1,7 @@
 {{>user_header}}
 
-<section class="w-full max-w-7xl lg:px-32 md:px-12 p-4 mt-1 border-t pt-8 mb-12 mx-auto">
-    <div class="grid md:grid-cols-1 lg:grid-cols-5 sm:grid-cols-1 grid-cols-1  gap-4" style="font-family: ge-medium;">
+<section class="w-full max-w-7xl lg:px-32 md:px-8 p-4 mt-1 border-t pt-8 mb-12 mx-auto">
+    <div class="grid md:grid-cols-5 lg:grid-cols-5 sm:grid-cols-5 grid-cols-1  gap-4" style="font-family: ge-medium;">
 
         <!--ARTICLE Section -->
         <div class="col-span-3">
@@ -62,7 +62,7 @@
             {{#each sameTagArticles}}
             <a href="/articles/{{this._id}}" class="">
                 <div
-                    class="flex items-center gap-5 p-3 border border-[#ECECEC] shadow rounded-md lg:flex-row flex-col mb-3">
+                    class="flex sm:items-center gap-5 p-3 border border-[#ECECEC] shadow rounded-md lg:flex-row flex-col mb-3">
                     <img src="/static/article-images/{{this._id}}.jpg" alt=""
                         class="w-full object-cover h-auto lg:w-4/12 lg:h-24">
                     <div>

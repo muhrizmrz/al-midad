@@ -34,12 +34,26 @@
     </title>
 
     {{! Favicon }}
-    <link rel="apple-touch-icon" sizes="180x180" href="/static/images/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/static/images/favicon-16x16.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/static/images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/static/images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/static/images/favicon-16x16.png"
+    />
     <link rel="manifest" href="/static/images/site.webmanifest" />
     {{! -- }}
-    
+
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/css2?family=Cairo:wght@800&display=swap"
@@ -97,80 +111,113 @@
       </div>
     </section>
 
-    <footer
-      class="w-full h-full bg-no-repeat bg-cover bg-center mx-auto"
+    <section
+      id="success-msg"
       dir="ltr"
-      style="background-image: url(/static/images/footer_bg.jpg);"
+      class="hidden w-full h-screen fixed top-0 left-0 z-30"
     >
-      <div class="pb-3 md:py-10 bg-white bg-opacity-95">
-        <div
-          class="w-[94%] mx-auto max-w-7xl p-4 place-items-center grid lg:grid-cols-3 md:grid-cols-3 grid-cols-1 gap-3 sm:gap-0"
-        >
-          <div class="py-0 md:py-5">
-            <a href="/" class="hidden sm:block">
-              <img
-                src="/static/images/Midad typeface.png"
-                class="w-[70%] h-full"
-              />
-            </a>
-            <a href="/" class="block sm:hidden">
-              <img src="/static/images/midad_logo.png" class="w-full h-full" />
-            </a>
-          </div>
-          <div
-            class="-mt-8 flex flex-row gap-8 md:gap-12 md:flex-row sm:mt-0 w-full"
-            dir="rtl"
-            style="font-family: ge-medium;"
-          >
-            <ul class="w-full md:w-1/2 list-none text-gray-600">
-              <li
-                class="text-center sm:px-2 hover:text-gray-400 focus:text-gray-700 pt-1 border-b border-gray-600"
-              ><a href="/about">عن المجلة</a></li>
-              <li
-                class="text-center sm:border-gray-600 hover:text-gray-400 focus:text-gray-700 sm:px-2 mt-1 pt-1 border-b border-gray-600"
-              ><a href="/editor-note">كلمة رئيص التحرير</a></li>
-            </ul>
-            <ul class="w-full md:w-1/2 list-none text-gray-600">
-              <li
-                class="text-center sm:px-2 hover:text-gray-400 focus:text-gray-700 pt-1 border-b border-gray-600"
-              ><a
-                  target="_blank"
-                  href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=almidad@gmail.com"
-                >إرسال المقالة</a></li>
-              <li
-                class="text-center sm:px-2 hover:text-gray-400 focus:text-gray-700 mt-1 pt-1 border-b border-gray-600"
-              ><a href="/contact-us">إتصل بنا</a></li>
-            </ul>
-          </div>
-
-          <div
-            class="flex w-full h-full items-center mt-5 justify-center md:justify-right space-x-1 text-[#5B565C]"
-          >
-            <a></a>
-            <p class="ml-1">Follow Us </p>
-            <a href="https://www.instagram.com//al_midad_/" target="_blank"><i
-                class="fa-brands fa-instagram-square text-base bg-[#5C575D] text-white leading-none p-1 rounded"
-              ></i></a>
-            <a href="https://www.facebook.com/almidadarabic"><i
-                class="fa-brands fa-facebook text-base bg-[#5C575D] text-white leading-none p-1 rounded"
-              ></i></a>
-            <a
-              href="https://www.youtube.com/channel/UCJ9Sg9Eu7WdpCqy4z4Qr0Cw"
-            ><i
-                class="fa-brands fa-youtube text-base bg-[#5C575D] text-white leading-none p-1 rounded"
-              ></i></a>
-            <a href="https://twitter.com/almidadarabic"><i
-                class="fa-brands fa-twitter text-base bg-[#5C575D] text-white leading-none p-1 rounded"
-              ></i></a>
-          </div>
-
-        </div>
-        <div class="w-full text-xs pb-2 text-gray-400 text-center">
-          ©2024 almidad.com, All rights reserved | Developed by
-          <a href="https://github.com/muhrizmrz">Muhris</a>
-        </div>
+      <div class="absolute bottom-3 right-6 flex items-center gap-2 bg-green-500 h-fit p-3 px-6 text-lg  text-white rounded-lg w-fit capitalize">
+        <i class="fas fa-check-circle text-white"></i> <span id="success-msg-content">success</span> 
       </div>
-    </footer>
+    </section>
+
+    <section
+      id="error-msg"
+      dir="ltr"
+      class="hidden w-full h-screen fixed top-0 left-0 z-30"
+    >
+      <div class="absolute bottom-3 right-6 flex items-center gap-2 bg-red-500 h-fit p-3 px-6 text-lg  text-white rounded-lg w-fit capitalize">
+        <i class="fas fa-exclamation-circle text-white"></i> <span id="error-msg-content">error</span> 
+      </div>
+    </section>
+
+    {{#if admin}}
+      <div dir="ltr" class="w-full text-xs py-2 bg-gray-900 text-gray-300 text-center">
+        ©2024 almidad.com, All rights reserved | Developed by
+        <a href="https://github.com/muhrizmrz">Muhris</a>
+      </div>
+    {{else}}
+
+      <footer
+        class="w-full bg-no-repeat bg-cover bg-center mx-auto"
+        dir="ltr"
+        style="background-image: url(/static/images/footer_bg.jpg);"
+      >
+        <div class="pb-3 md:py-10 bg-white bg-opacity-95">
+          <div
+            class="w-[94%] mx-auto max-w-7xl p-4 place-items-center grid lg:grid-cols-3 md:grid-cols-3 grid-cols-1 gap-3 sm:gap-0"
+          >
+            <div class="py-0 md:py-5">
+              <a href="/" class="hidden sm:block">
+                <img src="/static/images/Midad typeface.png" class="w-[70%]" />
+              </a>
+              <a href="/" class="block sm:hidden">
+                <img
+                  src="/static/images/midad_logo.png"
+                  class="w-full h-full"
+                />
+              </a>
+            </div>
+            <div
+              class="-mt-8 flex flex-row gap-8 md:gap-12 md:flex-row sm:mt-0 w-full"
+              dir="rtl"
+              style="font-family: ge-medium;"
+            >
+              <ul class="w-full md:w-1/2 list-none text-gray-600">
+                <li
+                  class="text-center sm:px-2 hover:text-gray-400 focus:text-gray-700 pt-1 border-b border-gray-600"
+                ><a href="/about">عن المجلة</a></li>
+                <li
+                  class="text-center sm:border-gray-600 hover:text-gray-400 focus:text-gray-700 sm:px-2 mt-1 pt-1 border-b border-gray-600"
+                ><a href="/editor-note">كلمة رئيص التحرير</a></li>
+              </ul>
+              <ul class="w-full md:w-1/2 list-none text-gray-600">
+                <li
+                  class="text-center sm:px-2 hover:text-gray-400 focus:text-gray-700 pt-1 border-b border-gray-600"
+                ><a
+                    target="_blank"
+                    href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;tf=1&amp;to=almidad@gmail.com"
+                  >إرسال المقالة</a></li>
+                <li
+                  class="text-center sm:px-2 hover:text-gray-400 focus:text-gray-700 mt-1 pt-1 border-b border-gray-600"
+                ><a href="/contact-us">إتصل بنا</a></li>
+              </ul>
+            </div>
+
+            <div
+              class="flex w-full h-full items-center mt-5 justify-center md:justify-right space-x-1 text-[#5B565C]"
+            >
+              <a></a>
+              <p class="ml-1">Follow Us </p>
+              <a href="https://www.instagram.com//al_midad_/" target="_blank"><i
+                  class="fa-brands fa-instagram-square text-base bg-[#5C575D] text-white leading-none p-1 rounded"
+                  aria-hidden="true"
+                ></i></a>
+              <a href="https://www.facebook.com/almidadarabic"><i
+                  class="fa-brands fa-facebook text-base bg-[#5C575D] text-white leading-none p-1 rounded"
+                  aria-hidden="true"
+                ></i></a>
+              <a
+                href="https://www.youtube.com/channel/UCJ9Sg9Eu7WdpCqy4z4Qr0Cw"
+              ><i
+                  class="fa-brands fa-youtube text-base bg-[#5C575D] text-white leading-none p-1 rounded"
+                  aria-hidden="true"
+                ></i></a>
+              <a href="https://twitter.com/almidadarabic"><i
+                  class="fa-brands fa-twitter text-base bg-[#5C575D] text-white leading-none p-1 rounded"
+                  aria-hidden="true"
+                ></i></a>
+            </div>
+
+          </div>
+          <div class="w-full text-xs pb-2 text-gray-400 text-center">
+            ©2024 almidad.com, All rights reserved | Developed by
+            <a href="https://github.com/muhrizmrz">Muhris</a>
+          </div>
+        </div>
+      </footer>
+
+    {{/if}}
 
     <script
       src="https://kit.fontawesome.com/c4b8905c02.js"
